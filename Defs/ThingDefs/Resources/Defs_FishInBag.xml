@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingCategoryDef>
+    <defName>AQTropicalFish</defName>
+    <label>Tropical Fish</label>
+    <parent>Items</parent>
+  </ThingCategoryDef>
+  <ThingDef ParentName="ResourceBase" Name="FishInBagBase" Abstract="true">
+    <defName>AQFishInBagBase</defName>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <thingClass>ThingWithComps</thingClass>
+    <statBases>
+      <MarketValue>30</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>0.3</Mass>
+      <Flammability>0.4</Flammability>
+      <DeteriorationRate>0.5</DeteriorationRate>
+    </statBases>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <thingCategories Inherit="false">
+      <li>AQTropicalFish</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <tickerType>Normal</tickerType>
+    <comps>
+      <li Class="Aquarium.CompProperties_AQFishInBag" />
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagOne</defName>
+    <label>Lionfish</label>
+    <description>Pterois is a genus of venomous marine fish, commonly known as lionfish. Also called zebrafish, firefish, turkeyfish, tastyfish or butterfly-cod, it is characterized by conspicuous warning coloration with red, white, creamy, or black bands, showy pectoral fins, and venomous spiky fin rays.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag1</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+      <Mass>0.3</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwo</defName>
+    <label>Goldfish</label>
+    <description>The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes, a relatively small member of the carp family. It is one of the most commonly kept aquarium fish.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag2</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThree</defName>
+    <label>Fighting fish (green)</label>
+    <description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag3</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFour</defName>
+    <label>Fighting fish (red)</label>
+    <description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag4</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFive</defName>
+    <label>Snakeskin barb</label>
+    <description>Desmopuntius rhomboocellatus, is a species of cyprinid fish. The specific rhomboocellatus refers to the rhomboid ocellus markings of the flanks, which sometimes gives rise to the common name "Snakeskin barb".</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag5</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagSix</defName>
+    <label>Lemon cichlid</label>
+    <description>Neolamprologus leleupi (lemon cichlid) is a species of cichlid endemic to Lake Tanganyika where it occurs throughout the lake. It is a recess-dweller, inhabiting cracks and crevices.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag6</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+      <Mass>0.07</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagSeven</defName>
+    <label>Fighting fish (blue)</label>
+    <description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag7</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>25</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+</Defs>

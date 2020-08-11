@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- WorkType -->
+
+  <AQAquarium.label>Aquarium</AQAquarium.label>
+  <AQAquarium.description>Feed fish, clean fish tanks/bowls and manage tank/bowl fish populations.</AQAquarium.description>
+  <AQAquarium.labelShort>Aquarium</AQAquarium.labelShort>
+  <AQAquarium.pawnLabel>Aquarist</AQAquarium.pawnLabel>
+  <AQAquarium.gerundLabel>fish keeping</AQAquarium.gerundLabel>
+  <AQAquarium.verb>fish handle</AQAquarium.verb>
+
+
+</LanguageData>

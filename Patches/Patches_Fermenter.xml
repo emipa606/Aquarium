@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Fermenter</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/RecipeDef[defName="Make_AQFishFood"]/ingredients/li[2]/filter/thingDefs</xpath>
+          <value>
+            <li>FRMT_FishPaste</li>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/RecipeDef[defName="Make_AQFishFood"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>FRMT_FishPaste</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

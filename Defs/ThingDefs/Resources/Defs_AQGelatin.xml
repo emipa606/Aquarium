@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>AQGelatin</defName>
+    <label>Gelatin</label>
+    <description>Gelatin or gelatine (from Latin: gelatus meaning "stiff" or "frozen") is a translucent, colorless, flavorless food ingredient, derived from collagen taken from animal body parts. It is brittle when dry and gummy when moist. It is commonly used as a gelling agent in food.</description>
+    <graphicData>
+      <texPath>Things/Raw/AQGelatin/AQGelatin</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.25</MarketValue>
+      <Mass>0.02</Mass>
+      <Nutrition>0.01</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.01</FoodPoisonChanceFixedHuman>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <thingCategories Inherit="false">
+      <li>MeatRaw</li>
+    </thingCategories>
+    <ingestible>
+      <preferability>RawBad</preferability>
+      <optimalityOffsetHumanlikes>-5</optimalityOffsetHumanlikes>
+      <tasteThought>AteRawFood</tasteThought>
+      <foodType>Meat</foodType>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>25</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MakeAQGelatin</defName>
+    <label>Make Gelatin</label>
+    <description>Make 25 Gelatin</description>
+    <jobString>Making Gelatin</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <workAmount>500</workAmount>
+    <targetCountAdjustment>25</targetCountAdjustment>
+    <workSkill>Cooking</workSkill>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>AQCollagen</li>
+          </thingDefs>
+        </filter>
+        <count>0.25</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>AQCollagen</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <AQGelatin>25</AQGelatin>
+    </products>
+    <recipeUsers>
+      <li>FueledStove</li>
+      <li>ElectricStove</li>
+    </recipeUsers>
+    <skillRequirements>
+      <Cooking>3</Cooking>
+    </skillRequirements>
+    <researchPrerequisite>AQGelatin</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef>
+    <defName>MakeBulkAQGelatin</defName>
+    <label>Make Gelatin in bulk</label>
+    <description>Make 50 Gelatin</description>
+    <jobString>Making Gelatin</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <workAmount>1000</workAmount>
+    <targetCountAdjustment>50</targetCountAdjustment>
+    <workSkill>Cooking</workSkill>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>AQCollagen</li>
+          </thingDefs>
+        </filter>
+        <count>0.5</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>AQCollagen</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <AQGelatin>50</AQGelatin>
+    </products>
+    <recipeUsers>
+      <li>FueledStove</li>
+      <li>ElectricStove</li>
+    </recipeUsers>
+    <skillRequirements>
+      <Cooking>4</Cooking>
+    </skillRequirements>
+    <researchPrerequisite>AQGelatin</researchPrerequisite>
+  </RecipeDef>
+</Defs>

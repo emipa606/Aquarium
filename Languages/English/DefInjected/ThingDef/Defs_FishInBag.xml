@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AQFishInBagOne.label>Lionfish</AQFishInBagOne.label>
+  <AQFishInBagOne.description>Pterois is a genus of venomous marine fish, commonly known as lionfish. Also called zebrafish, firefish, turkeyfish, tastyfish or butterfly-cod, it is characterized by conspicuous warning coloration with red, white, creamy, or black bands, showy pectoral fins, and venomous spiky fin rays.</AQFishInBagOne.description>
+
+  <AQFishInBagTwo.label>Goldfish</AQFishInBagTwo.label>
+  <AQFishInBagTwo.description>The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes, a relatively small member of the carp family. It is one of the most commonly kept aquarium fish.</AQFishInBagTwo.description>
+
+  <AQFishInBagThree.label>Fighting fish (green)</AQFishInBagThree.label>
+  <AQFishInBagThree.description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</AQFishInBagThree.description>
+
+  <AQFishInBagFour.label>Fighting fish (red)</AQFishInBagFour.label>
+  <AQFishInBagFour.description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</AQFishInBagFour.description>
+
+  <AQFishInBagFive.label>Snakeskin barb</AQFishInBagFive.label>
+  <AQFishInBagFive.description>Desmopuntius rhomboocellatus, is a species of cyprinid fish. The specific rhomboocellatus refers to the rhomboid ocellus markings of the flanks, which sometimes gives rise to the common name "Snakeskin barb".</AQFishInBagFive.description>
+
+  <AQFishInBagSix.label>Lemon cichlid</AQFishInBagSix.label>
+  <AQFishInBagSix.description>Neolamprologus leleupi (lemon cichlid) is a species of cichlid endemic to Lake Tanganyika where it occurs throughout the lake. It is a recess-dweller, inhabiting cracks and crevices.</AQFishInBagSix.description>
+
+  <AQFishInBagSeven.label>Fighting fish (blue)</AQFishInBagSeven.label>
+  <AQFishInBagSeven.description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</AQFishInBagSeven.description>
+
+
+</LanguageData>

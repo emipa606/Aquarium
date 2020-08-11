@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AQFishPets.label>Keeping Pet Fish</AQFishPets.label>
+  <AQFishPets.description>Able to make glass fish bowls to keep pet tropical fish for joy activities.</AQFishPets.description>
+
+  <AQFishTanks.label>Fish Tanks</AQFishTanks.label>
+  <AQFishTanks.description>Able to make glass fish tanks to keep pet tropical fish for joy activities.</AQFishTanks.description>
+
+  <AQGelatin.label>Gelatin</AQGelatin.label>
+  <AQGelatin.description>Able to make gelatin from collagen</AQGelatin.description>
+
+  <AQSpirulina.label>Spirulina</AQSpirulina.label>
+  <AQSpirulina.description>Knowledge of how to grow spirulina.</AQSpirulina.description>
+
+
+</LanguageData>

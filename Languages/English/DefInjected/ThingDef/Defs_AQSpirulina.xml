@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Plant -->
+
+  <Plant_AQSpirulina.label>Spirulina</Plant_AQSpirulina.label>
+  <Plant_AQSpirulina.description>Spirulina is a type of algae, like seaweed, that grows in freshwater environments like lakes, rivers, and ponds. It can be cultivated using hydroponics.</Plant_AQSpirulina.description>
+
+
+  <!-- Raw Material -->
+
+  <AQSpirulina.label>Spirulina</AQSpirulina.label>
+  <AQSpirulina.description>Spirulina is a biomass of cyanobacteria (seaweed/blue-green algae) that can be consumed by humans and animals. It is also used as a feed supplement in the aquaculture, aquarium, and poultry industries.</AQSpirulina.description>
+
+
+</LanguageData>

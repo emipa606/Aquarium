@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--  Settings -->
+  <Aquarium.Name>Aquarium</Aquarium.Name>
+  <Aquarium.DoDeathMsgs>Report pet fish deaths:</Aquarium.DoDeathMsgs>
+  <Aquarium.AllowTankSounds>Allow ambient tank sounds:</Aquarium.AllowTankSounds>
+  <Aquarium.AllowInspire>Allow inspirations:</Aquarium.AllowInspire>
+  <Aquarium.BaseInspChance>Base insperation chance per fish (%):</Aquarium.BaseInspChance>
+  <Aquarium.FishLife>Average life expectancy of pet fish (years):</Aquarium.FishLife>
+  <Aquarium.DegradeWaterFactor>Equivalent rate that cleanliness degrades (%):</Aquarium.DegradeWaterFactor>
+  <Aquarium.DegradeFoodFactor>Equivalent rate that food degrades (%):</Aquarium.DegradeFoodFactor>
+  <Aquarium.RespondClean>Cleanliness level that triggers a response to clean (%):</Aquarium.RespondClean>
+  <Aquarium.RespondFood>Food level that triggers a response to feed (%):</Aquarium.RespondFood>
+  <Aquarium.AllowBreed>Allow fish breeding:</Aquarium.AllowBreed>
+  <Aquarium.BreedChance>Chance of a fish birth (%):</Aquarium.BreedChance>
+  <!--  Content -->
+  <Aquarium.TankInfo>Cleanliness: {0}, Food: {1}</Aquarium.TankInfo>
+  <Aquarium.BagInfo>Fish Age: {0} days, Health: {1}, Hours remaining safe in bag: {2}</Aquarium.BagInfo>
+  <Aquarium.FishDied>A pet fish has died.</Aquarium.FishDied>
+  <Aquarium.NoFish>No fish</Aquarium.NoFish>
+  <Aquarium.FishSelection>Fish selection</Aquarium.FishSelection>
+  <Aquarium.Adding>Adding</Aquarium.Adding>
+  <Aquarium.Removing>Removing</Aquarium.Removing>
+  <Aquarium.days>days</Aquarium.days>
+  <Aquarium.DoNothing>Do nothing</Aquarium.DoNothing>
+  <Aquarium.RemoveFish>Remove fish</Aquarium.RemoveFish>
+  <Aquarium.AddFish>Add fish:</Aquarium.AddFish>
+
+</LanguageData>

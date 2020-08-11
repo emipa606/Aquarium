@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="OrganicProductBase">
+    <defName>AQFishFood</defName>
+    <label>Fish food</label>
+    <description>Fish food flakes. Humans can eat it, but they really don't like it.</description>
+    <thingCategories>
+      <li>Foods</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Food/AQFishFood</texPath>
+    </graphicData>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <statBases>
+      <MarketValue>0.2</MarketValue>
+      <Mass>0.005</Mass>
+      <Nutrition>0.01</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
+    </statBases>
+    <stackLimit>200</stackLimit>
+    <ingestible>
+      <foodType>Kibble</foodType>
+      <preferability>RawBad</preferability>
+      <tasteThought>AQAteFishFood</tasteThought>
+      <optimalityOffsetHumanlikes>-25</optimalityOffsetHumanlikes>
+      <optimalityOffsetFeedingAnimals>5</optimalityOffsetFeedingAnimals>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Ingredients" />
+    </comps>
+  </ThingDef>
+  <ThoughtDef>
+    <defName>AQAteFishFood</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate fish food</label>
+        <description>I had to eat fish food flakes. It was like dry greasy paper.</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <RecipeDef>
+    <defName>Make_AQFishFood</defName>
+    <label>make fish food</label>
+    <description>Make 100 fish food by combining egg or gelatin, with kibble (other foods) or spirulina.</description>
+    <jobString>Making fish food.</jobString>
+    <workAmount>500</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <targetCountAdjustment>100</targetCountAdjustment>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>EggsUnfertilized</li>
+          </categories>
+          <thingDefs>
+            <li>AQGelatin</li>
+          </thingDefs>
+        </filter>
+        <count>0.25</count>
+        <!--  ~9 -->
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Kibble</li>
+            <li>AQSpirulina</li>
+          </thingDefs>
+        </filter>
+        <count>0.75</count>
+        <!--  16.5 -->
+      </li>
+    </ingredients>
+    <products>
+      <AQFishFood>100</AQFishFood>
+    </products>
+    <fixedIngredientFilter>
+      <categories>
+        <li>EggsUnfertilized</li>
+      </categories>
+      <thingDefs>
+        <li>AQGelatin</li>
+        <li>Kibble</li>
+        <li>AQSpirulina</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <workSkill>Cooking</workSkill>
+    <recipeUsers>
+      <li>FueledStove</li>
+      <li>ElectricStove</li>
+    </recipeUsers>
+    <researchPrerequisite>AQFishPets</researchPrerequisite>
+  </RecipeDef>
+</Defs>
