@@ -6,7 +6,7 @@
     <description>Meat resulting from the death of a pet fish. It is not very edible or nutritous.</description>
     <graphicData>
       <texPath>Things/Fish/AQFishMeat/AQFishMeat</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <statBases>
       <MarketValue>0.5</MarketValue>

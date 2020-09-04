@@ -9,6 +9,7 @@
     </thingCategories>
     <graphicData>
       <texPath>Things/Food/AQFishFood</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <socialPropernessMatters>true</socialPropernessMatters>
     <statBases>

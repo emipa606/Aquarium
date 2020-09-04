@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -47,7 +48,8 @@ namespace Aquarium
 						{
 							FishPath += "Flip/";
 						}
-						FishPath += this.FishGraphic(defname);
+						var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
+						FishPath += $"Fish{gfxName}";
 						Graphic FishImage = GraphicDatabase.Get<Graphic_Single>(FishPath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
 						int age = CompAquarium.numValuePart(value, 3);
 						float ageFactor = Mathf.Lerp(0.5f, 1f, Math.Min((float)age, (float)CompAquarium.oldFishAge) / (float)CompAquarium.oldFishAge);
@@ -424,7 +426,8 @@ namespace Aquarium
 				string fishDesc = "Aquarium.FishSelection".Translate();
 				if (fishDef != null)
 				{
-					graphicPath = "Things/Fish/" + this.FishGraphic(fishstring);
+					var fishGfx = fishstring.Replace("AQFishInBag", "");
+					graphicPath = $"Things/Fish/Fish{WordsToNumbers(fishGfx)}";
 					if (fishAction == 1)
 					{
 						fishLabel = numLabel + "Aquarium.Adding".Translate();
@@ -654,84 +657,75 @@ namespace Aquarium
 			return "Aquarium.TankInfo".Translate(this.cleanPct.ToStringPercent(), this.foodPct.ToStringPercent());
 		}
 
-		// Token: 0x0600002E RID: 46 RVA: 0x00003B04 File Offset: 0x00001D04
-		private string FishGraphic(string numString)
-		{
-            switch (numString)
-			{
-				case "AQFishInBagOne":
-					return "Fish1";
-				case "AQFishInBagTwo":
-					return "Fish2";
-				case "AQFishInBagThree":
-					return "Fish3";
-				case "AQFishInBagFour":
-					return "Fish4";
-				case "AQFishInBagFive":
-					return "Fish5";
-				case "AQFishInBagSix":
-					return "Fish6";
-				case "AQFishInBagSeven":
-					return "Fish7";
-				case "AQFishInBagEight":
-					return "Fish8";
-				case "AQFishInBagNine":
-					return "Fish9";
-				case "AQFishInBagTen":
-					return "Fish10";
-				default:
-					return "Fish1";
-			}
-		}
-
 		// Token: 0x0600002F RID: 47 RVA: 0x00003C24 File Offset: 0x00001E24
 		private List<string> BagDefs()
 		{
-			List<string> list = new List<string>();
-			for (int i = 1; i <= 10; i++)
-			{
-				string numString;
-				switch (i)
-				{
-				case 1:
-					numString = "One";
-					break;
-				case 2:
-					numString = "Two";
-					break;
-				case 3:
-					numString = "Three";
-					break;
-				case 4:
-					numString = "Four";
-					break;
-				case 5:
-					numString = "Five";
-					break;
-				case 6:
-					numString = "Six";
-					break;
-				case 7:
-					numString = "Seven";
-					break;
-					case 8:
-						numString = "Eight";
-						break;
-					case 9:
-						numString = "Nine";
-						break;
-					case 10:
-						numString = "Ten";
-						break;
-					default:
-					numString = "One";
-					break;
-				}
-				list.Add("AQFishInBag" + numString);
-			}
-			list.SortBy((string s) => ThingDef.Named(s).label);
-			return list;
+			var bagDefs = (from bagdef in DefDatabase<ThingDef>.AllDefsListForReading where bagdef.defName.StartsWith("AQFishInBag") select bagdef.defName).ToList();
+			bagDefs.SortBy((string s) => ThingDef.Named(s).label);
+			return bagDefs;
 		}
+
+		private static int WordsToNumbers(string word)
+        {
+            for (int i = 0; i < 500; i++)
+            {
+				if(NumberToWords(i) == word.ToLower())
+                {
+					return i;
+                }
+            }
+			return 1;
+        }
+
+		private static string NumberToWords(int number)
+		{
+			if (number == 0)
+				return "zero";
+
+			if (number < 0)
+				return "minus " + NumberToWords(Math.Abs(number));
+
+			string words = "";
+
+			if ((number / 1000000) > 0)
+			{
+				words += NumberToWords(number / 1000000) + " million ";
+				number %= 1000000;
+			}
+
+			if ((number / 1000) > 0)
+			{
+				words += NumberToWords(number / 1000) + " thousand ";
+				number %= 1000;
+			}
+
+			if ((number / 100) > 0)
+			{
+				words += NumberToWords(number / 100) + " hundred ";
+				number %= 100;
+			}
+
+			if (number > 0)
+			{
+				if (words != "")
+					words += "and ";
+
+				var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+				var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+				if (number < 20)
+					words += unitsMap[number];
+				else
+				{
+					words += tensMap[number / 10];
+					if ((number % 10) > 0)
+						words += "-" + unitsMap[number % 10];
+				}
+			}
+
+			return words;
+		}
+
 
 		// Token: 0x06000030 RID: 48 RVA: 0x00003CE8 File Offset: 0x00001EE8
 		private bool IsPowered()
