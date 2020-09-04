@@ -673,6 +673,12 @@ namespace Aquarium
 					return "Fish6";
 				case "AQFishInBagSeven":
 					return "Fish7";
+				case "AQFishInBagEight":
+					return "Fish8";
+				case "AQFishInBagNine":
+					return "Fish9";
+				case "AQFishInBagTen":
+					return "Fish10";
 				default:
 					return "Fish1";
 			}
@@ -682,7 +688,7 @@ namespace Aquarium
 		private List<string> BagDefs()
 		{
 			List<string> list = new List<string>();
-			for (int i = 1; i <= 7; i++)
+			for (int i = 1; i <= 10; i++)
 			{
 				string numString;
 				switch (i)
@@ -708,7 +714,16 @@ namespace Aquarium
 				case 7:
 					numString = "Seven";
 					break;
-				default:
+					case 8:
+						numString = "Eight";
+						break;
+					case 9:
+						numString = "Nine";
+						break;
+					case 10:
+						numString = "Ten";
+						break;
+					default:
 					numString = "One";
 					break;
 				}
