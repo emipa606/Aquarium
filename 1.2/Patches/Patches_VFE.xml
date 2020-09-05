@@ -144,6 +144,84 @@
             </VCE_Fishing.FishDef>
           </value>
         </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish8</defName>
+              <thingDef>AQFishInBagEight</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>true</canBeFreshwater>
+              <canBeSaltwater>false</canBeSaltwater>
+              <allowedBiomes>
+                <li>Warm</li>
+                <li>Cold</li>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>0.7</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish9</defName>
+              <thingDef>AQFishInBagNine</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>true</canBeFreshwater>
+              <canBeSaltwater>true</canBeSaltwater>
+              <allowedBiomes>
+                <li>Warm</li>
+                <li>Cold</li>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>1</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish10</defName>
+              <thingDef>AQFishInBagTen</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>true</canBeFreshwater>
+              <canBeSaltwater>true</canBeSaltwater>
+              <allowedBiomes>
+                <li>Warm</li>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>0.8</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish11</defName>
+              <thingDef>AQFishInBagEleven</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>true</canBeFreshwater>
+              <canBeSaltwater>false</canBeSaltwater>
+              <allowedBiomes>
+                <li>Warm</li>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>0.6</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
       </operations>
     </match>
   </Operation>
