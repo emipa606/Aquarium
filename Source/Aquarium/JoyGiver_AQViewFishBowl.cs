@@ -32,16 +32,15 @@ namespace Aquarium
 					Room room = thing.GetRoom(RegionType.Set_Passable);
 					return room != null && AQUtility.IsValidAquaRoom(pawn, room);
 				}));
-				Thing result;
-				if (!JoyGiver_AQViewFishBowl.candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out result))
-				{
-					result2 = null;
-				}
-				else
-				{
-					result2 = JobMaker.MakeJob(this.def.jobDef, result);
-				}
-			}
+                if (!JoyGiver_AQViewFishBowl.candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out Thing result))
+                {
+                    result2 = null;
+                }
+                else
+                {
+                    result2 = JobMaker.MakeJob(this.def.jobDef, result);
+                }
+            }
 			finally
 			{
 				JoyGiver_AQViewFishBowl.candidates.Clear();
@@ -50,6 +49,6 @@ namespace Aquarium
 		}
 
 		// Token: 0x04000022 RID: 34
-		private static List<Thing> candidates = new List<Thing>();
+		private static readonly List<Thing> candidates = new List<Thing>();
 	}
 }

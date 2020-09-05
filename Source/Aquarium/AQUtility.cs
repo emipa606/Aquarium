@@ -25,12 +25,12 @@ namespace Aquarium
 				{
 					foreach (string listing in list)
 					{
-						ThingDef fishdef = ThingDef.Named(CompAquarium.stringValuePart(listing, 1));
+						ThingDef fishdef = ThingDef.Named(CompAquarium.StringValuePart(listing, 1));
 						if (fishdef != null)
 						{
 							float value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
 							fishFactor *= value / compare;
-							agefactor *= Mathf.Lerp(0.75f, 1f, (float)(Math.Min(CompAquarium.oldFishAge, CompAquarium.numValuePart(listing, 3)) / CompAquarium.oldFishAge));
+							agefactor *= Mathf.Lerp(0.75f, 1f, (float)(Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) / CompAquarium.oldFishAge));
 						}
 					}
 				}
@@ -43,7 +43,7 @@ namespace Aquarium
 		{
 			CompAquarium CompAQ = FishyThing.TryGetComp<CompAquarium>();
 			Pawn_NeedsTracker needs = pawn.needs;
-			if (((needs != null) ? needs.mood : null) != null)
+			if ((needs?.mood) != null)
 			{
 				float fishFactor = 1f;
 				float agefactor = 1f;
@@ -55,12 +55,12 @@ namespace Aquarium
 					{
 						foreach (string listing in list)
 						{
-							ThingDef fishdef = ThingDef.Named(CompAquarium.stringValuePart(listing, 1));
+							ThingDef fishdef = ThingDef.Named(CompAquarium.StringValuePart(listing, 1));
 							if (fishdef != null)
 							{
 								float value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
 								fishFactor *= value / compare;
-								agefactor *= Mathf.Lerp(0.75f, 1f, (float)(Math.Min(CompAquarium.oldFishAge, CompAquarium.numValuePart(listing, 3)) / CompAquarium.oldFishAge));
+								agefactor *= Mathf.Lerp(0.75f, 1f, (float)(Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) / CompAquarium.oldFishAge));
 							}
 						}
 					}
@@ -113,11 +113,11 @@ namespace Aquarium
 				{
 					foreach (string value in listing)
 					{
-						int action = CompAquarium.numValuePart(value, 4);
+						int action = CompAquarium.NumValuePart(value, 4);
 						if (action == 1)
 						{
 							Add = true;
-							fishAddDef = ThingDef.Named(CompAquarium.stringValuePart(value, 1));
+							fishAddDef = ThingDef.Named(CompAquarium.StringValuePart(value, 1));
 							return true;
 						}
 						if (action == 2)
@@ -227,13 +227,13 @@ namespace Aquarium
 		// Token: 0x0600000F RID: 15 RVA: 0x00002834 File Offset: 0x00000A34
 		internal static void DoSpawnTropicalFishMeat(Thing parent, int age)
 		{
-			if (parent.Spawned && ((parent != null) ? parent.Map : null) != null)
+			if (parent.Spawned && (parent?.Map) != null)
 			{
 				int stack = Math.Max(1, (int)Mathf.Lerp(1f, 10f, (float)age / (float)CompAquarium.oldFishAge));
 				ThingPlaceMode TPMode = ThingPlaceMode.Near;
 				Thing thing = ThingMaker.MakeThing(ThingDef.Named("AQFishMeat"), null);
 				thing.stackCount = Math.Min(thing.def.stackLimit, stack);
-				GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, TPMode, null, null, default(Rot4));
+				GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, TPMode, null, null, default);
 			}
 		}
 

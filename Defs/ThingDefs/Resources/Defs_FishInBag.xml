@@ -151,4 +151,16 @@
       <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagEleven</defName>
+    <label>Angelfish</label>
+    <description>Possibly the most recognized freshwater fish in the aquarium hobby, Angelfish belong to the family Cichlidae. Admired for their graceful swimming behavior, angelfish make stunning additions to large community aquariums.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag11</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
 </Defs>

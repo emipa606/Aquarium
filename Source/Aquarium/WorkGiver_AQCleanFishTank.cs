@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -14,7 +15,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return ThingRequest.ForDef(ThingDef.Named("AQFishTank"));
+				return ThingRequest.ForDef((from tankDef in DefDatabase<ThingDef>.AllDefsListForReading where tankDef.defName.StartsWith("AQFishTank") select tankDef).ToList().TakeRandom(1).First());
 			}
 		}
 

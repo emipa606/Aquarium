@@ -13,7 +13,7 @@ namespace Aquarium
 		}
 
 		// Token: 0x04000014 RID: 20
-		public int maxFish = 3;
+		public int maxFish = 9;
 
 		// Token: 0x04000015 RID: 21
 		public bool powerNeeded = true;

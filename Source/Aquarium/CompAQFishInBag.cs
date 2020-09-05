@@ -59,7 +59,7 @@ namespace Aquarium
 					if (this.parent.Spawned)
 					{
 						ThingWithComps parent = this.parent;
-						if (((parent != null) ? parent.Map : null) != null && this.parent.Map.ParentFaction == Faction.OfPlayerSilentFail)
+						if ((parent?.Map) != null && this.parent.Map.ParentFaction == Faction.OfPlayerSilentFail)
 						{
 							if (Controller.Settings.DoDeathMsgs)
 							{

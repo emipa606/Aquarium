@@ -15,41 +15,44 @@ namespace Aquarium
 		public override Job TryGiveJob(Pawn pawn)
 		{
 			bool allowedOutside = JoyUtility.EnjoyableOutsideNow(pawn, null);
-			Job result2;
-			try
-			{
-				ThingDef AQBowlDef = ThingDef.Named("AQFishTank");
-				JoyGiver_AQViewFishTank.candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
+			var tankDefs = (from tankDef in DefDatabase<ThingDef>.AllDefsListForReading where tankDef.defName.StartsWith("AQFishTank") select tankDef.defName).ToList();
+            foreach (var tankDef in tankDefs)
+            {
+				try
 				{
-					if (!AQUtility.HasFish(thing))
+					ThingDef AQBowlDef = ThingDef.Named(tankDef);
+					JoyGiver_AQViewFishTank.candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
 					{
-						return false;
-					}
-					if (thing.Faction != Faction.OfPlayer || thing.IsForbidden(pawn) || (!allowedOutside && !thing.Position.Roofed(thing.Map)) || !pawn.CanReserveAndReach(thing, PathEndMode.Touch, Danger.None, 1, -1, null, false) || !thing.IsPoliticallyProper(pawn))
-					{
-						return false;
-					}
-					Room room = thing.GetRoom(RegionType.Set_Passable);
-					return room != null && AQUtility.IsValidAquaRoom(pawn, room);
-				}));
-				Thing result;
-				if (!JoyGiver_AQViewFishTank.candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out result))
-				{
-					result2 = null;
-				}
-				else
-				{
-					result2 = JobMaker.MakeJob(this.def.jobDef, result);
-				}
+						if (!AQUtility.HasFish(thing))
+						{
+							return false;
+						}
+						if (thing.Faction != Faction.OfPlayer || thing.IsForbidden(pawn) || (!allowedOutside && !thing.Position.Roofed(thing.Map)) || !pawn.CanReserveAndReach(thing, PathEndMode.Touch, Danger.None, 1, -1, null, false) || !thing.IsPoliticallyProper(pawn))
+						{
+							return false;
+						}
+						Room room = thing.GetRoom(RegionType.Set_Passable);
+						return room != null && AQUtility.IsValidAquaRoom(pawn, room);
+					}));
+				} catch
+                {
+
+                }
 			}
-			finally
+            Job result2;
+            if (!JoyGiver_AQViewFishTank.candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out Thing result))
 			{
-				JoyGiver_AQViewFishTank.candidates.Clear();
+				result2 = null;
 			}
+			else
+			{
+				result2 = JobMaker.MakeJob(this.def.jobDef, result);
+			}
+			JoyGiver_AQViewFishTank.candidates.Clear();
 			return result2;
 		}
 
 		// Token: 0x04000023 RID: 35
-		private static List<Thing> candidates = new List<Thing>();
+		private static readonly List<Thing> candidates = new List<Thing>();
 	}
 }

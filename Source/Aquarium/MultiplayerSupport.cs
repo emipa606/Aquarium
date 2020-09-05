@@ -48,6 +48,6 @@ namespace Aquarium
 		}
 
 		// Token: 0x04000001 RID: 1
-		private static Harmony harmony = new Harmony("rimworld.pelador.aquarium.multiplayersupport");
+		private static readonly Harmony harmony = new Harmony("rimworld.pelador.aquarium.multiplayersupport");
 	}
 }

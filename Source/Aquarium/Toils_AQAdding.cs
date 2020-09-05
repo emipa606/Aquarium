@@ -29,10 +29,10 @@ namespace Aquarium
 						{
 							foreach (string value in AQComp.fishData)
 							{
-								string prevDefVal = CompAquarium.stringValuePart(value, 1);
-								int prevHealth = CompAquarium.numValuePart(value, 2);
-								int prevAge = CompAquarium.numValuePart(value, 3);
-								int prevAct = CompAquarium.numValuePart(value, 4);
+								string prevDefVal = CompAquarium.StringValuePart(value, 1);
+								int prevHealth = CompAquarium.NumValuePart(value, 2);
+								int prevAge = CompAquarium.NumValuePart(value, 3);
+								int prevAct = CompAquarium.NumValuePart(value, 4);
 								newIndex++;
 								bool Added = false;
 								if (prevAct == 1)

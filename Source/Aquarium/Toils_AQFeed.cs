@@ -37,9 +37,8 @@ namespace Aquarium
 							{
 								numAdding = numFoodToAdd;
 								foodybits.stackCount -= numAdding;
-								Thing newFoodDrop;
-								GenPlace.TryPlaceThing(foodybits, toil.actor.Position, toil.actor.Map, ThingPlaceMode.Near, out newFoodDrop, null, null, default(Rot4));
-								excessThing = newFoodDrop;
+                                GenPlace.TryPlaceThing(foodybits, toil.actor.Position, toil.actor.Map, ThingPlaceMode.Near, out Thing newFoodDrop, null, null, default);
+                                excessThing = newFoodDrop;
 							}
 							AQComp.foodPct += (float)numAdding * 0.1f;
 							if (AQComp.foodPct > 1f)
@@ -56,15 +55,14 @@ namespace Aquarium
 					return;
 				}
 				StoragePriority currentPriority = StoreUtility.CurrentStoragePriorityOf(excessThing);
-				IntVec3 c;
-				if (StoreUtility.TryFindBestBetterStoreCellFor(excessThing, toil.actor, toil.actor.Map, currentPriority, toil.actor.Faction, out c, true))
-				{
-					curJob.SetTarget(TargetIndex.B, excessThing);
-					curJob.count = excessThing.stackCount;
-					curJob.SetTarget(TargetIndex.C, c);
-					return;
-				}
-				curJob.SetTarget(TargetIndex.B, null);
+                if (StoreUtility.TryFindBestBetterStoreCellFor(excessThing, toil.actor, toil.actor.Map, currentPriority, toil.actor.Faction, out IntVec3 c, true))
+                {
+                    curJob.SetTarget(TargetIndex.B, excessThing);
+                    curJob.count = excessThing.stackCount;
+                    curJob.SetTarget(TargetIndex.C, c);
+                    return;
+                }
+                curJob.SetTarget(TargetIndex.B, null);
 			};
 			toil.defaultCompleteMode = ToilCompleteMode.Instant;
 			return toil;

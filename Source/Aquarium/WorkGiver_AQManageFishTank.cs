@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -14,7 +15,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return ThingRequest.ForDef(ThingDef.Named("AQFishTank"));
+				return ThingRequest.ForDef((from tankDef in DefDatabase<ThingDef>.AllDefsListForReading where tankDef.defName.StartsWith("AQFishTank") select tankDef).ToList().TakeRandom(1).First());
 			}
 		}
 
@@ -31,36 +32,30 @@ namespace Aquarium
 		// Token: 0x06000089 RID: 137 RVA: 0x00004FEC File Offset: 0x000031EC
 		public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
 		{
-			bool Add;
-			ThingDef fdef;
-			bool Remove;
-			return pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None, 1, -1, null, false) && AQUtility.AddOrRemove(t, out Add, out fdef, out Remove) && ((Add && AQUtility.GetClosestFishInBag(pawn, fdef, t) != null) || Remove);
-		}
+            return pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None, 1, -1, null, false) && AQUtility.AddOrRemove(t, out bool Add, out ThingDef fdef, out bool Remove) && ((Add && AQUtility.GetClosestFishInBag(pawn, fdef, t) != null) || Remove);
+        }
 
 		// Token: 0x0600008A RID: 138 RVA: 0x00005034 File Offset: 0x00003234
 		public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
 		{
 			Thing f = null;
 			JobDef useDef = null;
-			bool Add;
-			ThingDef fAddDef;
-			bool Remove;
-			if (AQUtility.AddOrRemove(t, out Add, out fAddDef, out Remove))
-			{
-				if (Add)
-				{
-					f = AQUtility.GetClosestFishInBag(pawn, fAddDef, t);
-					if (f != null)
-					{
-						useDef = DefDatabase<JobDef>.GetNamed("AQManagingAdd", false);
-					}
-				}
-				else if (Remove)
-				{
-					useDef = DefDatabase<JobDef>.GetNamed("AQManagingRemove", false);
-				}
-			}
-			Job newJob = null;
+            if (AQUtility.AddOrRemove(t, out bool Add, out ThingDef fAddDef, out bool Remove))
+            {
+                if (Add)
+                {
+                    f = AQUtility.GetClosestFishInBag(pawn, fAddDef, t);
+                    if (f != null)
+                    {
+                        useDef = DefDatabase<JobDef>.GetNamed("AQManagingAdd", false);
+                    }
+                }
+                else if (Remove)
+                {
+                    useDef = DefDatabase<JobDef>.GetNamed("AQManagingRemove", false);
+                }
+            }
+            Job newJob = null;
 			if (useDef != null)
 			{
 				newJob = new Job(useDef, t, f);
