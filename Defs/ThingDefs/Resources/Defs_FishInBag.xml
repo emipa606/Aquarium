@@ -175,4 +175,16 @@
       <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirteen</defName>
+    <label>Koi</label>
+    <description>Koi fish are a colorful, ornamental versions of the common carp. There are now dozens of different color varieties of koi.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag13</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
 </Defs>
