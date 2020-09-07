@@ -223,4 +223,16 @@
       <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagSeventeen</defName>
+    <label>Plecostomus</label>
+    <description>Plecos are well-known algae eaters that originated in the rivers of the Amazon jungle in South America. Plecos attach themselves to hard surfaces with specially adapted mouth parts.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag17</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>55</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
 </Defs>
