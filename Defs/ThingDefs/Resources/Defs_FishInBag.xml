@@ -153,8 +153,8 @@
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
     <defName>AQFishInBagEleven</defName>
-    <label>Angelfish</label>
-    <description>Possibly the most recognized freshwater fish in the aquarium hobby, Angelfish belong to the family Cichlidae. Admired for their graceful swimming behavior, angelfish make stunning additions to large community aquariums.</description>
+    <label>Zebra Angelfish</label>
+    <description>Zebra angelfish, also known as Zebra lyretail. Zebra angelfish inhabit steep slopes in moderate to deep waters and are found only in the Red Sea and the Western Indian Ocean.</description>
     <graphicData>
       <texPath>Things/Fish/ForSale/FishBag11</texPath>
     </graphicData>
@@ -184,6 +184,42 @@
     </graphicData>
     <statBases>
       <MarketValue>45</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFourteen</defName>
+    <label>Clownfish</label>
+    <description>Bright orange with three distinctive white bars, clown anemonefish are among the most recognizable of all reef-dwellers. They reach about 4.3 inches in length, and are named for the multicolored sea anemone in which they make their homes.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag14</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFifteen</defName>
+    <label>Axolotl</label>
+    <description>The axolotl salamander has the rare trait of retaining its larval features throughout its adult life. Axolotls are long-lived, surviving up to 15 years on a diet of mollusks, worms, insect larvae, crustaceans, and some fish.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag15</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>65</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagSixteen</defName>
+    <label>Cerulean Angelfish</label>
+    <description>Possibly the most recognized freshwater fish in the aquarium hobby, angelfish belong to the family Cichlidae. Admired for their graceful swimming behavior, angelfish make stunning additions to large community aquariums.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag16</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
       <Mass>0.05</Mass>
     </statBases>
   </ThingDef>

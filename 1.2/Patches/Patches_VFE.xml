@@ -260,6 +260,62 @@
             </VCE_Fishing.FishDef>
           </value>
         </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish14</defName>
+              <thingDef>AQFishInBagFourteen</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>false</canBeFreshwater>
+              <canBeSaltwater>true</canBeSaltwater>
+              <allowedBiomes>
+                <li>Warm</li>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>0.8</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish15</defName>
+              <thingDef>AQFishInBagFifteen</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>true</canBeFreshwater>
+              <canBeSaltwater>false</canBeSaltwater>
+              <allowedBiomes>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>0.3</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <VCE_Fishing.FishDef>
+              <defName>VCEF_SpecialAQFish16</defName>
+              <thingDef>AQFishInBagSixteen</thingDef>
+              <fishSizeCategory>Special</fishSizeCategory>
+              <canBeFreshwater>true</canBeFreshwater>
+              <canBeSaltwater>false</canBeSaltwater>
+              <allowedBiomes>
+                <li>Warm</li>
+                <li>Hot</li>
+              </allowedBiomes>
+              <commonality>0.6</commonality>
+              <baseFishingYield>1</baseFishingYield>
+              <dontScaleFishingYieldWithSkill>true</dontScaleFishingYieldWithSkill>
+            </VCE_Fishing.FishDef>
+          </value>
+        </li>
       </operations>
     </match>
   </Operation>
