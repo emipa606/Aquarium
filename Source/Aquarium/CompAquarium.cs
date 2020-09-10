@@ -112,6 +112,14 @@ namespace Aquarium
                         fishWandering.Add(new float[] { 0, 0, rand.Next(0, 2) });
                     }
                 }
+                if(fishData.Count > fishWandering.Count)
+                {
+                    for (int i = fishWandering.Count - 1; i < fishData.Count; i++)
+                    {
+                        fishWandering.Add(new float[] { 0, 0, rand.Next(0, 2) });
+                    }
+                }
+
                 foreach (string value in this.fishData)
                 {
                     if (CompAquarium.NumValuePart(value, 4) != 1)
@@ -155,20 +163,26 @@ namespace Aquarium
                         drawPos.z += fishWandering[count - 1][1];
                         drawPos.y += 0.0454545468f;
                         string defname = CompAquarium.StringValuePart(value, 1);
-                        string FishPath = "Things/Fish/";
+                        var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
+                        string ImagePath = $"Things/Fish/Fish{gfxName}";
+                        var adjustedSizeVector = ageFactor * perspective;
+                        Vector3 Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
+                        Graphic ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
+                        Matrix4x4 matrix4x = default(Matrix4x4);
+                        matrix4x.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), Size);
                         if (fishWandering[count - 1][2] == 0)
                         {
-                            FishPath += "Flip/";
+                            Graphics.DrawMesh(MeshPool.plane10Flip, matrix4x, ImageGraphic.MatSingle, 0);
                         }
-                        var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
-                        FishPath += $"Fish{gfxName}";
-                        Graphic FishImage = GraphicDatabase.Get<Graphic_Single>(FishPath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
-                        FishImage.drawSize = new Vector2(ageFactor * perspective, ageFactor * perspective);
-                        FishImage.Draw(drawPos, Rot4.North, this.parent, 0f);
+                        else
+                        {
+                            Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
+                        }
                     }
                 }
             }
         }
+
 
         // Token: 0x0600001C RID: 28 RVA: 0x00002ED0 File Offset: 0x000010D0
         public override void CompTick()
@@ -569,18 +583,18 @@ namespace Aquarium
             }
             else
             {
-                List<string> potentials = this.BagDefs();
-                if (potentials.Count > 0)
+                if (reachableDefs.Count == 0)
                 {
-                    foreach (string potential in potentials)
+                    list.Add(new FloatMenuOption("Aquarium.NoReachableFish".Translate(), null, MenuOptionPriority.Default, null, null, 29f, null, null));
+                }
+                foreach (string defName in reachableDefs)
+                {
+                    ThingDef potfishDef = ThingDef.Named(defName);
+                    text = "Aquarium.AddFish".Translate() + " " + potfishDef.LabelCap;
+                    list.Add(new FloatMenuOption(text, delegate ()
                     {
-                        ThingDef potfishDef = ThingDef.Named(potential);
-                        text = "Aquarium.AddFish".Translate() + " " + potfishDef.LabelCap;
-                        list.Add(new FloatMenuOption(text, delegate ()
-                        {
-                            this.FishSelection(true, potfishDef, selindex, 1);
-                        }, MenuOptionPriority.Default, null, null, 29f, null, null));
-                    }
+                        this.FishSelection(true, potfishDef, selindex, 1);
+                    }, MenuOptionPriority.Default, null, null, 29f, null, null));
                 }
             }
             Find.WindowStack.Add(new FloatMenu(list));
@@ -712,33 +726,30 @@ namespace Aquarium
                 return "zero";
 
             if (number < 0)
-                return "minus " + NumberToWords(Math.Abs(number));
+                return "minus" + NumberToWords(Math.Abs(number));
 
             string words = "";
 
             if ((number / 1000000) > 0)
             {
-                words += NumberToWords(number / 1000000) + " million ";
+                words += NumberToWords(number / 1000000) + "million";
                 number %= 1000000;
             }
 
             if ((number / 1000) > 0)
             {
-                words += NumberToWords(number / 1000) + " thousand ";
+                words += NumberToWords(number / 1000) + "thousand";
                 number %= 1000;
             }
 
             if ((number / 100) > 0)
             {
-                words += NumberToWords(number / 100) + " hundred ";
+                words += NumberToWords(number / 100) + "hundred";
                 number %= 100;
             }
 
             if (number > 0)
             {
-                if (words != "")
-                    words += "and ";
-
                 var unitsMap = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
                 var tensMap = new[] { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 
@@ -748,7 +759,7 @@ namespace Aquarium
                 {
                     words += tensMap[number / 10];
                     if ((number % 10) > 0)
-                        words += "-" + unitsMap[number % 10];
+                        words += unitsMap[number % 10];
                 }
             }
 
@@ -778,6 +789,19 @@ namespace Aquarium
             get
             {
                 return this.parent.SpawnedOrAnyParentSpawned && this.parent.AmbientTemperature < this.Props.targetTemp;
+            }
+        }
+
+        private List<string> reachableDefs
+        {
+            get
+            {
+                var currentDefs = (from x in parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
+                        where BagDefs().Contains(x.def.defName) && !x.Position.Fogged(parent.Map) && !x.IsForbidden(Faction.OfPlayerSilentFail)
+                        orderby x.def.label
+                        select x.def.defName).ToList();
+                currentDefs.RemoveDuplicates();
+                return currentDefs;
             }
         }
 

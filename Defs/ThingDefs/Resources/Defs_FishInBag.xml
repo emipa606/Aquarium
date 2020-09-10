@@ -40,7 +40,6 @@
     </graphicData>
     <statBases>
       <MarketValue>45</MarketValue>
-      <Mass>0.3</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -52,7 +51,6 @@
     </graphicData>
     <statBases>
       <MarketValue>20</MarketValue>
-      <Mass>0.1</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -64,7 +62,6 @@
     </graphicData>
     <statBases>
       <MarketValue>35</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -76,7 +73,6 @@
     </graphicData>
     <statBases>
       <MarketValue>30</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -88,7 +84,6 @@
     </graphicData>
     <statBases>
       <MarketValue>30</MarketValue>
-      <Mass>0.1</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -100,7 +95,6 @@
     </graphicData>
     <statBases>
       <MarketValue>35</MarketValue>
-      <Mass>0.07</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -112,7 +106,6 @@
     </graphicData>
     <statBases>
       <MarketValue>25</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -124,7 +117,6 @@
     </graphicData>
     <statBases>
       <MarketValue>35</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -136,7 +128,6 @@
     </graphicData>
     <statBases>
       <MarketValue>20</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -148,7 +139,6 @@
     </graphicData>
     <statBases>
       <MarketValue>25</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -160,7 +150,6 @@
     </graphicData>
     <statBases>
       <MarketValue>30</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -172,7 +161,6 @@
     </graphicData>
     <statBases>
       <MarketValue>35</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -184,7 +172,6 @@
     </graphicData>
     <statBases>
       <MarketValue>45</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -196,7 +183,6 @@
     </graphicData>
     <statBases>
       <MarketValue>40</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -208,7 +194,6 @@
     </graphicData>
     <statBases>
       <MarketValue>65</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
@@ -220,19 +205,226 @@
     </graphicData>
     <statBases>
       <MarketValue>30</MarketValue>
-      <Mass>0.05</Mass>
     </statBases>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
     <defName>AQFishInBagSeventeen</defName>
-    <label>Plecostomus</label>
-    <description>Plecos are well-known algae eaters that originated in the rivers of the Amazon jungle in South America. Plecos attach themselves to hard surfaces with specially adapted mouth parts.</description>
+    <label>Royal Pleco</label>
+    <description>Known for their striking colors and bold patterns, royal plecos are fantastic fish for larger aquariums. Plecos are well-known algae eaters that originated in the rivers of the Amazon jungle in South America.</description>
     <graphicData>
       <texPath>Things/Fish/ForSale/FishBag17</texPath>
     </graphicData>
     <statBases>
       <MarketValue>55</MarketValue>
-      <Mass>0.05</Mass>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagEighteen</defName>
+    <label>Perch</label>
+    <description>Perch are carnivorous fish most commonly found in small ponds, lakes, streams, or rivers. These fish feed on smaller fish, shellfish, or insect larvae.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag18</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagNineteen</defName>
+    <label>Neon Tetra</label>
+    <description>The neon tetra has a light-blue back over a silver-white abdomen. The fish is characterized by an iridescent blue horizontal stripe along each side of the fish from its nose to the base of the adipose fin.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag19</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwenty</defName>
+    <label>Flame Angel</label>
+    <description>The Flame Angelfish is a flashy addition to many aquariums. One of the most popular of the dwarf angelfish, the Flame Angelfish is a bold red/orange color with vertical black stripes highlighting the body and horizontal black stripes along the caudal portions of the blue-tipped dorsal and anal fins.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag20</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentyone</defName>
+    <label>Redbelly Piranha</label>
+    <description>The red-bellied piranha has a popular reputation as a ferocious predator, despite being primarily a scavenger. As their name suggests, red-bellied piranhas have a reddish tinge to the belly when fully grown, although juveniles are a silver color with darker spots.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag21</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentytwo</defName>
+    <label>Emperor Angelfish</label>
+    <description>The adult Emperor Angelfish, also called the Imperator Angelfish, has a bold, blue body covered with bright yellow horizontal stripes culminating in a bright yellow to orange caudal fin. A striking blue-black mask covers the eyes and a similarly-colored vertical band extends from the pectoral fin two-thirds of the way up the body.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag22</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentythree</defName>
+    <label>Mantis Shrimp</label>
+    <description>Called "sea locusts" by ancient Assyrians, "prawn killers" in Australia, and now sometimes referred to as "thumb splitters"—because of the animal's ability to inflict painful gashes if handled incautiously. Mantis shrimps have powerful claws that are used to attack and kill prey by spearing, stunning, or dismembering.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag23</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>25</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentyfour</defName>
+    <label>Celebes Halfbeak</label>
+    <description>The Celebes Half Beak is a very active schooling fish belonging to the Hemirhamphidae family. Males of this species have very colorful fins and a black lobe on the lower jaw. Females have less color in the fins and have a red or uncolored lobe.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag24</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentyfive</defName>
+    <label>Tiger Barb</label>
+    <description>The very popular tiger barb is an easy fish to care for and can be fun to watch as it swims at high speed in schools of six or more. It is not, however, an ideal fish for a community tank as it does nip any fish with flowing fins and can be mildly aggressive.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag25</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentysix</defName>
+    <label>Queen Angelfish</label>
+    <description>The Queen Angelfish is one of the most striking of all angelfish. Vibrant yellow and electric sapphire-blue highlights give the Queen Angelfish an almost iridescent appearance. It has a dark spot on the forehead surrounded by bright blue. The dorsal and pelvic fins are elongated.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag26</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentyseven</defName>
+    <label>Grey Angelfish</label>
+    <description>The adult Gray Black Angelfish, which may also be called the Gray Angelfish, has a gray body with dusky blue polka-dots and the same dusky blue highlights on the caudal, dorsal, and anal fins. The face is a clear, pale silvery-gray. The juvenile is black with yellow stripes.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag27</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentyeight</defName>
+    <label>Japanese Angelfish</label>
+    <description>The Japanese Pygmy Angelfish, is one of the most highly prized and desired fish species in the aquarium trade. Found off the coasts of Japan, the Interruptus Angel exhibits vibrant shades of pink and purple, littered with speckled blue dots creating one of the most visually appealing and exciting fish available for purchase.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag28</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>65</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagTwentynine</defName>
+    <label>Blue Marlin</label>
+    <description>The blue marlin, one of the largest and most beautiful fish in the ocean, spends most of its life far out at sea. This is a genetically modified version, more fit for aquariums.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag29</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirty</defName>
+    <label>Black Marlin</label>
+    <description>The black marlin, one of the largest and possibly the fastest fish in the ocean reaching speeds of up to 129 kph or 80 mph. This is a genetically modified version, more fit for aquariums.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag30</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtyone</defName>
+    <label>Ripsaw Catfish</label>
+    <description>The Ripsaw Catfish is known from lakes, rivers, and streams with muddy or sandy substrates. This hefty, characterful bottom-dweller requires a very spacious aquarium with a soft sand substrate.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag31</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtytwo</defName>
+    <label>Long-Snouted Seahorse</label>
+    <description>Also known as the Spiny Seahorse, the Long-snouted Seahorse is recognisable by the fleshy mane on its neck and back. They live in shallow coastal waters and are pretty poor swimmers, relying on their prehensile tail to cling onto seaweed and seagrass to stop themselves being swept away.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag32</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>55</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtythree</defName>
+    <label>Zebra Moray Eel</label>
+    <description>The Zebra Moray Eel is an eyecatching and extremely docile species that derives its name from the bold pattern of bars on its body. The Zebra Moray Eel is an ideal moray for the community fish tank.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag33</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtyfour</defName>
+    <label>Green Moray Eel</label>
+    <description>The green moray eel has one long dorsal fin that extends down the entire length of its body and connects to a second fin, the caudal fin. Their faces have two nostrils, made visible by two small openings. On their upper jaw, moray eels have two full rows of teeth, while on the bottom there is just a single row of teeth.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag34</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtyfive</defName>
+    <label>Moon Jellyfish</label>
+    <description>Though the moon jelly lives throughout the epipelagic zone, it is most commonly found near the coast and in upwelling areas, where its prey occurs in higher concentrations. This species is not a very strong swimmer, so they are often found on beaches after strong storms or tides that push them onshore.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag35</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>25</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtysix</defName>
+    <label>Shiny Guppy</label>
+    <description>The guppy also known as millionfish and rainbow fish, is one of the world's most widely distributed tropical fish and one of the most popular freshwater aquarium fish species. It is a member of the family Poeciliidae and, like almost all American members of the family, is live-bearing.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag36</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
     </statBases>
   </ThingDef>
 </Defs>

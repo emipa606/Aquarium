@@ -25,5 +25,6 @@
   <Aquarium.DoNothing>Do nothing</Aquarium.DoNothing>
   <Aquarium.RemoveFish>Remove fish</Aquarium.RemoveFish>
   <Aquarium.AddFish>Add fish:</Aquarium.AddFish>
+  <Aquarium.NoReachableFish>No reachable fish in range</Aquarium.NoReachableFish>
 
 </LanguageData>
