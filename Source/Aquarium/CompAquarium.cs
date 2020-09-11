@@ -168,7 +168,7 @@ namespace Aquarium
                         var adjustedSizeVector = ageFactor * perspective;
                         Vector3 Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
                         Graphic ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
-                        Matrix4x4 matrix4x = default(Matrix4x4);
+                        Matrix4x4 matrix4x = default;
                         matrix4x.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), Size);
                         if (fishWandering[count - 1][2] == 0)
                         {
@@ -796,8 +796,9 @@ namespace Aquarium
         {
             get
             {
+                var bagDefs = BagDefs();
                 var currentDefs = (from x in parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
-                        where BagDefs().Contains(x.def.defName) && !x.Position.Fogged(parent.Map) && !x.IsForbidden(Faction.OfPlayerSilentFail)
+                        where bagDefs.Contains(x.def.defName) && !x.Position.Fogged(parent.Map) && !x.IsForbidden(Faction.OfPlayerSilentFail)
                         orderby x.def.label
                         select x.def.defName).ToList();
                 currentDefs.RemoveDuplicates();
