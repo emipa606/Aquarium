@@ -427,4 +427,37 @@
       <MarketValue>20</MarketValue>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtyseven</defName>
+    <label>Ribbon Eel</label>
+    <description>The Blue Ribbon eel is one of the most attractive underwater creatures with their tiny dragon head and long elegant bodies. A favorite subject for underwater photographers and an aquarium creature best left on the reef. Keeping ribbon eels is reserved for only the most advanced saltwater aquarists.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag37</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>70</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtyeight</defName>
+    <label>Opabinia Regalis</label>
+    <description>Opabinia regalis is an extinct, stem group arthropod found in the Middle Cambrian Burgess Shale Lagerstätte of British Columbia, Canada. It flourished from 505 million years ago to 487 million years ago during the Cambrian Period of the Paleozoic Era.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag38</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>200</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagThirtynine</defName>
+    <label>Black Skirt Tetra</label>
+    <description>Black Skirt Tetra is a fresh water omnivore of the Characidae family, native to Paraguay and Guapore Rivers of southern Brazil, Argentina, and Bolivia. This fish is recognized quite easily by two vertical black stripes on the front half of the body and black dorsal and anal fins (the latter can be quite long in some varieties).</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag39</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+    </statBases>
+  </ThingDef>
 </Defs>
