@@ -13,7 +13,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return (CompProperties_AQFishInBag)this.props;
+				return (CompProperties_AQFishInBag)props;
 			}
 		}
 
@@ -21,42 +21,42 @@ namespace Aquarium
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			Scribe_Values.Look<int>(ref this.age, "age", 0, false);
-			Scribe_Values.Look<int>(ref this.fishhealth, "fishhealth", 100, false);
-			Scribe_Values.Look<int>(ref this.ticksInBagRemain, "ticksInBagRemain", 180000, false);
+			Scribe_Values.Look<int>(ref age, "age", 0, false);
+			Scribe_Values.Look<int>(ref fishhealth, "fishhealth", 100, false);
+			Scribe_Values.Look<int>(ref ticksInBagRemain, "ticksInBagRemain", 180000, false);
 		}
 
 		// Token: 0x06000014 RID: 20 RVA: 0x000029CC File Offset: 0x00000BCC
 		public override void CompTick()
 		{
 			base.CompTick();
-			if (this.parent.IsHashIntervalTick(300))
+			if (parent.IsHashIntervalTick(300))
 			{
 				bool died = false;
-				this.age += 300;
-				if (this.age + (int)CompAquarium.RandomFloat(-450000f, 450000f) > CompAquarium.oldFishAge)
+				age += 300;
+				if (age + (int)CompAquarium.RandomFloat(-450000f, 450000f) > CompAquarium.oldFishAge)
 				{
-					this.fishhealth--;
+					fishhealth--;
 				}
-				if (this.parent.Spawned)
+				if (parent.Spawned)
 				{
-					this.ticksInBagRemain -= 300;
-					if (this.ticksInBagRemain <= 0)
+					ticksInBagRemain -= 300;
+					if (ticksInBagRemain <= 0)
 					{
-						this.fishhealth--;
+						fishhealth--;
 					}
-					if (this.parent.AmbientTemperature < 1f || this.parent.AmbientTemperature > 55f)
+					if (parent.AmbientTemperature < 1f || parent.AmbientTemperature > 55f)
 					{
-						this.fishhealth--;
+						fishhealth--;
 					}
 				}
-				if (this.fishhealth <= 0)
+				if (fishhealth <= 0)
 				{
 					died = true;
 				}
 				if (died)
 				{
-					if (this.parent.Spawned)
+					if (parent.Spawned)
 					{
 						ThingWithComps parent = this.parent;
 						if ((parent?.Map) != null && this.parent.Map.ParentFaction == Faction.OfPlayerSilentFail)
@@ -65,10 +65,10 @@ namespace Aquarium
 							{
 								Messages.Message("Aquarium.FishDied".Translate(), this.parent, MessageTypeDefOf.NegativeEvent, false);
 							}
-							AQUtility.DoSpawnTropicalFishMeat(this.parent, this.age);
+							AQUtility.DoSpawnTropicalFishMeat(this.parent, age);
 						}
 					}
-					this.parent.Destroy(DestroyMode.Vanish);
+					parent.Destroy(DestroyMode.Vanish);
 				}
 			}
 		}
@@ -82,9 +82,9 @@ namespace Aquarium
 		// Token: 0x06000016 RID: 22 RVA: 0x00002B3C File Offset: 0x00000D3C
 		public override string CompInspectStringExtra()
 		{
-			float ageDays = (float)this.age / 60000f;
-			float fishhealthpct = (float)this.fishhealth / 100f;
-			float hoursRemain = (float)this.ticksInBagRemain / 2500f;
+			float ageDays = (float)age / 60000f;
+			float fishhealthpct = (float)fishhealth / 100f;
+			float hoursRemain = (float)ticksInBagRemain / 2500f;
 			return "Aquarium.BagInfo".Translate(ageDays.ToString("F2"), fishhealthpct.ToStringPercent(), hoursRemain.ToString("F2"));
 		}
 

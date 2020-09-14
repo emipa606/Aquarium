@@ -19,7 +19,7 @@ namespace Aquarium
 			try
 			{
 				ThingDef AQBowlDef = ThingDef.Named("AQFishBowl");
-				JoyGiver_AQViewFishBowl.candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
+                candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
 				{
 					if (!AQUtility.HasFish(thing))
 					{
@@ -32,18 +32,18 @@ namespace Aquarium
 					Room room = thing.GetRoom(RegionType.Set_Passable);
 					return room != null && AQUtility.IsValidAquaRoom(pawn, room);
 				}));
-                if (!JoyGiver_AQViewFishBowl.candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out Thing result))
+                if (!candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out Thing result))
                 {
                     result2 = null;
                 }
                 else
                 {
-                    result2 = JobMaker.MakeJob(this.def.jobDef, result);
+                    result2 = JobMaker.MakeJob(def.jobDef, result);
                 }
             }
 			finally
 			{
-				JoyGiver_AQViewFishBowl.candidates.Clear();
+                candidates.Clear();
 			}
 			return result2;
 		}

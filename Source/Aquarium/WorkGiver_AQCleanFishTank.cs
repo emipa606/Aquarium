@@ -15,7 +15,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return ThingRequest.ForDef((from tankDef in DefDatabase<ThingDef>.AllDefsListForReading where tankDef.defName.StartsWith("AQFishTank") select tankDef).ToList().TakeRandom(1).First());
+				return ThingRequest.ForDef(DefsCacher.AQFishTankDefs.TakeRandom(1).First());
 			}
 		}
 

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AQUtility.cs" />
+    <Compile Include="Caching.cs" />
     <Compile Include="CompAQFishInBag.cs" />
     <Compile Include="CompAquarium.cs" />
     <Compile Include="CompProperties_AQFishInBag.cs" />

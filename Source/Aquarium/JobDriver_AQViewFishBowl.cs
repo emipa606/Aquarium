@@ -14,18 +14,18 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.A).Thing;
+				return job.GetTarget(TargetIndex.A).Thing;
 			}
 		}
 
 		// Token: 0x06000056 RID: 86 RVA: 0x0000423C File Offset: 0x0000243C
 		protected override void WaitTickAction()
 		{
-			float num = AQUtility.GetJoyGainFactor(this.FishyThing.GetStatValue(StatDefOf.Beauty, true) / this.FishyThing.def.GetStatValueAbstract(StatDefOf.Beauty, null), this.FishyThing);
+			float num = AQUtility.GetJoyGainFactor(FishyThing.GetStatValue(StatDefOf.Beauty, true) / FishyThing.def.GetStatValueAbstract(StatDefOf.Beauty, null), FishyThing);
 			float extraJoyGainFactor = (num > 0f) ? num : 0f;
-			this.pawn.GainComfortFromCellIfPossible(false);
-			JoyUtility.JoyTickCheckEnd(this.pawn, JoyTickFullJoyAction.EndJob, extraJoyGainFactor, (Building)this.FishyThing);
-			AQUtility.ApplyMoodBoostAndInspire(this.pawn, this.FishyThing);
+			pawn.GainComfortFromCellIfPossible(false);
+			JoyUtility.JoyTickCheckEnd(pawn, JoyTickFullJoyAction.EndJob, extraJoyGainFactor, (Building)FishyThing);
+			AQUtility.ApplyMoodBoostAndInspire(pawn, FishyThing);
 		}
 	}
 }

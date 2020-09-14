@@ -4,6 +4,8 @@
   <Aquarium.Name>Aquarium</Aquarium.Name>
   <Aquarium.DoDeathMsgs>Report pet fish deaths:</Aquarium.DoDeathMsgs>
   <Aquarium.AllowTankSounds>Allow ambient tank sounds:</Aquarium.AllowTankSounds>
+  <Aquarium.FishMovesAround>Fish swims in the whole tank:</Aquarium.FishMovesAround>
+  <Aquarium.FishMovesAroundTooltip>If unchecked, fish will stay in their general area.</Aquarium.FishMovesAroundTooltip>
   <Aquarium.AllowInspire>Allow inspirations:</Aquarium.AllowInspire>
   <Aquarium.BaseInspChance>Base insperation chance per fish (%):</Aquarium.BaseInspChance>
   <Aquarium.FishLife>Average life expectancy of pet fish (years):</Aquarium.FishLife>

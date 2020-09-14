@@ -9,7 +9,7 @@ namespace Aquarium
 		// Token: 0x06000037 RID: 55 RVA: 0x00003F07 File Offset: 0x00002107
 		public CompProperties_CompAquarium()
 		{
-			this.compClass = typeof(CompAquarium);
+			compClass = typeof(CompAquarium);
 		}
 
 		// Token: 0x04000014 RID: 20

@@ -64,14 +64,14 @@ namespace Aquarium
 							}
 						}
 					}
-					if (AQUtility.IsInspired((int)((float)(CompAQ.numFish * 25) * fishFactor * agefactor)))
+					if (IsInspired((int)((float)(CompAQ.numFish * 25) * fishFactor * agefactor)))
 					{
 						ThoughtDef fishRelaxDef = ThoughtDef.Named("AQObserveFish");
 						pawn.needs.mood.thoughts.memories.TryGainMemory(fishRelaxDef, null);
 					}
 				}
 			}
-			if (CompAQ != null && CompAQ.numFish > 0 && Controller.Settings.AllowInspire && pawn.IsHashIntervalTick(1000) && !pawn.IsPrisoner && AQUtility.IsInspired((int)((float)CompAQ.numFish * Controller.Settings.BaseInspChance)) && !pawn.mindState.inspirationHandler.Inspired)
+			if (CompAQ != null && CompAQ.numFish > 0 && Controller.Settings.AllowInspire && pawn.IsHashIntervalTick(1000) && !pawn.IsPrisoner && IsInspired((int)((float)CompAQ.numFish * Controller.Settings.BaseInspChance)) && !pawn.mindState.inspirationHandler.Inspired)
 			{
 				InspirationDef IDef = (from x in DefDatabase<InspirationDef>.AllDefsListForReading
 				where x.Worker.InspirationCanOccur(pawn)
@@ -263,5 +263,6 @@ namespace Aquarium
 
 		// Token: 0x04000003 RID: 3
 		internal const int FoodVal = 10;
+
 	}
 }

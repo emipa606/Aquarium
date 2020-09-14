@@ -14,7 +14,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.A).Thing;
+				return job.GetTarget(TargetIndex.A).Thing;
 			}
 		}
 
@@ -24,7 +24,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.AddThing.TryGetComp<CompAquarium>();
+				return AddThing.TryGetComp<CompAquarium>();
 			}
 		}
 
@@ -34,14 +34,14 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.B).Thing;
+				return job.GetTarget(TargetIndex.B).Thing;
 			}
 		}
 
 		// Token: 0x0600004C RID: 76 RVA: 0x00004138 File Offset: 0x00002338
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
-			return this.pawn.Reserve(this.AddThing, this.job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(this.Fish, this.job, 1, -1, null, errorOnFailed);
+			return pawn.Reserve(AddThing, job, 1, -1, null, errorOnFailed) && pawn.Reserve(Fish, job, 1, -1, null, errorOnFailed);
 		}
 
 		// Token: 0x0600004D RID: 77 RVA: 0x00004189 File Offset: 0x00002389
@@ -50,7 +50,7 @@ namespace Aquarium
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
 			yield return Toils_General.DoAtomic(delegate
 			{
-				this.job.count = 1;
+				job.count = 1;
 			});
 			Toil reserveFish = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
 			yield return reserveFish;

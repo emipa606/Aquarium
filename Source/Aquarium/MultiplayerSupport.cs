@@ -25,14 +25,14 @@ namespace Aquarium
 			};
 			for (int i = 0; i < array.Length; i++)
 			{
-				MultiplayerSupport.FixRNG(array[i]);
+                FixRNG(array[i]);
 			}
 		}
 
 		// Token: 0x06000002 RID: 2 RVA: 0x000020D6 File Offset: 0x000002D6
 		private static void FixRNG(MethodInfo method)
 		{
-			MultiplayerSupport.harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPre", null), new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPos", null), null, null);
+            harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPre", null), new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPos", null), null, null);
 		}
 
 		// Token: 0x06000003 RID: 3 RVA: 0x00002110 File Offset: 0x00000310

@@ -16,16 +16,17 @@ namespace Aquarium
 		// Token: 0x06000039 RID: 57 RVA: 0x00003F54 File Offset: 0x00002154
 		public override void DoSettingsWindowContents(Rect canvas)
 		{
-			Controller.Settings.DoWindowContents(canvas);
+            Settings.DoWindowContents(canvas);
 		}
 
 		// Token: 0x0600003A RID: 58 RVA: 0x00003F61 File Offset: 0x00002161
 		public Controller(ModContentPack content) : base(content)
 		{
-			Controller.Settings = base.GetSettings<Settings>();
+            Settings = GetSettings<Settings>();
 		}
 
 		// Token: 0x04000018 RID: 24
 		public static Settings Settings;
+
 	}
 }

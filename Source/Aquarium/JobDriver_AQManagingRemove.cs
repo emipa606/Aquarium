@@ -14,7 +14,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.A).Thing;
+				return job.GetTarget(TargetIndex.A).Thing;
 			}
 		}
 
@@ -24,14 +24,14 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.Thing.TryGetComp<CompAquarium>();
+				return Thing.TryGetComp<CompAquarium>();
 			}
 		}
 
 		// Token: 0x06000052 RID: 82 RVA: 0x000041DE File Offset: 0x000023DE
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
-			return this.pawn.Reserve(this.Thing, this.job, 1, -1, null, errorOnFailed);
+			return pawn.Reserve(Thing, job, 1, -1, null, errorOnFailed);
 		}
 
 		// Token: 0x06000053 RID: 83 RVA: 0x00004200 File Offset: 0x00002400

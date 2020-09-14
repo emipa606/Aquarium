@@ -14,7 +14,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.A).Thing;
+				return job.GetTarget(TargetIndex.A).Thing;
 			}
 		}
 
@@ -24,7 +24,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.FeedThing.TryGetComp<CompAquarium>();
+				return FeedThing.TryGetComp<CompAquarium>();
 			}
 		}
 
@@ -34,23 +34,23 @@ namespace Aquarium
 		{
 			get
 			{
-				return this.job.GetTarget(TargetIndex.B).Thing;
+				return job.GetTarget(TargetIndex.B).Thing;
 			}
 		}
 
 		// Token: 0x06000044 RID: 68 RVA: 0x0000404C File Offset: 0x0000224C
 		public override bool TryMakePreToilReservations(bool errorOnFailed)
 		{
-			return this.pawn.Reserve(this.FeedThing, this.job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(this.Food, this.job, 1, -1, null, errorOnFailed);
+			return pawn.Reserve(FeedThing, job, 1, -1, null, errorOnFailed) && pawn.Reserve(Food, job, 1, -1, null, errorOnFailed);
 		}
 
 		// Token: 0x06000045 RID: 69 RVA: 0x0000409D File Offset: 0x0000229D
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
 			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			base.AddEndCondition(delegate
+            AddEndCondition(delegate
 			{
-				if (this.AQComp.foodPct > 0.95f)
+				if (AQComp.foodPct > 0.95f)
 				{
 					return JobCondition.Succeeded;
 				}
@@ -58,7 +58,7 @@ namespace Aquarium
 			});
 			yield return Toils_General.DoAtomic(delegate
 			{
-				this.job.count = AQUtility.GetFoodNumToFullyFeed(this.AQComp);
+				job.count = AQUtility.GetFoodNumToFullyFeed(AQComp);
 			});
 			Toil reserveFood = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
 			yield return reserveFood;
@@ -68,9 +68,9 @@ namespace Aquarium
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
 			yield return Toils_General.Wait(300, TargetIndex.None).FailOnDestroyedNullOrForbidden(TargetIndex.B).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
 			yield return Toils_AQFeed.FinalizeFeeding(TargetIndex.A, TargetIndex.B);
-			if (!this.job.GetTarget(TargetIndex.B).HasThing)
+			if (!job.GetTarget(TargetIndex.B).HasThing)
 			{
-				base.EndJobWith(JobCondition.Incompletable);
+                EndJobWith(JobCondition.Incompletable);
 			}
 			yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
 			yield return Toils_Reserve.Reserve(TargetIndex.C, 1, -1, null);

@@ -21,7 +21,7 @@ namespace Aquarium
 				try
 				{
 					ThingDef AQBowlDef = ThingDef.Named(tankDef);
-					JoyGiver_AQViewFishTank.candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
+                    candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
 					{
 						if (!AQUtility.HasFish(thing))
 						{
@@ -40,15 +40,15 @@ namespace Aquarium
                 }
 			}
             Job result2;
-            if (!JoyGiver_AQViewFishTank.candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out Thing result))
+            if (!candidates.TryRandomElementByWeight((Thing target) => Mathf.Max(target.GetStatValue(StatDefOf.Beauty, true), 0.5f), out Thing result))
 			{
 				result2 = null;
 			}
 			else
 			{
-				result2 = JobMaker.MakeJob(this.def.jobDef, result);
+				result2 = JobMaker.MakeJob(def.jobDef, result);
 			}
-			JoyGiver_AQViewFishTank.candidates.Clear();
+            candidates.Clear();
 			return result2;
 		}
 

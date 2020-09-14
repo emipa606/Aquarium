@@ -15,36 +15,38 @@ namespace Aquarium
 			listing_Standard.ColumnWidth = canvas.width;
 			listing_Standard.Begin(canvas);
 			listing_Standard.Gap(gap);
-			listing_Standard.CheckboxLabeled("Aquarium.DoDeathMsgs".Translate(), ref this.DoDeathMsgs, null);
+			listing_Standard.CheckboxLabeled("Aquarium.DoDeathMsgs".Translate(), ref DoDeathMsgs, null);
 			listing_Standard.Gap(gap);
-			listing_Standard.CheckboxLabeled("Aquarium.AllowTankSounds".Translate(), ref this.AllowTankSounds, null);
+			listing_Standard.CheckboxLabeled("Aquarium.AllowTankSounds".Translate(), ref AllowTankSounds, null);
 			listing_Standard.Gap(gap);
-			listing_Standard.CheckboxLabeled("Aquarium.AllowInspire".Translate(), ref this.AllowInspire, null);
+			listing_Standard.CheckboxLabeled("Aquarium.FishMovesAround".Translate(), ref FishMovesAround, "Aquarium.FishMovesAroundTooltip".Translate());
+			listing_Standard.Gap(gap);
+			listing_Standard.CheckboxLabeled("Aquarium.AllowInspire".Translate(), ref AllowInspire, null);
 			listing_Standard.Gap(gap);
 			checked
 			{
-				listing_Standard.Label("Aquarium.BaseInspChance".Translate() + "  " + (int)this.BaseInspChance, -1f, null);
-				this.BaseInspChance = (float)((int)listing_Standard.Slider((float)((int)this.BaseInspChance), 1f, 10f));
+				listing_Standard.Label("Aquarium.BaseInspChance".Translate() + "  " + (int)BaseInspChance, -1f, null);
+				BaseInspChance = (float)((int)listing_Standard.Slider((float)((int)BaseInspChance), 1f, 10f));
 				listing_Standard.Gap(gap);
-				listing_Standard.Label("Aquarium.FishLife".Translate() + "  " + (int)this.FishLife, -1f, null);
-				this.FishLife = (float)((int)listing_Standard.Slider((float)((int)this.FishLife), 1f, 3f));
+				listing_Standard.Label("Aquarium.FishLife".Translate() + "  " + (int)FishLife, -1f, null);
+				FishLife = (float)((int)listing_Standard.Slider((float)((int)FishLife), 1f, 3f));
 				listing_Standard.Gap(gap);
-				listing_Standard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)this.DegradeWaterFactor, -1f, null);
-				this.DegradeWaterFactor = (float)((int)listing_Standard.Slider((float)((int)this.DegradeWaterFactor), 50f, 200f));
+				listing_Standard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)DegradeWaterFactor, -1f, null);
+				DegradeWaterFactor = (float)((int)listing_Standard.Slider((float)((int)DegradeWaterFactor), 50f, 200f));
 				listing_Standard.Gap(gap);
-				listing_Standard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)this.DegradeFoodFactor, -1f, null);
-				this.DegradeFoodFactor = (float)((int)listing_Standard.Slider((float)((int)this.DegradeFoodFactor), 50f, 200f));
+				listing_Standard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)DegradeFoodFactor, -1f, null);
+				DegradeFoodFactor = (float)((int)listing_Standard.Slider((float)((int)DegradeFoodFactor), 50f, 200f));
 				listing_Standard.Gap(gap);
-				listing_Standard.Label("Aquarium.RespondClean".Translate() + "  " + (int)this.RespondClean, -1f, null);
-				this.RespondClean = (float)((int)listing_Standard.Slider((float)((int)this.RespondClean), 25f, 75f));
+				listing_Standard.Label("Aquarium.RespondClean".Translate() + "  " + (int)RespondClean, -1f, null);
+				RespondClean = (float)((int)listing_Standard.Slider((float)((int)RespondClean), 25f, 75f));
 				listing_Standard.Gap(gap);
-				listing_Standard.Label("Aquarium.RespondFood".Translate() + "  " + (int)this.RespondFood, -1f, null);
-				this.RespondFood = (float)((int)listing_Standard.Slider((float)((int)this.RespondFood), 25f, 75f));
+				listing_Standard.Label("Aquarium.RespondFood".Translate() + "  " + (int)RespondFood, -1f, null);
+				RespondFood = (float)((int)listing_Standard.Slider((float)((int)RespondFood), 25f, 75f));
 				listing_Standard.Gap(gap);
-				listing_Standard.CheckboxLabeled("Aquarium.AllowBreed".Translate(), ref this.AllowBreed, null);
+				listing_Standard.CheckboxLabeled("Aquarium.AllowBreed".Translate(), ref AllowBreed, null);
 				listing_Standard.Gap(gap);
-				listing_Standard.Label("Aquarium.BreedChance".Translate() + "  " + (int)this.BreedChance, -1f, null);
-				this.BreedChance = (float)((int)listing_Standard.Slider((float)((int)this.BreedChance), 25f, 75f));
+				listing_Standard.Label("Aquarium.BreedChance".Translate() + "  " + (int)BreedChance, -1f, null);
+				BreedChance = (float)((int)listing_Standard.Slider((float)((int)BreedChance), 25f, 75f));
 				listing_Standard.Gap(gap);
 				listing_Standard.Gap(gap);
 				listing_Standard.End();
@@ -55,17 +57,18 @@ namespace Aquarium
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look<bool>(ref this.DoDeathMsgs, "DoDeathMsgs", true, false);
-			Scribe_Values.Look<bool>(ref this.AllowTankSounds, "AllowTankSounds", true, false);
-			Scribe_Values.Look<bool>(ref this.AllowInspire, "AllowInspire", true, false);
-			Scribe_Values.Look<float>(ref this.BaseInspChance, "BaseinspChance", 5f, false);
-			Scribe_Values.Look<float>(ref this.FishLife, "FishLife", 1f, false);
-			Scribe_Values.Look<float>(ref this.DegradeWaterFactor, "DegradeWaterFactor", 100f, false);
-			Scribe_Values.Look<float>(ref this.DegradeFoodFactor, "DegradeFoodFactor", 100f, false);
-			Scribe_Values.Look<float>(ref this.RespondClean, "RespondClean", 50f, false);
-			Scribe_Values.Look<float>(ref this.RespondFood, "RespondFood", 50f, false);
-			Scribe_Values.Look<bool>(ref this.AllowBreed, "AllowBreed", true, false);
-			Scribe_Values.Look<float>(ref this.BreedChance, "BreedChance", 50f, false);
+			Scribe_Values.Look<bool>(ref DoDeathMsgs, "DoDeathMsgs", true, false);
+			Scribe_Values.Look<bool>(ref AllowTankSounds, "AllowTankSounds", true, false);
+			Scribe_Values.Look<bool>(ref FishMovesAround, "FishMovesAround", true, false);
+			Scribe_Values.Look<bool>(ref AllowInspire, "AllowInspire", true, false);
+			Scribe_Values.Look<float>(ref BaseInspChance, "BaseinspChance", 5f, false);
+			Scribe_Values.Look<float>(ref FishLife, "FishLife", 1f, false);
+			Scribe_Values.Look<float>(ref DegradeWaterFactor, "DegradeWaterFactor", 100f, false);
+			Scribe_Values.Look<float>(ref DegradeFoodFactor, "DegradeFoodFactor", 100f, false);
+			Scribe_Values.Look<float>(ref RespondClean, "RespondClean", 50f, false);
+			Scribe_Values.Look<float>(ref RespondFood, "RespondFood", 50f, false);
+			Scribe_Values.Look<bool>(ref AllowBreed, "AllowBreed", true, false);
+			Scribe_Values.Look<float>(ref BreedChance, "BreedChance", 50f, false);
 		}
 
 		// Token: 0x04000024 RID: 36
@@ -73,6 +76,8 @@ namespace Aquarium
 
 		// Token: 0x04000025 RID: 37
 		public bool AllowTankSounds = true;
+
+		public bool FishMovesAround = true;
 
 		// Token: 0x04000026 RID: 38
 		public bool AllowInspire = true;
