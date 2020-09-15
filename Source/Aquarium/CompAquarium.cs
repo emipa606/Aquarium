@@ -26,6 +26,8 @@ namespace Aquarium
         {
             base.PostExposeData();
             Scribe_Values.Look<int>(ref numFish, "numFish", 0, false);
+            Scribe_Values.Look<int>(ref selectedSand, "selectedSandType", -1, false);
+            Scribe_Values.Look<int>(ref selectedDecoration, "selectedDecorationType", -1, false);
             Scribe_Values.Look<float>(ref cleanPct, "cleanPct", 1f, false);
             Scribe_Values.Look<float>(ref foodPct, "foodPct", 0f, false);
             Scribe_Collections.Look<string>(ref fishData, "fishData", LookMode.Value, Array.Empty<object>());
@@ -100,6 +102,7 @@ namespace Aquarium
             {
                 return;
             }
+
             int count = 0;
             var rand = new System.Random();
             var totalFish = fishData.Count();
@@ -118,6 +121,36 @@ namespace Aquarium
             }
             tankXRadius *= swimAdjustment;
             tankZRadius *= swimAdjustment;
+            Matrix4x4 matrix4x;
+            Vector3 Size;
+            Graphic ImageGraphic;
+            if (Props.maxFish > 1)
+            {
+                if (selectedSand >= 0)
+                {
+                    var sandLocation = parent.DrawPos;
+                    sandLocation.z -= 0.1f;
+                    sandLocation.y += 0.0254545468f;
+                    Size = new Vector3(parent.def.size.x - 0.54f, 1.0f, 0.7f);
+                    var path = parent.Graphic.path.Replace("_Empty", "_Sand");
+                    ImageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.Cutout, Vector2.one, DefsCacher.AQSandDefs[selectedSand].graphicData.color);
+                    matrix4x = default;
+                    matrix4x.SetTRS(sandLocation, Quaternion.AngleAxis(0, Vector3.up), Size);
+                    Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
+                }
+                if (selectedDecoration >= 0)
+                {
+                    var decorationLocation = parent.DrawPos;
+                    decorationLocation.z += 0.11f;
+                    decorationLocation.y += 0.0354545468f;
+                    Size = new Vector3(parent.def.size.x - 0.54f, 1.0f, 1.2f);
+                    var path = $"{parent.Graphic.path.Replace("_Empty", "_Decoration")}_{selectedDecoration}";
+                    ImageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
+                    matrix4x = default;
+                    matrix4x.SetTRS(decorationLocation, Quaternion.AngleAxis(0, Vector3.up), Size);
+                    Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
+                }
+            }
 
             if (fishData.Count > fishWandering.Count)
             {
@@ -236,9 +269,9 @@ namespace Aquarium
                 var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
                 string ImagePath = $"Things/Fish/Fish{gfxName}";
                 var adjustedSizeVector = ageFactor * perspective;
-                Vector3 Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
-                Graphic ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
-                Matrix4x4 matrix4x = default;
+                Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
+                ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
+                matrix4x = default;
                 matrix4x.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), Size);
                 if (fishWandering[count - 1][3] == 0)
                 {
@@ -248,6 +281,18 @@ namespace Aquarium
                 {
                     Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
                 }
+            }
+            if (Props.maxFish > 1)
+            {
+                var waterLocation = parent.DrawPos;
+                waterLocation.z += 0.11f;
+                waterLocation.y += 0.0554545468f;
+                Size = new Vector3(parent.def.size.x - 0.54f, 1.0f, 1.2f);
+                var path = "Things/Tanks/Water";
+                ImageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
+                matrix4x = default;
+                matrix4x.SetTRS(waterLocation, Quaternion.AngleAxis(0, Vector3.up), Size);
+                Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
             }
         }
 
@@ -262,7 +307,7 @@ namespace Aquarium
                 {
                     DoTankSound();
                 }
-                if (parent.IsHashIntervalTick(300))
+                if (parent.IsHashIntervalTick(Ticks))
                 {
                     if (Props.powerNeeded && IsPowered() && ShouldPushHeatNow)
                     {
@@ -281,7 +326,7 @@ namespace Aquarium
                         AQUtility.DebugFishData(this, Props.maxFish);
                     }
                 }
-                if (parent.IsHashIntervalTick(300000))
+                if (parent.IsHashIntervalTick(BreedingTicks))
                 {
                     TankBreeding();
                 }
@@ -423,7 +468,7 @@ namespace Aquarium
                         int agedegradingHealth = 0;
                         if (action != 1)
                         {
-                            age += 300;
+                            age += Ticks;
                             if (age + (int)RandomFloat(-450000f, 450000f) > oldFishAge)
                             {
                                 agedegradingHealth = 1;
@@ -550,6 +595,39 @@ namespace Aquarium
         // Token: 0x06000029 RID: 41 RVA: 0x000036C5 File Offset: 0x000018C5
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
+            string graphicPath;
+            string defaultLabel;
+            if (Props.maxFish > 1)
+            {
+                graphicPath = "Things/Fish/UI/Sand_Icon";
+                defaultLabel = selectedSand >= 0
+                    ? $"{("Aquarium." + DefsCacher.AQSandDefs[selectedSand].label).Translate()}\n{"Aquarium.Sand".Translate()}"
+                    : (string)"Aquarium.Sand".Translate();
+                yield return new Command_Action
+                {
+                    defaultLabel = defaultLabel,
+                    icon = ContentFinder<Texture2D>.Get(graphicPath, true),
+                    defaultDesc = "Aquarium.SandDesc".Translate(),
+                    action = delegate ()
+                    {
+                        SelectSand();
+                    }
+                };
+                graphicPath = "Things/Fish/UI/Decoration_Icon";
+                defaultLabel = selectedDecoration >= 0
+                    ? $"{("Aquarium." + DefsCacher.AQDecorationDefs[selectedDecoration].label).Translate()}\n{"Aquarium.Decorations".Translate()}"
+                    : (string)"Aquarium.Decorations".Translate();
+                yield return new Command_Action
+                {
+                    defaultLabel = defaultLabel,
+                    icon = ContentFinder<Texture2D>.Get(graphicPath, true),
+                    defaultDesc = "Aquarium.DecorationsDesc".Translate(),
+                    action = delegate ()
+                    {
+                        SelectDecorations();
+                    }
+                };
+            }
             for (int i = 1; i <= Props.maxFish; i++)
             {
                 ThingDef fishDef = null;
@@ -577,7 +655,7 @@ namespace Aquarium
                 }
                 string numLabel = i.ToString() + ": ";
                 string fishLabel = numLabel + "Aquarium.NoFish".Translate();
-                string graphicPath = "Things/Fish/UI/NoFish";
+                graphicPath = "Things/Fish/UI/NoFish";
                 string fishDesc = "Aquarium.FishSelection".Translate();
                 if (fishDef != null)
                 {
@@ -651,11 +729,11 @@ namespace Aquarium
             }
             else
             {
-                if (reachableDefs.Count == 0)
+                if (ReachableDefs.Count == 0)
                 {
                     list.Add(new FloatMenuOption("Aquarium.NoReachableFish".Translate(), null, MenuOptionPriority.Default, null, null, 29f, null, null));
                 }
-                foreach (string defName in reachableDefs)
+                foreach (string defName in ReachableDefs)
                 {
                     ThingDef potfishDef = ThingDef.Named(defName);
                     text = "Aquarium.AddFish".Translate() + " " + potfishDef.LabelCap;
@@ -666,6 +744,47 @@ namespace Aquarium
                 }
             }
             Find.WindowStack.Add(new FloatMenu(list));
+        }
+
+        private void SelectDecorations()
+        {
+            List<FloatMenuOption> list = new List<FloatMenuOption>();
+            for (int i = 0; i < DefsCacher.AQDecorationDefs.Count; i++)
+            {
+                var textToAdd = $"Aquarium.{DefsCacher.AQDecorationDefs[i].label}".Translate();
+                var decorationDef = DefsCacher.AQDecorationDefs[i];
+                list.Add(new FloatMenuOption(textToAdd, delegate ()
+                {
+                    SetDecoration(decorationDef);
+                }, MenuOptionPriority.Default, null, null, 29f, null, null));
+            }
+            Find.WindowStack.Add(new FloatMenu(list));
+        }
+
+        private void SelectSand()
+        {
+            List<FloatMenuOption> list = new List<FloatMenuOption>();
+            for (int i = DefsCacher.AQSandDefs.Count - 1; i >= 0; i--)
+            {
+                var textToAdd = $"Aquarium.{DefsCacher.AQSandDefs[i].label}".Translate();
+                var sandDef = DefsCacher.AQSandDefs[i];
+                list.Add(new FloatMenuOption(textToAdd, delegate ()
+                {
+                    SetSand(sandDef);
+                }, MenuOptionPriority.Default, null, null, 29f, null, null));
+            }
+            Find.WindowStack.Add(new FloatMenu(list));
+        }
+
+
+        private void SetDecoration(ThingDef decorationName)
+        {
+            selectedDecoration = DefsCacher.AQDecorationDefs.IndexOf(decorationName);
+        }
+
+        private void SetSand(ThingDef sandDef)
+        {
+            selectedSand = DefsCacher.AQSandDefs.IndexOf(sandDef);
         }
 
         // Token: 0x0600002C RID: 44 RVA: 0x00003850 File Offset: 0x00001A50
@@ -860,7 +979,7 @@ namespace Aquarium
             }
         }
 
-        private List<string> reachableDefs
+        private List<string> ReachableDefs
         {
             get
             {
@@ -936,6 +1055,10 @@ namespace Aquarium
 
         // Token: 0x0400000C RID: 12
         internal int numFish;
+
+        internal int selectedDecoration = -1;
+
+        internal int selectedSand = -1;
 
         // Token: 0x0400000D RID: 13
         internal float cleanPct = 1f;

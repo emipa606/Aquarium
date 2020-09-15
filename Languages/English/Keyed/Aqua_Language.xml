@@ -27,6 +27,22 @@
   <Aquarium.DoNothing>Do nothing</Aquarium.DoNothing>
   <Aquarium.RemoveFish>Remove fish</Aquarium.RemoveFish>
   <Aquarium.AddFish>Add fish:</Aquarium.AddFish>
+  <Aquarium.Sand>Sand color</Aquarium.Sand>
+  <Aquarium.SandDesc>Different colors of sand for the bottom of the tank</Aquarium.SandDesc>
+  <Aquarium.Decorations>Decorations</Aquarium.Decorations>
+  <Aquarium.DecorationsDesc>Different items to decorate the tank with</Aquarium.DecorationsDesc>
   <Aquarium.NoReachableFish>No reachable fish in range</Aquarium.NoReachableFish>
+  <!-- Decorations -->
+  <Aquarium.LushGroove>Lush Groove</Aquarium.LushGroove>
+  <Aquarium.RedDawn>Red Dawn</Aquarium.RedDawn>
+  <Aquarium.PurpleHaze>Purple Haze</Aquarium.PurpleHaze>
+  <Aquarium.SpaceJam>Space Jam</Aquarium.SpaceJam>
+  <!-- Sands -->
+  <Aquarium.White>White</Aquarium.White>
+  <Aquarium.Yellow>Yellow</Aquarium.Yellow>
+  <Aquarium.Red>Red</Aquarium.Red>
+  <Aquarium.Blue>Blue</Aquarium.Blue>
+  <Aquarium.Green>Green</Aquarium.Green>
+  <Aquarium.Black>Black</Aquarium.Black>
 
 </LanguageData>

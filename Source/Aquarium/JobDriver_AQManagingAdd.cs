@@ -14,7 +14,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return job.GetTarget(TargetIndex.A).Thing;
+				return job.GetTarget(AddTo).Thing;
 			}
 		}
 
@@ -34,7 +34,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return job.GetTarget(TargetIndex.B).Thing;
+				return job.GetTarget(FishToAdd).Thing;
 			}
 		}
 
@@ -47,19 +47,19 @@ namespace Aquarium
 		// Token: 0x0600004D RID: 77 RVA: 0x00004189 File Offset: 0x00002389
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
-			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+			this.FailOnDespawnedNullOrForbidden(AddTo);
 			yield return Toils_General.DoAtomic(delegate
 			{
 				job.count = 1;
 			});
-			Toil reserveFish = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
+			Toil reserveFish = Toils_Reserve.Reserve(FishToAdd, 1, -1, null);
 			yield return reserveFish;
-			yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
-			yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, true, false).FailOnDestroyedNullOrForbidden(TargetIndex.B);
-			yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveFish, TargetIndex.B, TargetIndex.None, true, null);
-			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-			yield return Toils_General.Wait(720, TargetIndex.None).FailOnDestroyedNullOrForbidden(TargetIndex.B).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
-			yield return Toils_AQAdding.FinalizeAdding(TargetIndex.A, TargetIndex.B);
+			yield return Toils_Goto.GotoThing(FishToAdd, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(FishToAdd).FailOnSomeonePhysicallyInteracting(FishToAdd);
+			yield return Toils_Haul.StartCarryThing(FishToAdd, false, true, false).FailOnDestroyedNullOrForbidden(FishToAdd);
+			yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveFish, FishToAdd, TargetIndex.None, true, null);
+			yield return Toils_Goto.GotoThing(AddTo, PathEndMode.Touch);
+			yield return Toils_General.Wait(AddDuration, TargetIndex.None).FailOnDestroyedNullOrForbidden(FishToAdd).FailOnDestroyedNullOrForbidden(AddTo).FailOnCannotTouch(AddTo, PathEndMode.Touch).WithProgressBarToilDelay(AddTo, false, -0.5f);
+			yield return Toils_AQAdding.FinalizeAdding(AddTo, FishToAdd);
 			yield break;
 		}
 

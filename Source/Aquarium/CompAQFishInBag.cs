@@ -30,17 +30,17 @@ namespace Aquarium
 		public override void CompTick()
 		{
 			base.CompTick();
-			if (parent.IsHashIntervalTick(300))
+			if (parent.IsHashIntervalTick(bagTicks))
 			{
 				bool died = false;
-				age += 300;
+				age += bagTicks;
 				if (age + (int)CompAquarium.RandomFloat(-450000f, 450000f) > CompAquarium.oldFishAge)
 				{
 					fishhealth--;
 				}
 				if (parent.Spawned)
 				{
-					ticksInBagRemain -= 300;
+					ticksInBagRemain -= bagTicks;
 					if (ticksInBagRemain <= 0)
 					{
 						fishhealth--;

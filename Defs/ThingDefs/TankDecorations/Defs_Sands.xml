@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Abstract="True" Name="AQSands">
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQSands">
+    <defName>AQSand_A</defName>
+    <label>White</label>
+    <graphicData>
+      <color>(230, 230, 230)</color>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQSands">
+    <defName>AQSand_B</defName>
+    <label>Yellow</label>
+    <graphicData>
+      <color>(214, 214, 140)</color>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQSands">
+    <defName>AQSand_C</defName>
+    <label>Red</label>
+    <graphicData>
+      <color>(216, 76, 76)</color>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQSands">
+    <defName>AQSand_D</defName>
+    <label>Blue</label>
+    <graphicData>
+      <color>(96, 91, 193)</color>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQSands">
+    <defName>AQSand_E</defName>
+    <label>Green</label>
+    <graphicData>
+      <color>(104, 153, 91)</color>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQSands">
+    <defName>AQSand_F</defName>
+    <label>Black</label>
+    <graphicData>
+      <color>(50, 50, 50)</color>
+    </graphicData>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Abstract="True" Name="AQDecorations">
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_A</defName>
+    <label>LushGroove</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_B</defName>
+    <label>RedDawn</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_C</defName>
+    <label>PurpleHaze</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_D</defName>
+    <label>SpaceJam</label>
+  </ThingDef>
+</Defs>

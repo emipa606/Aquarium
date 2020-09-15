@@ -460,4 +460,15 @@
       <MarketValue>30</MarketValue>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagForty</defName>
+    <label>Elephantnose Fish</label>
+    <description>The Elephant Nose is an interesting fish that originates from the Niger River and its tributaries in Western Africa. Its body is mostly black and is irregularly shaped with a long narrow tail and what looks to be its nose however this is actually an extension of the fish's mouth. The Elephant nose uses its trunk-like extension to forage for food, communicate, move through the water and self defense.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag40</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
 </Defs>

@@ -60,7 +60,7 @@
     <label>Fish Tank</label>
     <description>A large glass tank with water and decorations for keeping pet fish in.</description>
     <graphicData>
-      <texPath>Things/Tanks/Tank_Water</texPath>
+      <texPath>Things/Tanks/Tank_Empty</texPath>
       <drawSize>(2,2)</drawSize>
       <damageData>
         <rect>(0.35,0.35,0.3,0.3)</rect>
@@ -97,7 +97,7 @@
     <label>Fish Tank Wide</label>
     <description>A wide glass tank with water and decorations for keeping pet fish in.</description>
     <graphicData>
-      <texPath>Things/Tanks/TankWide_Water</texPath>
+      <texPath>Things/Tanks/TankWide_Empty</texPath>
       <drawSize>(4,2)</drawSize>
       <damageData>
         <rect>(0.35,2.35,0.3,0.3)</rect>

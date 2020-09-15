@@ -34,7 +34,7 @@ namespace Aquarium
 		{
 			get
 			{
-				return job.GetTarget(TargetIndex.B).Thing;
+				return job.GetTarget(Foodybits).Thing;
 			}
 		}
 
@@ -47,7 +47,7 @@ namespace Aquarium
 		// Token: 0x06000045 RID: 69 RVA: 0x0000409D File Offset: 0x0000229D
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
-			this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+			this.FailOnDespawnedNullOrForbidden(Feedable);
             AddEndCondition(delegate
 			{
 				if (AQComp.foodPct > 0.95f)
@@ -60,22 +60,22 @@ namespace Aquarium
 			{
 				job.count = AQUtility.GetFoodNumToFullyFeed(AQComp);
 			});
-			Toil reserveFood = Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
+			Toil reserveFood = Toils_Reserve.Reserve(Foodybits, 1, -1, null);
 			yield return reserveFood;
-			yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.B).FailOnSomeonePhysicallyInteracting(TargetIndex.B);
-			yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, true, false).FailOnDestroyedNullOrForbidden(TargetIndex.B);
-			yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveFood, TargetIndex.B, TargetIndex.None, true, null);
-			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-			yield return Toils_General.Wait(300, TargetIndex.None).FailOnDestroyedNullOrForbidden(TargetIndex.B).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
-			yield return Toils_AQFeed.FinalizeFeeding(TargetIndex.A, TargetIndex.B);
-			if (!job.GetTarget(TargetIndex.B).HasThing)
+			yield return Toils_Goto.GotoThing(Foodybits, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(Foodybits).FailOnSomeonePhysicallyInteracting(Foodybits);
+			yield return Toils_Haul.StartCarryThing(Foodybits, false, true, false).FailOnDestroyedNullOrForbidden(Foodybits);
+			yield return Toils_Haul.CheckForGetOpportunityDuplicate(reserveFood, Foodybits, TargetIndex.None, true, null);
+			yield return Toils_Goto.GotoThing(Feedable, PathEndMode.Touch);
+			yield return Toils_General.Wait(FeedDuration, TargetIndex.None).FailOnDestroyedNullOrForbidden(Foodybits).FailOnDestroyedNullOrForbidden(Feedable).FailOnCannotTouch(Feedable, PathEndMode.Touch).WithProgressBarToilDelay(Feedable, false, -0.5f);
+			yield return Toils_AQFeed.FinalizeFeeding(Feedable, Foodybits);
+			if (!job.GetTarget(Foodybits).HasThing)
 			{
                 EndJobWith(JobCondition.Incompletable);
 			}
-			yield return Toils_Reserve.Reserve(TargetIndex.B, 1, -1, null);
+			yield return Toils_Reserve.Reserve(Foodybits, 1, -1, null);
 			yield return Toils_Reserve.Reserve(TargetIndex.C, 1, -1, null);
-			yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);
-			yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);
+			yield return Toils_Goto.GotoThing(Foodybits, PathEndMode.ClosestTouch);
+			yield return Toils_Haul.StartCarryThing(Foodybits, false, false, false);
 			Toil carry = Toils_Haul.CarryHauledThingToCell(TargetIndex.C);
 			yield return carry;
 			yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, carry, true, false);
