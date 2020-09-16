@@ -26,27 +26,27 @@ namespace Aquarium
 			checked
 			{
 				listing_Standard.Label("Aquarium.BaseInspChance".Translate() + "  " + (int)BaseInspChance, -1f, null);
-				BaseInspChance = (float)((int)listing_Standard.Slider((float)((int)BaseInspChance), 1f, 10f));
+				BaseInspChance = (int)listing_Standard.Slider((int)BaseInspChance, 1f, 10f);
 				listing_Standard.Gap(gap);
 				listing_Standard.Label("Aquarium.FishLife".Translate() + "  " + (int)FishLife, -1f, null);
-				FishLife = (float)((int)listing_Standard.Slider((float)((int)FishLife), 1f, 3f));
+				FishLife = (int)listing_Standard.Slider((int)FishLife, 1f, 3f);
 				listing_Standard.Gap(gap);
 				listing_Standard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)DegradeWaterFactor, -1f, null);
-				DegradeWaterFactor = (float)((int)listing_Standard.Slider((float)((int)DegradeWaterFactor), 50f, 200f));
+				DegradeWaterFactor = (int)listing_Standard.Slider((int)DegradeWaterFactor, 50f, 200f);
 				listing_Standard.Gap(gap);
 				listing_Standard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)DegradeFoodFactor, -1f, null);
-				DegradeFoodFactor = (float)((int)listing_Standard.Slider((float)((int)DegradeFoodFactor), 50f, 200f));
+				DegradeFoodFactor = (int)listing_Standard.Slider((int)DegradeFoodFactor, 50f, 200f);
 				listing_Standard.Gap(gap);
 				listing_Standard.Label("Aquarium.RespondClean".Translate() + "  " + (int)RespondClean, -1f, null);
-				RespondClean = (float)((int)listing_Standard.Slider((float)((int)RespondClean), 25f, 75f));
+				RespondClean = (int)listing_Standard.Slider((int)RespondClean, 25f, 75f);
 				listing_Standard.Gap(gap);
 				listing_Standard.Label("Aquarium.RespondFood".Translate() + "  " + (int)RespondFood, -1f, null);
-				RespondFood = (float)((int)listing_Standard.Slider((float)((int)RespondFood), 25f, 75f));
+				RespondFood = (int)listing_Standard.Slider((int)RespondFood, 25f, 75f);
 				listing_Standard.Gap(gap);
 				listing_Standard.CheckboxLabeled("Aquarium.AllowBreed".Translate(), ref AllowBreed, null);
 				listing_Standard.Gap(gap);
 				listing_Standard.Label("Aquarium.BreedChance".Translate() + "  " + (int)BreedChance, -1f, null);
-				BreedChance = (float)((int)listing_Standard.Slider((float)((int)BreedChance), 25f, 75f));
+				BreedChance = (int)listing_Standard.Slider((int)BreedChance, 25f, 75f);
 				listing_Standard.Gap(gap);
 				listing_Standard.Gap(gap);
 				listing_Standard.End();

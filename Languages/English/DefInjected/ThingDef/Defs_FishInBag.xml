@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <AQRandomFish.label>Random Fish</AQRandomFish.label>
+
   <AQFishInBagOne.label>Lionfish</AQFishInBagOne.label>
   <AQFishInBagOne.description>Pterois is a genus of venomous marine fish, commonly known as lionfish. Also called zebrafish, firefish, turkeyfish, tastyfish or butterfly-cod, it is characterized by conspicuous warning coloration with red, white, creamy, or black bands, showy pectoral fins, and venomous spiky fin rays.</AQFishInBagOne.description>
 

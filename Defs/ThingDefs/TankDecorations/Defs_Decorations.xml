@@ -23,4 +23,24 @@
     <defName>AQDecoration_D</defName>
     <label>SpaceJam</label>
   </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_E</defName>
+    <label>RockyValley</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_F</defName>
+    <label>SparseField</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_G</defName>
+    <label>ForrestFloor</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_H</defName>
+    <label>AutumnHarvest</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_I</defName>
+    <label>AnemoneGroup</label>
+  </ThingDef>
 </Defs>

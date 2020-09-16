@@ -82,9 +82,9 @@ namespace Aquarium
 		// Token: 0x06000016 RID: 22 RVA: 0x00002B3C File Offset: 0x00000D3C
 		public override string CompInspectStringExtra()
 		{
-			float ageDays = (float)age / 60000f;
-			float fishhealthpct = (float)fishhealth / 100f;
-			float hoursRemain = (float)ticksInBagRemain / 2500f;
+			float ageDays = age / 60000f;
+			float fishhealthpct = fishhealth / 100f;
+			float hoursRemain = ticksInBagRemain / 2500f;
 			return "Aquarium.BagInfo".Translate(ageDays.ToString("F2"), fishhealthpct.ToStringPercent(), hoursRemain.ToString("F2"));
 		}
 

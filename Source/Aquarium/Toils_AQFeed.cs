@@ -40,7 +40,7 @@ namespace Aquarium
                                 GenPlace.TryPlaceThing(foodybits, toil.actor.Position, toil.actor.Map, ThingPlaceMode.Near, out Thing newFoodDrop, null, null, default);
                                 excessThing = newFoodDrop;
 							}
-							AQComp.foodPct += (float)numAdding * 0.1f;
+							AQComp.foodPct += numAdding * 0.1f;
 							if (AQComp.foodPct > 1f)
 							{
 								AQComp.foodPct = 1f;

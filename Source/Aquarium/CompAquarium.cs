@@ -26,8 +26,8 @@ namespace Aquarium
         {
             base.PostExposeData();
             Scribe_Values.Look<int>(ref numFish, "numFish", 0, false);
-            Scribe_Values.Look<int>(ref selectedSand, "selectedSandType", -1, false);
-            Scribe_Values.Look<int>(ref selectedDecoration, "selectedDecorationType", -1, false);
+            Scribe_Values.Look<string>(ref selectedSandDefName, "selectedSandDefName", string.Empty, false);
+            Scribe_Values.Look<string>(ref selectedDecorationDefName, "selectedDecorationDefName", string.Empty, false);
             Scribe_Values.Look<float>(ref cleanPct, "cleanPct", 1f, false);
             Scribe_Values.Look<float>(ref foodPct, "foodPct", 0f, false);
             Scribe_Collections.Look<string>(ref fishData, "fishData", LookMode.Value, Array.Empty<object>());
@@ -102,6 +102,12 @@ namespace Aquarium
             {
                 return;
             }
+            selectedSand = !string.IsNullOrEmpty(selectedSandDefName)
+                ? DefsCacher.AQSandDefs.IndexOf((from sandDef in DefsCacher.AQSandDefs where sandDef.defName == selectedSandDefName select sandDef).First())
+                : -1;
+            selectedDecoration = !string.IsNullOrEmpty(selectedDecorationDefName)
+                ? DefsCacher.AQDecorationDefs.IndexOf((from decorationDef in DefsCacher.AQDecorationDefs where decorationDef.defName == selectedDecorationDefName select decorationDef).First())
+                : -1;
 
             int count = 0;
             var rand = new System.Random();
@@ -183,7 +189,7 @@ namespace Aquarium
                 var iterator = count;
                 count++;
                 int age = NumValuePart(value, 3);
-                float ageFactor = Mathf.Lerp(0.5f, 1f, Math.Min((float)age, (float)oldFishAge) / (float)oldFishAge);
+                float ageFactor = Mathf.Lerp(0.5f, 1f, Math.Min(age, (float)oldFishAge) / oldFishAge);
                 Vector3 drawPos = parent.DrawPos;
                 float perspective = 1f;
                 if (Controller.Settings.FishMovesAround && Props.maxFish > 1)
@@ -355,14 +361,14 @@ namespace Aquarium
                     if (NumValuePart(value, 4) != 1)
                     {
                         int age = NumValuePart(value, 3);
-                        sum += Mathf.Lerp(0.75f, 1f, (float)(Math.Min(oldFishAge, age) / oldFishAge));
+                        sum += Mathf.Lerp(0.75f, 1f, Math.Min(oldFishAge, age) / oldFishAge);
                         count++;
                     }
                 }
             }
             if (count > 0)
             {
-                factor = sum / (float)count;
+                factor = sum / count;
             }
             return factor;
         }
@@ -413,7 +419,7 @@ namespace Aquarium
         {
             float factor = Controller.Settings.DegradeFoodFactor / 100f * 0.0625f * ageF;
             newFoodPct = foodPct;
-            newFoodPct -= (0.01f + (float)numFish * RandomFloat(0.01f, 0.04f)) * factor;
+            newFoodPct -= (0.01f + numFish * RandomFloat(0.01f, 0.04f)) * factor;
             if (newFoodPct < 0f)
             {
                 newFoodPct = 0f;
@@ -425,7 +431,7 @@ namespace Aquarium
         {
             float factor = Controller.Settings.DegradeWaterFactor / 100f * 0.025f * ageF;
             newCleanPct = cleanPct;
-            newCleanPct -= (float)numFish * RandomFloat(0.02f, 0.03f) * factor;
+            newCleanPct -= numFish * RandomFloat(0.02f, 0.03f) * factor;
             newCleanPct -= Mathf.Lerp(0f, 0.02f, foodPct) * factor;
             if (newCleanPct < 0f)
             {
@@ -476,7 +482,7 @@ namespace Aquarium
                             int poorhealth = degradingHealth + agedegradingHealth;
                             if (poorhealth > 0)
                             {
-                                health -= (int)Math.Max(1f, (float)poorhealth * Mathf.Lerp(0.5f, 1f, Math.Max(1f, (float)age / (float)oldFishAge)));
+                                health -= (int)Math.Max(1f, poorhealth * Mathf.Lerp(0.5f, 1f, Math.Max(1f, age / (float)oldFishAge)));
                                 if (health <= 0)
                                 {
                                     died = true;
@@ -484,7 +490,7 @@ namespace Aquarium
                             }
                             else if (health < 100)
                             {
-                                health += (int)Math.Max(1f, Mathf.Lerp(1f, 0.5f, Math.Max(1f, (float)age / (float)oldFishAge)));
+                                health += (int)Math.Max(1f, Mathf.Lerp(1f, 0.5f, Math.Max(1f, age / (float)oldFishAge)));
                                 if (health > 100)
                                 {
                                     health = 100;
@@ -599,6 +605,13 @@ namespace Aquarium
             string defaultLabel;
             if (Props.maxFish > 1)
             {
+                selectedSand = !string.IsNullOrEmpty(selectedSandDefName)
+                ? DefsCacher.AQSandDefs.IndexOf((from sandDef in DefsCacher.AQSandDefs where sandDef.defName == selectedSandDefName select sandDef).First())
+                : -1;
+                selectedDecoration = !string.IsNullOrEmpty(selectedDecorationDefName)
+                    ? DefsCacher.AQDecorationDefs.IndexOf((from decorationDef in DefsCacher.AQDecorationDefs where decorationDef.defName == selectedDecorationDefName select decorationDef).First())
+                    : -1;
+
                 graphicPath = "Things/Fish/UI/Sand_Icon";
                 defaultLabel = selectedSand >= 0
                     ? $"{("Aquarium." + DefsCacher.AQSandDefs[selectedSand].label).Translate()}\n{"Aquarium.Sand".Translate()}"
@@ -647,7 +660,7 @@ namespace Aquarium
                                 fishDef = ThingDef.Named(fishstring);
                             }
                             fishHealth = NumValuePart(value, 2);
-                            fishAge = (int)((float)NumValuePart(value, 3) / 60000f);
+                            fishAge = (int)(NumValuePart(value, 3) / 60000f);
                             fishAction = NumValuePart(value, 4);
                             break;
                         }
@@ -660,7 +673,7 @@ namespace Aquarium
                 if (fishDef != null)
                 {
                     var fishGfx = fishstring.Replace("AQFishInBag", "");
-                    graphicPath = $"Things/Fish/Fish{WordsToNumbers(fishGfx)}";
+                    graphicPath = fishstring == "AQRandomFish" ? $"Things/Fish/UI/Random_Icon" : $"Things/Fish/Fish{WordsToNumbers(fishGfx)}";
                     if (fishAction == 1)
                     {
                         fishLabel = numLabel + "Aquarium.Adding".Translate();
@@ -671,7 +684,7 @@ namespace Aquarium
                     }
                     else
                     {
-                        fishLabel = numLabel + fishDef.LabelCap + "\nH: " + ((float)fishHealth / 100f).ToStringPercent() + ", " + fishAge.ToString() + " " + "Aquarium.days".Translate();
+                        fishLabel = numLabel + fishDef.LabelCap + "\nH: " + (fishHealth / 100f).ToStringPercent() + ", " + fishAge.ToString() + " " + "Aquarium.days".Translate();
                     }
                 }
                 Texture2D fishIcon = ContentFinder<Texture2D>.Get(graphicPath, true);
@@ -717,18 +730,23 @@ namespace Aquarium
             string text = "Aquarium.DoNothing".Translate();
             list.Add(new FloatMenuOption(text, delegate ()
             {
-                FishSelection(false, null, 0, 0);
+                FishSelection(null, 0, ActionType.Nothing);
             }, MenuOptionPriority.Default, null, null, 29f, null, null));
             if (afishDef != null)
             {
                 text = "Aquarium.RemoveFish".Translate();
                 list.Add(new FloatMenuOption(text, delegate ()
                 {
-                    FishSelection(true, afishDef, selindex, 2);
+                    FishSelection(afishDef, selindex, ActionType.Remove);
                 }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
             else
             {
+                var randomFishDef = DefDatabase<ThingDef>.GetNamed("AQRandomFish");
+                list.Add(new FloatMenuOption("Aquarium.RandomFish".Translate(), delegate ()
+                {
+                    FishSelection(randomFishDef, selindex, ActionType.Add);
+                }, MenuOptionPriority.Default, null, null, 29f, null, null));
                 if (ReachableDefs.Count == 0)
                 {
                     list.Add(new FloatMenuOption("Aquarium.NoReachableFish".Translate(), null, MenuOptionPriority.Default, null, null, 29f, null, null));
@@ -739,24 +757,9 @@ namespace Aquarium
                     text = "Aquarium.AddFish".Translate() + " " + potfishDef.LabelCap;
                     list.Add(new FloatMenuOption(text, delegate ()
                     {
-                        FishSelection(true, potfishDef, selindex, 1);
+                        FishSelection(potfishDef, selindex, ActionType.Add);
                     }, MenuOptionPriority.Default, null, null, 29f, null, null));
                 }
-            }
-            Find.WindowStack.Add(new FloatMenu(list));
-        }
-
-        private void SelectDecorations()
-        {
-            List<FloatMenuOption> list = new List<FloatMenuOption>();
-            for (int i = 0; i < DefsCacher.AQDecorationDefs.Count; i++)
-            {
-                var textToAdd = $"Aquarium.{DefsCacher.AQDecorationDefs[i].label}".Translate();
-                var decorationDef = DefsCacher.AQDecorationDefs[i];
-                list.Add(new FloatMenuOption(textToAdd, delegate ()
-                {
-                    SetDecoration(decorationDef);
-                }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
             Find.WindowStack.Add(new FloatMenu(list));
         }
@@ -770,30 +773,35 @@ namespace Aquarium
                 var sandDef = DefsCacher.AQSandDefs[i];
                 list.Add(new FloatMenuOption(textToAdd, delegate ()
                 {
-                    SetSand(sandDef);
+                    selectedSandDefName = sandDef.defName;
                 }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
-            Find.WindowStack.Add(new FloatMenu(list));
+            var sortedList = list.OrderBy(option => option.Label).ToList();
+            Find.WindowStack.Add(new FloatMenu(sortedList));
         }
 
-
-        private void SetDecoration(ThingDef decorationName)
+        private void SelectDecorations()
         {
-            selectedDecoration = DefsCacher.AQDecorationDefs.IndexOf(decorationName);
-        }
-
-        private void SetSand(ThingDef sandDef)
-        {
-            selectedSand = DefsCacher.AQSandDefs.IndexOf(sandDef);
+            List<FloatMenuOption> list = new List<FloatMenuOption>();
+            for (int i = 0; i < DefsCacher.AQDecorationDefs.Count; i++)
+            {
+                var textToAdd = $"Aquarium.{DefsCacher.AQDecorationDefs[i].label}".Translate();
+                var decorationDef = DefsCacher.AQDecorationDefs[i];
+                list.Add(new FloatMenuOption(textToAdd, delegate ()
+                {
+                    selectedDecorationDefName = decorationDef.defName;
+                }, MenuOptionPriority.Default, null, null, 29f, null, null));
+            }
+            var sortedList = list.OrderBy(option => option.Label).ToList();
+            Find.WindowStack.Add(new FloatMenu(sortedList));
         }
 
         // Token: 0x0600002C RID: 44 RVA: 0x00003850 File Offset: 0x00001A50
-        public void FishSelection(bool action, ThingDef selfishDef, int fishindex, int actionType)
+        public void FishSelection(ThingDef selfishDef, int fishindex, ActionType actionType)
         {
-            if (action)
+            switch (actionType)
             {
-                if (actionType == 1)
-                {
+                case ActionType.Add:
                     List<string> newFishData = new List<string>();
                     int newindex = 0;
                     if (fishData.Count > 0)
@@ -814,10 +822,8 @@ namespace Aquarium
                     string addValue = CreateValuePart(newindex, selfishDef.defName, 0, 0, 1);
                     newFishData.Add(addValue);
                     fishData = newFishData;
-                    return;
-                }
-                if (actionType == 2)
-                {
+                    break;
+                case ActionType.Remove:
                     List<string> newFishData2 = new List<string>();
                     bool cancel = false;
                     if (fishData.Count > 0)
@@ -877,7 +883,9 @@ namespace Aquarium
                         }
                         fishData = cancelFishData;
                     }
-                }
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -979,7 +987,7 @@ namespace Aquarium
             }
         }
 
-        private List<string> ReachableDefs
+        public List<string> ReachableDefs
         {
             get
             {
@@ -1033,6 +1041,13 @@ namespace Aquarium
             }
         }
 
+        public enum ActionType
+        {
+            Nothing,
+            Add,
+            Remove
+        }
+
         // Token: 0x04000008 RID: 8
         private const int Ticks = 300;
 
@@ -1060,6 +1075,10 @@ namespace Aquarium
 
         internal int selectedSand = -1;
 
+        internal string selectedDecorationDefName = string.Empty;
+
+        internal string selectedSandDefName = string.Empty;
+
         // Token: 0x0400000D RID: 13
         internal float cleanPct = 1f;
 
@@ -1070,6 +1089,8 @@ namespace Aquarium
         internal List<string> fishData = new List<string>();
 
         internal List<float[]> fishWandering = new List<float[]>();
+
+        internal List<Thing> reservedFish = new List<Thing>();
 
         // Token: 0x04000010 RID: 16
         internal bool fishydebug;

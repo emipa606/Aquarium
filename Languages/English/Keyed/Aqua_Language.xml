@@ -27,6 +27,7 @@
   <Aquarium.DoNothing>Do nothing</Aquarium.DoNothing>
   <Aquarium.RemoveFish>Remove fish</Aquarium.RemoveFish>
   <Aquarium.AddFish>Add fish:</Aquarium.AddFish>
+  <Aquarium.RandomFish>Random Fish</Aquarium.RandomFish>
   <Aquarium.Sand>Sand color</Aquarium.Sand>
   <Aquarium.SandDesc>Different colors of sand for the bottom of the tank</Aquarium.SandDesc>
   <Aquarium.Decorations>Decorations</Aquarium.Decorations>
@@ -37,6 +38,11 @@
   <Aquarium.RedDawn>Red Dawn</Aquarium.RedDawn>
   <Aquarium.PurpleHaze>Purple Haze</Aquarium.PurpleHaze>
   <Aquarium.SpaceJam>Space Jam</Aquarium.SpaceJam>
+  <Aquarium.RockyValley>Rocky Valley</Aquarium.RockyValley>
+  <Aquarium.SparseField>Sparse Field</Aquarium.SparseField>
+  <Aquarium.ForrestFloor>Forrest Floor</Aquarium.ForrestFloor>
+  <Aquarium.AutumnHarvest>Autumn Harvest</Aquarium.AutumnHarvest>
+  <Aquarium.AnemoneGroup>Anemone Group</Aquarium.AnemoneGroup>
   <!-- Sands -->
   <Aquarium.White>White</Aquarium.White>
   <Aquarium.Yellow>Yellow</Aquarium.Yellow>

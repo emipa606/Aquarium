@@ -32,6 +32,13 @@
     </comps>
   </ThingDef>
   <ThingDef ParentName="FishInBagBase">
+    <defName>AQRandomFish</defName>
+    <label>Random Fish</label>
+    <graphicData>
+      <texPath>Things/Fish/UI/Random_Icon</texPath>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
     <defName>AQFishInBagOne</defName>
     <label>Lionfish</label>
     <description>Pterois is a genus of venomous marine fish, commonly known as lionfish. Also called zebrafish, firefish, turkeyfish, tastyfish or butterfly-cod, it is characterized by conspicuous warning coloration with red, white, creamy, or black bands, showy pectoral fins, and venomous spiky fin rays.</description>
