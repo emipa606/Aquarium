@@ -25,12 +25,24 @@ namespace Aquarium
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look<int>(ref numFish, "numFish", 0, false);
-            Scribe_Values.Look<string>(ref selectedSandDefName, "selectedSandDefName", string.Empty, false);
-            Scribe_Values.Look<string>(ref selectedDecorationDefName, "selectedDecorationDefName", string.Empty, false);
-            Scribe_Values.Look<float>(ref cleanPct, "cleanPct", 1f, false);
-            Scribe_Values.Look<float>(ref foodPct, "foodPct", 0f, false);
-            Scribe_Collections.Look<string>(ref fishData, "fishData", LookMode.Value, Array.Empty<object>());
+            Scribe_Values.Look(ref numFish, "numFish", 0, false);
+            Scribe_Values.Look(ref selectedSandDefName, "selectedSandDefName", string.Empty, false);
+            Scribe_Values.Look(ref selectedDecorationDefName, "selectedDecorationDefName", string.Empty, false);
+            Scribe_Values.Look(ref cleanPct, "cleanPct", 1f, false);
+            Scribe_Values.Look(ref foodPct, "foodPct", 0f, false);
+            Scribe_Collections.Look(ref fishData, "fishData", LookMode.Value, Array.Empty<object>());
+        }
+
+        public override void PostDestroy(DestroyMode mode, Map previousMap)
+        {
+            if (savedBeauty != null)
+            {
+                foreach (var beautyItem in savedBeauty)
+                {
+                    beautyItem.Destroy();
+                }
+            }
+            base.PostDestroy(mode, previousMap);
         }
 
         private Vector3 GetDrawPos(int currentFishNumber, Vector3 baseVector, out float perspective)
@@ -342,6 +354,7 @@ namespace Aquarium
                 numFish = 0;
                 DumpFish(fishData);
                 fishData = new List<string>();
+                GenerateBeauty(fishData);
                 foodPct = 0f;
                 cleanPct = 1f;
             }
@@ -411,6 +424,80 @@ namespace Aquarium
                         }
                     }
                 }
+            }
+        }
+
+        public void CleanBeautyItems()
+        {
+            var parentArea = parent.OccupiedRect();
+            HashSet<Thing> thingsToDestroy = new HashSet<Thing>();
+            foreach (var cell in parentArea.Cells)
+            {
+                foreach (var thing in cell.GetThingList(parent.Map))
+                {
+                    if (!thing.def.defName.StartsWith("AQBeauty"))
+                    {
+                        continue;
+                    }
+                    thingsToDestroy.Add(thing);
+                }
+            }
+            foreach (var thing in thingsToDestroy)
+            {
+                if (!thing.Destroyed)
+                {
+                    thing.Destroy();
+                }
+            }
+        }
+
+        public void GenerateBeauty(List<string> fishData)
+        {
+            if (savedBeauty != null)
+            {
+                foreach (var beautyItem in savedBeauty)
+                {
+                    if (!beautyItem.Destroyed)
+                        beautyItem.Destroy();
+                }
+            }
+            CleanBeautyItems();
+            savedBeauty = new List<Thing>();
+            if (fishData != null && fishData.Count > 0)
+            {
+                var beauty = 0f;
+                foreach (string value in fishData)
+                {
+                    if (!BagDefs().Contains(StringValuePart(value, 1)))
+                    {
+                        continue;
+                    }
+                    var fish = ThingDef.Named(StringValuePart(value, 1));
+                    beauty += fish.statBases.GetStatValueFromList(StatDefOf.MarketValue, 0);
+                }
+                currentBeauty = (int)Math.Round(beauty / 8);
+                var currentBeautyBinaryReversed = new string(Convert.ToString(currentBeauty, 2).Reverse().ToArray());
+                for (int i = 0; i < currentBeautyBinaryReversed.Length; i++)
+                {
+                    if (currentBeautyBinaryReversed[i] == '0')
+                    {
+                        continue;
+                    }
+                    var valueToAdd = Convert.ToInt32(Math.Pow(2, i));
+                    var thingToSpawn = ThingDef.Named($"AQBeauty{NumberToWords(valueToAdd).CapitalizeFirst()}");
+                    thingToSpawn.size = parent.def.size;
+                    var position = parent.Position;
+                    if (thingToSpawn.size.x == 4)
+                    {
+                        position.x -= 1;
+                        position.z -= 1;
+                    }
+                    savedBeauty.Add(GenSpawn.Spawn(thingToSpawn, position, parent.Map));
+                }
+            }
+            else
+            {
+                currentBeauty = 0;
             }
         }
 
@@ -524,6 +611,10 @@ namespace Aquarium
                             }
                         }
                     }
+                }
+                if (fishData.Count != changedFishData.Count)
+                {
+                    GenerateBeauty(changedFishData);
                 }
                 newFishData = changedFishData;
             }
@@ -892,7 +983,7 @@ namespace Aquarium
         // Token: 0x0600002D RID: 45 RVA: 0x00003AD0 File Offset: 0x00001CD0
         public override string CompInspectStringExtra()
         {
-            return "Aquarium.TankInfo".Translate(cleanPct.ToStringPercent(), foodPct.ToStringPercent());
+            return "Aquarium.TankInfo".Translate(cleanPct.ToStringPercent(), foodPct.ToStringPercent(), currentBeauty);
         }
 
         // Token: 0x0600002F RID: 47 RVA: 0x00003C24 File Offset: 0x00001E24
@@ -1028,7 +1119,7 @@ namespace Aquarium
                 if (potentials.Count > 0 && RandomFloat(1f, 100f) <= Controller.Settings.BreedChance)
                 {
                     newindex++;
-                    string babyFishDef = potentials.RandomElement<string>();
+                    string babyFishDef = potentials.RandomElement();
                     string newValue = CreateValuePart(newindex, babyFishDef, 75, 0, 0);
                     newFishList.Add(newValue);
                     birth = true;
@@ -1036,9 +1127,16 @@ namespace Aquarium
                 if (birth)
                 {
                     fishData = newFishList;
+                    GenerateBeauty(fishData);
                     numFish++;
                 }
             }
+        }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            GenerateBeauty(fishData);
         }
 
         public enum ActionType
@@ -1071,6 +1169,8 @@ namespace Aquarium
         // Token: 0x0400000C RID: 12
         internal int numFish;
 
+        internal int currentBeauty = 0;
+
         internal int selectedDecoration = -1;
 
         internal int selectedSand = -1;
@@ -1091,6 +1191,8 @@ namespace Aquarium
         internal List<float[]> fishWandering = new List<float[]>();
 
         internal List<Thing> reservedFish = new List<Thing>();
+
+        internal List<Thing> savedBeauty = new List<Thing>();
 
         // Token: 0x04000010 RID: 16
         internal bool fishydebug;

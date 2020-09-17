@@ -57,6 +57,7 @@ namespace Aquarium
                     if (removed)
                         AQComp.numFish--;
                     AQComp.fishData = newList;
+                    AQComp.GenerateBeauty(AQComp.fishData);
                 }
                 if (removedThing != null)
                 {

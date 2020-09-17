@@ -45,7 +45,7 @@
       <Mass>3.0</Mass>
       <WorkToBuild>180</WorkToBuild>
       <JoyGainFactor>1.5</JoyGainFactor>
-      <Beauty>20</Beauty>
+      <Beauty>10</Beauty>
       <MeditationFocusStrength>0.25</MeditationFocusStrength>
     </statBases>
     <tickerType>Normal</tickerType>

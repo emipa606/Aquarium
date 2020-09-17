@@ -16,7 +16,7 @@
   <Aquarium.AllowBreed>Allow fish breeding:</Aquarium.AllowBreed>
   <Aquarium.BreedChance>Chance of a fish birth (%):</Aquarium.BreedChance>
   <!--  Content -->
-  <Aquarium.TankInfo>Cleanliness: {0}, Food: {1}</Aquarium.TankInfo>
+  <Aquarium.TankInfo>Cleanliness: {0}, Food: {1}, Fish beauty: {2}</Aquarium.TankInfo>
   <Aquarium.BagInfo>Fish Age: {0} days, Health: {1}, Hours remaining safe in bag: {2}</Aquarium.BagInfo>
   <Aquarium.FishDied>A pet fish has died.</Aquarium.FishDied>
   <Aquarium.NoFish>No fish</Aquarium.NoFish>
@@ -50,5 +50,11 @@
   <Aquarium.Blue>Blue</Aquarium.Blue>
   <Aquarium.Green>Green</Aquarium.Green>
   <Aquarium.Black>Black</Aquarium.Black>
+  <Aquarium.Purple>Purple</Aquarium.Purple>
+  <Aquarium.Orange>Orange</Aquarium.Orange>
+  <Aquarium.Gray>Gray</Aquarium.Gray>
+  <Aquarium.Pink>Pink</Aquarium.Pink>
+  <Aquarium.Brown>Brown</Aquarium.Brown>
+  <Aquarium.Cyan>Cyan</Aquarium.Cyan>
 
 </LanguageData>

@@ -17,9 +17,6 @@
     <selectable>true</selectable>
     <soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
     <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <!--<thingCategories>
-      		<li>BuildingsJoy</li>
-    	</thingCategories>-->
     <designationCategory>Joy</designationCategory>
     <building>
       <joyKind>AQAquarium</joyKind>
@@ -32,7 +29,6 @@
     <statBases>
       <Flammability>0.2</Flammability>
       <JoyGainFactor>1.75</JoyGainFactor>
-      <Beauty>80</Beauty>
       <MeditationFocusStrength>0.5</MeditationFocusStrength>
     </statBases>
     <tickerType>Normal</tickerType>
@@ -77,6 +73,7 @@
       <MaxHitPoints>250</MaxHitPoints>
       <Mass>20</Mass>
       <WorkToBuild>5000</WorkToBuild>
+      <Beauty>20</Beauty>
     </statBases>
     <comps>
       <li Class="Aquarium.CompProperties_CompAquarium">
@@ -114,6 +111,7 @@
       <MaxHitPoints>500</MaxHitPoints>
       <Mass>40</Mass>
       <WorkToBuild>10000</WorkToBuild>
+      <Beauty>40</Beauty>
     </statBases>
     <comps>
       <li Class="Aquarium.CompProperties_CompAquarium">

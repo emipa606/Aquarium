@@ -58,6 +58,7 @@ namespace Aquarium
                             }
                         }
                         AQComp.fishData = newList;
+                        AQComp.GenerateBeauty(AQComp.fishData);
                     }
                 }
                 fishThing.Destroy(DestroyMode.Vanish);

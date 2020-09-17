@@ -21,9 +21,9 @@ namespace Aquarium
 		public override void PostExposeData()
 		{
 			base.PostExposeData();
-			Scribe_Values.Look<int>(ref age, "age", 0, false);
-			Scribe_Values.Look<int>(ref fishhealth, "fishhealth", 100, false);
-			Scribe_Values.Look<int>(ref ticksInBagRemain, "ticksInBagRemain", 180000, false);
+			Scribe_Values.Look(ref age, "age", 0, false);
+			Scribe_Values.Look(ref fishhealth, "fishhealth", 100, false);
+			Scribe_Values.Look(ref ticksInBagRemain, "ticksInBagRemain", 180000, false);
 		}
 
 		// Token: 0x06000014 RID: 20 RVA: 0x000029CC File Offset: 0x00000BCC

@@ -57,18 +57,18 @@ namespace Aquarium
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look<bool>(ref DoDeathMsgs, "DoDeathMsgs", true, false);
-			Scribe_Values.Look<bool>(ref AllowTankSounds, "AllowTankSounds", true, false);
-			Scribe_Values.Look<bool>(ref FishMovesAround, "FishMovesAround", true, false);
-			Scribe_Values.Look<bool>(ref AllowInspire, "AllowInspire", true, false);
-			Scribe_Values.Look<float>(ref BaseInspChance, "BaseinspChance", 5f, false);
-			Scribe_Values.Look<float>(ref FishLife, "FishLife", 1f, false);
-			Scribe_Values.Look<float>(ref DegradeWaterFactor, "DegradeWaterFactor", 100f, false);
-			Scribe_Values.Look<float>(ref DegradeFoodFactor, "DegradeFoodFactor", 100f, false);
-			Scribe_Values.Look<float>(ref RespondClean, "RespondClean", 50f, false);
-			Scribe_Values.Look<float>(ref RespondFood, "RespondFood", 50f, false);
-			Scribe_Values.Look<bool>(ref AllowBreed, "AllowBreed", true, false);
-			Scribe_Values.Look<float>(ref BreedChance, "BreedChance", 50f, false);
+			Scribe_Values.Look(ref DoDeathMsgs, "DoDeathMsgs", true, false);
+			Scribe_Values.Look(ref AllowTankSounds, "AllowTankSounds", true, false);
+			Scribe_Values.Look(ref FishMovesAround, "FishMovesAround", true, false);
+			Scribe_Values.Look(ref AllowInspire, "AllowInspire", true, false);
+			Scribe_Values.Look(ref BaseInspChance, "BaseinspChance", 5f, false);
+			Scribe_Values.Look(ref FishLife, "FishLife", 1f, false);
+			Scribe_Values.Look(ref DegradeWaterFactor, "DegradeWaterFactor", 100f, false);
+			Scribe_Values.Look(ref DegradeFoodFactor, "DegradeFoodFactor", 100f, false);
+			Scribe_Values.Look(ref RespondClean, "RespondClean", 50f, false);
+			Scribe_Values.Look(ref RespondFood, "RespondFood", 50f, false);
+			Scribe_Values.Look(ref AllowBreed, "AllowBreed", true, false);
+			Scribe_Values.Look(ref BreedChance, "BreedChance", 50f, false);
 		}
 
 		// Token: 0x04000024 RID: 36
