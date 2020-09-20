@@ -110,7 +110,7 @@ namespace Aquarium
         // Token: 0x0600001B RID: 27 RVA: 0x00002C58 File Offset: 0x00000E58
         public override void PostDraw()
         {
-            if (!parent.Spawned || parent.Map != Current.Game.CurrentMap || fishData.Count <= 0)
+            if (!parent.Spawned || parent.Map != Current.Game.CurrentMap)
             {
                 return;
             }
@@ -120,12 +120,6 @@ namespace Aquarium
             selectedDecoration = !string.IsNullOrEmpty(selectedDecorationDefName)
                 ? DefsCacher.AQDecorationDefs.IndexOf((from decorationDef in DefsCacher.AQDecorationDefs where decorationDef.defName == selectedDecorationDefName select decorationDef).First())
                 : -1;
-
-            int count = 0;
-            var rand = new System.Random();
-            var totalFish = fishData.Count();
-            if (fishWandering == null)
-                fishWandering = new List<float[]>();
 
             float tankXRadius = parent.def.size.x / 2;
             float tankZRadius = parent.def.size.z / 2;
@@ -169,135 +163,142 @@ namespace Aquarium
                     Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
                 }
             }
-
-            if (fishData.Count > fishWandering.Count)
+            if (fishData.Count > 0)
             {
-                for (int i = fishWandering.Count - 1; i < fishData.Count; i++)
+                int count = 0;
+                var rand = new System.Random();
+                var totalFish = fishData.Count();
+                if (fishWandering == null)
+                    fishWandering = new List<float[]>();
+                if (fishData.Count > fishWandering.Count)
                 {
-                    if (Controller.Settings.FishMovesAround)
+                    for (int i = fishWandering.Count - 1; i < fishData.Count; i++)
                     {
-                        if (rand.Next(0, 2) < 1)
+                        if (Controller.Settings.FishMovesAround)
                         {
-                            fishWandering.Add(new float[] { (float)(rand.NextDouble() * tankXRadius), (float)(rand.NextDouble() * tankZRadius), 0, rand.Next(0, 2) });
+                            if (rand.Next(0, 2) < 1)
+                            {
+                                fishWandering.Add(new float[] { (float)(rand.NextDouble() * tankXRadius), (float)(rand.NextDouble() * tankZRadius), 0, rand.Next(0, 2) });
+                            }
+                            else
+                            {
+                                fishWandering.Add(new float[] { (float)(rand.NextDouble() * -tankXRadius), (float)(rand.NextDouble() * -tankZRadius), 0, rand.Next(0, 2) });
+                            }
                         }
                         else
                         {
-                            fishWandering.Add(new float[] { (float)(rand.NextDouble() * -tankXRadius), (float)(rand.NextDouble() * -tankZRadius), 0, rand.Next(0, 2) });
+                            fishWandering.Add(new float[] { 0, 0, 0, rand.Next(0, 2) });
+                        }
+                    }
+                }
+
+                foreach (string value in fishData)
+                {
+                    if (NumValuePart(value, 4) == 1)
+                    {
+                        continue;
+                    }
+                    var iterator = count;
+                    count++;
+                    int age = NumValuePart(value, 3);
+                    float ageFactor = Mathf.Lerp(0.5f, 1f, Math.Min(age, (float)oldFishAge) / oldFishAge);
+                    Vector3 drawPos = parent.DrawPos;
+                    float perspective = 1f;
+                    if (Controller.Settings.FishMovesAround && Props.maxFish > 1)
+                    {
+                        drawPos.z += 0.17f;
+                        if (!Find.TickManager.Paused)
+                        {
+                            var direction = fishWandering[iterator][3];
+                            if (direction == 0)
+                            {
+                                fishWandering[iterator][0] += RandomFloat(-wanderingSpeed, 0);
+                                if (fishWandering[iterator][0] < -tankXRadius)
+                                {
+                                    fishWandering[iterator][0] = -tankXRadius;
+                                    fishWandering[iterator][3] = 1f;
+                                }
+                            }
+                            else
+                            {
+                                fishWandering[iterator][0] += RandomFloat(0, wanderingSpeed);
+                                if (fishWandering[iterator][0] > tankXRadius)
+                                {
+                                    fishWandering[iterator][0] = tankXRadius;
+                                    fishWandering[iterator][3] = 0;
+                                }
+                            }
+                            fishWandering[iterator][1] += RandomFloat(-wanderingSpeed, wanderingSpeed);
+                            if (fishWandering[iterator][1] < -tankZRadius)
+                                fishWandering[iterator][1] = -tankZRadius;
+                            if (fishWandering[iterator][1] > tankZRadius)
+                                fishWandering[iterator][1] = tankZRadius;
+                            fishWandering[iterator][2] += RandomFloat(-wanderingSpeed, wanderingSpeed);
+                            if (fishWandering[iterator][2] < -maxPerspective)
+                                fishWandering[iterator][2] = -maxPerspective;
+                            if (fishWandering[iterator][2] > maxPerspective)
+                                fishWandering[iterator][2] = maxPerspective;
+                            perspective += fishWandering[iterator][2];
+                            if (rand.Next(1000) == 999)
+                            {
+                                fishWandering[iterator][3] = fishWandering[iterator][3] == 0 ? 1 : (float)0;
+                            }
                         }
                     }
                     else
                     {
-                        fishWandering.Add(new float[] { 0, 0, 0, rand.Next(0, 2) });
+                        drawPos.z -= 0.1f;
+                        if (totalFish > 1)
+                        {
+                            drawPos = GetDrawPos(count, drawPos, out perspective);
+                        }
+                        if (!Find.TickManager.Paused)
+                        {
+                            var direction = fishWandering[iterator][3];
+                            if (direction == 0)
+                            {
+                                fishWandering[iterator][0] += RandomFloat(-wanderingSpeed, 0);
+                                if (fishWandering[iterator][0] < -maxWandering)
+                                {
+                                    fishWandering[iterator][0] = -maxWandering;
+                                    fishWandering[iterator][3] = 1f;
+                                }
+                            }
+                            else
+                            {
+                                fishWandering[iterator][0] += RandomFloat(0, wanderingSpeed);
+                                if (fishWandering[iterator][0] > maxWandering)
+                                {
+                                    fishWandering[iterator][0] = maxWandering;
+                                    fishWandering[iterator][3] = 0;
+                                }
+                            }
+                            fishWandering[iterator][1] += RandomFloat(-wanderingSpeed, wanderingSpeed);
+                            if (fishWandering[iterator][1] < -maxWandering)
+                                fishWandering[iterator][1] = -maxWandering;
+                            if (fishWandering[iterator][1] > maxWandering)
+                                fishWandering[iterator][1] = maxWandering;
+                        }
                     }
-                }
-            }
-
-            foreach (string value in fishData)
-            {
-                if (NumValuePart(value, 4) == 1)
-                {
-                    continue;
-                }
-                var iterator = count;
-                count++;
-                int age = NumValuePart(value, 3);
-                float ageFactor = Mathf.Lerp(0.5f, 1f, Math.Min(age, (float)oldFishAge) / oldFishAge);
-                Vector3 drawPos = parent.DrawPos;
-                float perspective = 1f;
-                if (Controller.Settings.FishMovesAround && Props.maxFish > 1)
-                {
-                    drawPos.z += 0.17f;
-                    if (!Find.TickManager.Paused)
+                    drawPos.x += fishWandering[iterator][0];
+                    drawPos.z += fishWandering[iterator][1];
+                    drawPos.y += 0.0454545468f;
+                    string defname = StringValuePart(value, 1);
+                    var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
+                    string ImagePath = $"Things/Fish/Fish{gfxName}";
+                    var adjustedSizeVector = ageFactor * perspective;
+                    Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
+                    ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
+                    matrix4x = default;
+                    matrix4x.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), Size);
+                    if (fishWandering[count - 1][3] == 0)
                     {
-                        var direction = fishWandering[iterator][3];
-                        if (direction == 0)
-                        {
-                            fishWandering[iterator][0] += RandomFloat(-wanderingSpeed, 0);
-                            if (fishWandering[iterator][0] < -tankXRadius)
-                            {
-                                fishWandering[iterator][0] = -tankXRadius;
-                                fishWandering[iterator][3] = 1f;
-                            }
-                        }
-                        else
-                        {
-                            fishWandering[iterator][0] += RandomFloat(0, wanderingSpeed);
-                            if (fishWandering[iterator][0] > tankXRadius)
-                            {
-                                fishWandering[iterator][0] = tankXRadius;
-                                fishWandering[iterator][3] = 0;
-                            }
-                        }
-                        fishWandering[iterator][1] += RandomFloat(-wanderingSpeed, wanderingSpeed);
-                        if (fishWandering[iterator][1] < -tankZRadius)
-                            fishWandering[iterator][1] = -tankZRadius;
-                        if (fishWandering[iterator][1] > tankZRadius)
-                            fishWandering[iterator][1] = tankZRadius;
-                        fishWandering[iterator][2] += RandomFloat(-wanderingSpeed, wanderingSpeed);
-                        if (fishWandering[iterator][2] < -maxPerspective)
-                            fishWandering[iterator][2] = -maxPerspective;
-                        if (fishWandering[iterator][2] > maxPerspective)
-                            fishWandering[iterator][2] = maxPerspective;
-                        perspective += fishWandering[iterator][2];
-                        if (rand.Next(1000) == 999)
-                        {
-                            fishWandering[iterator][3] = fishWandering[iterator][3] == 0 ? 1 : (float)0;
-                        }
+                        Graphics.DrawMesh(MeshPool.plane10Flip, matrix4x, ImageGraphic.MatSingle, 0);
                     }
-                }
-                else
-                {
-                    drawPos.z -= 0.1f;
-                    if (totalFish > 1)
+                    else
                     {
-                        drawPos = GetDrawPos(count, drawPos, out perspective);
+                        Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
                     }
-                    if (!Find.TickManager.Paused)
-                    {
-                        var direction = fishWandering[iterator][3];
-                        if (direction == 0)
-                        {
-                            fishWandering[iterator][0] += RandomFloat(-wanderingSpeed, 0);
-                            if (fishWandering[iterator][0] < -maxWandering)
-                            {
-                                fishWandering[iterator][0] = -maxWandering;
-                                fishWandering[iterator][3] = 1f;
-                            }
-                        }
-                        else
-                        {
-                            fishWandering[iterator][0] += RandomFloat(0, wanderingSpeed);
-                            if (fishWandering[iterator][0] > maxWandering)
-                            {
-                                fishWandering[iterator][0] = maxWandering;
-                                fishWandering[iterator][3] = 0;
-                            }
-                        }
-                        fishWandering[iterator][1] += RandomFloat(-wanderingSpeed, wanderingSpeed);
-                        if (fishWandering[iterator][1] < -maxWandering)
-                            fishWandering[iterator][1] = -maxWandering;
-                        if (fishWandering[iterator][1] > maxWandering)
-                            fishWandering[iterator][1] = maxWandering;
-                    }
-                }
-                drawPos.x += fishWandering[iterator][0];
-                drawPos.z += fishWandering[iterator][1];
-                drawPos.y += 0.0454545468f;
-                string defname = StringValuePart(value, 1);
-                var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
-                string ImagePath = $"Things/Fish/Fish{gfxName}";
-                var adjustedSizeVector = ageFactor * perspective;
-                Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
-                ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight, Vector2.one, Color.white);
-                matrix4x = default;
-                matrix4x.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), Size);
-                if (fishWandering[count - 1][3] == 0)
-                {
-                    Graphics.DrawMesh(MeshPool.plane10Flip, matrix4x, ImageGraphic.MatSingle, 0);
-                }
-                else
-                {
-                    Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
                 }
             }
             if (Props.maxFish > 1)
@@ -331,14 +332,17 @@ namespace Aquarium
                     {
                         GenTemperature.PushHeat(parent.PositionHeld, parent.MapHeld, Props.heatPerSecond * 5f);
                     }
-                    float ageFactor = GetAvgAgeMultiplier(fishData);
-                    DegradeFood(numFish, foodPct, ageFactor, out float newFoodPct);
-                    foodPct = newFoodPct;
-                    DegradeWater(numFish, foodPct, cleanPct, ageFactor, out float newCleanPct);
-                    cleanPct = newCleanPct;
-                    EffectFish(numFish, fishData, foodPct, cleanPct, out int newNumFish, out List<string> newFishData);
-                    numFish = newNumFish;
-                    fishData = newFishData;
+                    if (numFish > 0)
+                    {
+                        float ageFactor = GetAvgAgeMultiplier(fishData);
+                        DegradeFood(numFish, foodPct, ageFactor, out float newFoodPct);
+                        foodPct = newFoodPct;
+                        DegradeWater(numFish, foodPct, cleanPct, ageFactor, out float newCleanPct);
+                        cleanPct = newCleanPct;
+                        EffectFish(numFish, fishData, foodPct, cleanPct, out int newNumFish, out List<string> newFishData);
+                        numFish = newNumFish;
+                        fishData = newFishData;
+                    }
                     if (fishydebug)
                     {
                         AQUtility.DebugFishData(this, Props.maxFish);
@@ -531,93 +535,94 @@ namespace Aquarium
         {
             newNumFish = numFish;
             newFishData = fishData;
-            if (numFish > 0)
+            if (numFish <= 0)
             {
-                int degradingHealth = 0;
-                if (foodPct <= 0f)
+                return;
+            }
+            int degradingHealth = 0;
+            if (foodPct <= 0f)
+            {
+                degradingHealth++;
+            }
+            if (cleanPct <= 0.25f)
+            {
+                degradingHealth++;
+            }
+            if (parent.AmbientTemperature > 55f || parent.AmbientTemperature < 1f)
+            {
+                degradingHealth++;
+            }
+            int newIndex = 0;
+            List<string> changedFishData = new List<string>();
+            if (newFishData.Count > 0)
+            {
+                foreach (string value in newFishData)
                 {
-                    degradingHealth++;
-                }
-                if (cleanPct <= 0.25f)
-                {
-                    degradingHealth++;
-                }
-                if (parent.AmbientTemperature > 55f || parent.AmbientTemperature < 1f)
-                {
-                    degradingHealth++;
-                }
-                int newIndex = 0;
-                List<string> changedFishData = new List<string>();
-                if (newFishData.Count > 0)
-                {
-                    foreach (string value in newFishData)
+                    bool died = false;
+                    NumValuePart(value, 0);
+                    string defval = StringValuePart(value, 1);
+                    int health = NumValuePart(value, 2);
+                    int age = NumValuePart(value, 3);
+                    int action = NumValuePart(value, 4);
+                    int agedegradingHealth = 0;
+                    if (action != 1)
                     {
-                        bool died = false;
-                        NumValuePart(value, 0);
-                        string defval = StringValuePart(value, 1);
-                        int health = NumValuePart(value, 2);
-                        int age = NumValuePart(value, 3);
-                        int action = NumValuePart(value, 4);
-                        int agedegradingHealth = 0;
-                        if (action != 1)
+                        age += Ticks;
+                        if (age + (int)RandomFloat(-450000f, 450000f) > oldFishAge)
                         {
-                            age += Ticks;
-                            if (age + (int)RandomFloat(-450000f, 450000f) > oldFishAge)
+                            agedegradingHealth = 1;
+                        }
+                        int poorhealth = degradingHealth + agedegradingHealth;
+                        if (poorhealth > 0)
+                        {
+                            health -= (int)Math.Max(1f, poorhealth * Mathf.Lerp(0.5f, 1f, Math.Max(1f, age / (float)oldFishAge)));
+                            if (health <= 0)
                             {
-                                agedegradingHealth = 1;
-                            }
-                            int poorhealth = degradingHealth + agedegradingHealth;
-                            if (poorhealth > 0)
-                            {
-                                health -= (int)Math.Max(1f, poorhealth * Mathf.Lerp(0.5f, 1f, Math.Max(1f, age / (float)oldFishAge)));
-                                if (health <= 0)
-                                {
-                                    died = true;
-                                }
-                            }
-                            else if (health < 100)
-                            {
-                                health += (int)Math.Max(1f, Mathf.Lerp(1f, 0.5f, Math.Max(1f, age / (float)oldFishAge)));
-                                if (health > 100)
-                                {
-                                    health = 100;
-                                }
+                                died = true;
                             }
                         }
-                        if (!died)
+                        else if (health < 100)
                         {
-                            newIndex++;
-                            string newValue = CreateValuePart(newIndex, defval, health, age, action);
-                            changedFishData.Add(newValue);
-                        }
-                        else
-                        {
-                            if (parent.Spawned)
+                            health += (int)Math.Max(1f, Mathf.Lerp(1f, 0.5f, Math.Max(1f, age / (float)oldFishAge)));
+                            if (health > 100)
                             {
-                                ThingWithComps parent = this.parent;
-                                if ((parent?.Map) != null && this.parent.Map.ParentFaction == Faction.OfPlayerSilentFail)
-                                {
-                                    if (Controller.Settings.DoDeathMsgs)
-                                    {
-                                        Messages.Message("Aquarium.FishDied".Translate(), this.parent, MessageTypeDefOf.NegativeEvent, false);
-                                    }
-                                    AQUtility.DoSpawnTropicalFishMeat(this.parent, age);
-                                }
-                            }
-                            newNumFish--;
-                            if (newNumFish < 0)
-                            {
-                                newNumFish = 0;
+                                health = 100;
                             }
                         }
                     }
+                    if (!died)
+                    {
+                        newIndex++;
+                        string newValue = CreateValuePart(newIndex, defval, health, age, action);
+                        changedFishData.Add(newValue);
+                    }
+                    else
+                    {
+                        if (parent.Spawned)
+                        {
+                            ThingWithComps parent = this.parent;
+                            if ((parent?.Map) != null && this.parent.Map.ParentFaction == Faction.OfPlayerSilentFail)
+                            {
+                                if (Controller.Settings.DoDeathMsgs)
+                                {
+                                    Messages.Message("Aquarium.FishDied".Translate(), this.parent, MessageTypeDefOf.NegativeEvent, false);
+                                }
+                                AQUtility.DoSpawnTropicalFishMeat(this.parent, age);
+                            }
+                        }
+                        newNumFish--;
+                        if (newNumFish < 0)
+                        {
+                            newNumFish = 0;
+                        }
+                    }
                 }
-                if (fishData.Count != changedFishData.Count)
-                {
-                    GenerateBeauty(changedFishData);
-                }
-                newFishData = changedFishData;
             }
+            if (fishData.Count != changedFishData.Count)
+            {
+                GenerateBeauty(changedFishData);
+            }
+            newFishData = changedFishData;
         }
 
         // Token: 0x06000024 RID: 36 RVA: 0x00003570 File Offset: 0x00001770
@@ -868,6 +873,10 @@ namespace Aquarium
                 }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
             var sortedList = list.OrderBy(option => option.Label).ToList();
+            sortedList.Insert(0, new FloatMenuOption("Aquarium.Nothing".Translate(), delegate ()
+            {
+                selectedSandDefName = string.Empty;
+            }, MenuOptionPriority.Default, null, null, 29f, null, null));
             Find.WindowStack.Add(new FloatMenu(sortedList));
         }
 
@@ -884,6 +893,10 @@ namespace Aquarium
                 }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
             var sortedList = list.OrderBy(option => option.Label).ToList();
+            sortedList.Insert(0, new FloatMenuOption("Aquarium.Nothing".Translate(), delegate ()
+            {
+                selectedDecorationDefName = string.Empty;
+            }, MenuOptionPriority.Default, null, null, 29f, null, null));
             Find.WindowStack.Add(new FloatMenu(sortedList));
         }
 

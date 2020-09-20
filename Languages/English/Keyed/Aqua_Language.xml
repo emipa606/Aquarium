@@ -33,6 +33,7 @@
   <Aquarium.Decorations>Decorations</Aquarium.Decorations>
   <Aquarium.DecorationsDesc>Different items to decorate the tank with</Aquarium.DecorationsDesc>
   <Aquarium.NoReachableFish>No reachable fish in range</Aquarium.NoReachableFish>
+  <Aquarium.Nothing>Nothing</Aquarium.Nothing>
   <!-- Decorations -->
   <Aquarium.LushGroove>Lush Groove</Aquarium.LushGroove>
   <Aquarium.RedDawn>Red Dawn</Aquarium.RedDawn>
