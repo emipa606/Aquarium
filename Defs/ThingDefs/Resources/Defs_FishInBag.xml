@@ -478,4 +478,125 @@
       <MarketValue>40</MarketValue>
     </statBases>
   </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortyone</defName>
+    <label>Violet Line Piranha</label>
+    <description>The Violet Line Piranhas name is in reference to the unusal purple stripe that runs from the base of the lower jaw over the top of the body. It makes a stunning aquarium fish as it also possesses highly reflective scales, deep orange/red eyes and a compressed, high-bodied shape. Far from widespread in nature or the hobby, it tends to be pricey and highly sought-after when available.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag41</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>50</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortytwo</defName>
+    <label>Black Piranha</label>
+    <description>The Black Piranha is similar to the Red Bellied Piranha in appearance, just much larger and slightly darker in color. Some have grown to 7 pounds. Despite their super-size, they are completely solitary so they won't kill a person whereas if a pack of Red Bellies actually attacks than that can be fatal.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag42</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortythree</defName>
+    <label>Wimple Piranha</label>
+    <description>This species is not actually a piranha in ichthyologic terms, being monotypic and therefore unique. It was so named due to its general resemblance to true piranha, and the fact that it is quite closely related to Pygocentrus species. Mento means chin, referring to the protruding jaw of the fish.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag43</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortyfour</defName>
+    <label>Glowlight Tetra</label>
+    <description>The glowlight tetra is absolutely gorgeous and surprisingly easy to care for. Originating in the rivers of Guyana, it is easygoing and peaceful and can survive in a fairly wide range of aquarium environments. Because they are schooling fish, you'll want to keep at least six glowlight tetras.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag44</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortyfive</defName>
+    <label>Rummy-Nose Tetra</label>
+    <description>The Brilliant Rummy-Nose Tetra gets its name from the red blushing across its nose and face. But its beautiful coloration does not end there. Hemigrammus bleheri has a mirror-like silver body and a jet-black tail striped with white. This color pattern adds a simple, yet striking beauty to any freshwater aquarium. The Brilliant Rummy-Nose Tetra is a peaceful omnivore that makes an excellent addition to community aquariums with non-aggressive tankmates.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag45</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortysix</defName>
+    <label>Mexican Tetra</label>
+    <description>Astyanax mexicanus, also known as the Mexican Blind Cavefish or Blind Cave Tetra. These fish are unique within the expansive tetra family, and come in two distinct forms: one with eyes and one without any eyes.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag46</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortyseven</defName>
+    <label>Bloodfin Tetra</label>
+    <description>The Bloodfin tetra, also known as True Bloodfin, Redfin Tetra, or Glass Bloodfin, is a very appreciated freshwater fish, especially by beginners, as it is very easy to care for and quite hardy. Even more skilled aquarists will sometimes add a school of these fish to their tanks from time to time because they love this little active schooling fish.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag47</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>35</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortyeight</defName>
+    <label>Pacu</label>
+    <description>Pacu is a common name used to refer to several species of omnivorous South American freshwater serrasalmid fish that are related to the piranha. Pacu and piranha do not have similar teeth, the main difference being jaw alignment; piranha have pointed, razor-sharp teeth in a pronounced underbite, whereas pacu have squarer, straighter teeth, which are uncannily similar to human teeth, and a less severe underbite, or a slight overbite.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag48</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>45</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFortynine</defName>
+    <label>Silver Dollar Fish</label>
+    <description>The round shape and silver color of its body lend the Silver Dollar a very appropriate name. With a maximum size of 6 inches, they are perfect for the larger community aquarium. This hardy characin will be a great choice for the beginner to the expert aquarist.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag49</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>40</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFifty</defName>
+    <label>Glass Catfish</label>
+    <description>If you’re looking for a fish to add an element of surprise to your tank, look no further than the Glass Catfish. After one look at these transparent fish it is clear why they have become so popular in the aquarium hobby.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag50</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>50</MarketValue>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="FishInBagBase">
+    <defName>AQFishInBagFiftyone</defName>
+    <label>Celestial Pearl Danio</label>
+    <description>The Celestial Pearl Danio is a freshwater fish found in small, vegetated ponds in South East Asia. These fish boast plenty of color from the white pearl like spots on their sides to the red coloration on the fins. Discovered within the past decade, aquarium hobbyist have quickly adopted and fell in love with these little Danios.</description>
+    <graphicData>
+      <texPath>Things/Fish/ForSale/FishBag51</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>55</MarketValue>
+    </statBases>
+  </ThingDef>
 </Defs>
