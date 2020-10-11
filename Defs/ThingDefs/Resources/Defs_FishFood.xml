@@ -21,7 +21,7 @@
     <stackLimit>200</stackLimit>
     <ingestible>
       <foodType>Kibble</foodType>
-      <preferability>RawBad</preferability>
+      <preferability>NeverForNutrition</preferability>
       <tasteThought>AQAteFishFood</tasteThought>
       <optimalityOffsetHumanlikes>-25</optimalityOffsetHumanlikes>
       <optimalityOffsetFeedingAnimals>5</optimalityOffsetFeedingAnimals>
