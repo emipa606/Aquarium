@@ -43,4 +43,8 @@
     <defName>AQDecoration_I</defName>
     <label>AnemoneGroup</label>
   </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_J</defName>
+    <label>PinkPoints</label>
+  </ThingDef>
 </Defs>
