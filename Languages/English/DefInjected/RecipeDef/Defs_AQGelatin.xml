@@ -1,13 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <MakeAQGelatin.label>Make Gelatin</MakeAQGelatin.label>
   <MakeAQGelatin.description>Make 25 Gelatin</MakeAQGelatin.description>
   <MakeAQGelatin.jobString>Making Gelatin</MakeAQGelatin.jobString>
-
   <MakeBulkAQGelatin.label>Make Gelatin in bulk</MakeBulkAQGelatin.label>
   <MakeBulkAQGelatin.description>Make 50 Gelatin</MakeBulkAQGelatin.description>
   <MakeBulkAQGelatin.jobString>Making Gelatin</MakeBulkAQGelatin.jobString>
-
-
 </LanguageData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AQFishPets.label>Haustierfische</AQFishPets.label>
+  <AQFishPets.description>Ermöglicht die Haltung von tropischen Haustierfischen für Freudenaktivitäten.</AQFishPets.description>
+  <AQFishTanks.label>Glasaquarien</AQFishTanks.label>
+  <AQFishTanks.description>Ermöglicht die Herstellung von Glasaquarien, um tropische Haustiere für Freudenaktivitäten zu halten.</AQFishTanks.description>
+  <AQGelatin.label>Gelatine</AQGelatin.label>
+  <AQGelatin.description>Ermöglicht die Herstellung von Gelatine aus Kollagen.</AQGelatin.description>
+  <AQSpirulina.label>Spirulina</AQSpirulina.label>
+  <AQSpirulina.description>Ermöglicht den Anbau von Spirulina.</AQSpirulina.description>
+</LanguageData>

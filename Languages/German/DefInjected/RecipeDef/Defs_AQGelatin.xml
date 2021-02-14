@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MakeAQGelatin.label>Stelle Gelatine her</MakeAQGelatin.label>
+  <MakeAQGelatin.description>Stelle 25 Gelatine her.</MakeAQGelatin.description>
+  <MakeAQGelatin.jobString>Stellt Gelatine her.</MakeAQGelatin.jobString>
+  <MakeBulkAQGelatin.label>Stelle Gelatine in Massen her</MakeBulkAQGelatin.label>
+  <MakeBulkAQGelatin.description>Stelle 50 Gelatine her.</MakeBulkAQGelatin.description>
+  <MakeBulkAQGelatin.jobString>Stellt Gelatine her.</MakeBulkAQGelatin.jobString>
+</LanguageData>

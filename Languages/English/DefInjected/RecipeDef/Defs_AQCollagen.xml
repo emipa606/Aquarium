@@ -1,13 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
   <MakeAQCollagen.label>Make Collagen</MakeAQCollagen.label>
   <MakeAQCollagen.description>Make 10 Collagen</MakeAQCollagen.description>
   <MakeAQCollagen.jobString>Making Collagen</MakeAQCollagen.jobString>
-
   <MakeBulkAQCollagen.label>Make Collagen in bulk</MakeBulkAQCollagen.label>
   <MakeBulkAQCollagen.description>Make 50 Collagen</MakeBulkAQCollagen.description>
   <MakeBulkAQCollagen.jobString>Making Collagen</MakeBulkAQCollagen.jobString>
-
-
 </LanguageData>

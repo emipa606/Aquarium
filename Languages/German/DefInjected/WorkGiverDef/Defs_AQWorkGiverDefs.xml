@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- WorkGivers -->
+  <AQFeedFishTank.label>Füttert Haustierfische in Glaswandaquarien</AQFeedFishTank.label>
+  <AQFeedFishTank.verb>Füttern</AQFeedFishTank.verb>
+  <AQFeedFishTank.gerund>Füttert</AQFeedFishTank.gerund>
+  <AQFeedFishBowl.label>Füttert Haustierfische in Glaskugelaquarien</AQFeedFishBowl.label>
+  <AQFeedFishBowl.verb>Füttern</AQFeedFishBowl.verb>
+  <AQFeedFishBowl.gerund>Füttern</AQFeedFishBowl.gerund>
+  <AQCleanFishTank.label>Reinigt Glaswandaquarien</AQCleanFishTank.label>
+  <AQCleanFishTank.verb>Reinigen</AQCleanFishTank.verb>
+  <AQCleanFishTank.gerund>Reinigt</AQCleanFishTank.gerund>
+  <AQCleanFishBowl.label>Reinigt Glaskugelaquarien</AQCleanFishBowl.label>
+  <AQCleanFishBowl.verb>Reinigen</AQCleanFishBowl.verb>
+  <AQCleanFishBowl.gerund>Reinigt</AQCleanFishBowl.gerund>
+  <AQManageFishTank.label>Verwaltet Population in Glaswandaquarien</AQManageFishTank.label>
+  <AQManageFishTank.verb>Verwalten</AQManageFishTank.verb>
+  <AQManageFishTank.gerund>Verwaltet</AQManageFishTank.gerund>
+  <AQManageFishBowl.label>Verwaltet Population in Glaskugelaquarien</AQManageFishBowl.label>
+  <AQManageFishBowl.verb>Verwalten</AQManageFishBowl.verb>
+  <AQManageFishBowl.gerund>Verwaltet</AQManageFishBowl.gerund>
+</LanguageData>
