@@ -34,6 +34,10 @@
   <ThingDef ParentName="FishInBagBase">
     <defName>AQRandomFish</defName>
     <label>Random Fish</label>
+    <tradeTags Inherit="false" />
+    <thingCategories Inherit="false" />
+    <menuHidden>true</menuHidden>
+    <tradeability>None</tradeability>
     <graphicData>
       <texPath>Things/Fish/UI/Random_Icon</texPath>
     </graphicData>
