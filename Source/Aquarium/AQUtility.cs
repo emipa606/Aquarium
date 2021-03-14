@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -11,77 +10,104 @@ namespace Aquarium
     // Token: 0x02000003 RID: 3
     public class AQUtility
     {
+        // Token: 0x04000002 RID: 2
+        internal const float AvgFishValue = 30f;
+
+        // Token: 0x04000003 RID: 3
+        internal const int FoodVal = 10;
+
+        private static int hammeringCounter;
+
         // Token: 0x06000005 RID: 5 RVA: 0x00002128 File Offset: 0x00000328
         internal static float GetJoyGainFactor(float beautyFactor, Thing FishyThing)
         {
-            float fishFactor = 1f;
-            float agefactor = 1f;
-            float compare = 30f;
-            CompAquarium CompAQ = FishyThing.TryGetComp<CompAquarium>();
-            if (CompAQ != null)
+            var fishFactor = 1f;
+            var agefactor = 1f;
+            var compare = 30f;
+            var CompAQ = FishyThing.TryGetComp<CompAquarium>();
+            if (CompAQ == null)
             {
-                List<string> list = CompAQ.fishData;
-                if (list.Count > 0)
-                {
-                    foreach (string listing in list)
-                    {
-                        ThingDef fishdef = ThingDef.Named(CompAquarium.StringValuePart(listing, 1));
-                        if (fishdef != null)
-                        {
-                            float value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
-                            fishFactor *= value / compare;
-                            agefactor *= Mathf.Lerp(0.75f, 1f, Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) / CompAquarium.oldFishAge);
-                        }
-                    }
-                }
+                return beautyFactor * fishFactor * agefactor;
             }
+
+            var list = CompAQ.fishData;
+            if (list.Count <= 0)
+            {
+                return beautyFactor * fishFactor * agefactor;
+            }
+
+            foreach (var listing in list)
+            {
+                var fishdef = ThingDef.Named(CompAquarium.StringValuePart(listing, 1));
+                if (fishdef == null)
+                {
+                    continue;
+                }
+
+                var value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
+                fishFactor *= value / compare;
+                agefactor *= Mathf.Lerp(0.75f, 1f,
+                    Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) / CompAquarium.oldFishAge);
+            }
+
             return beautyFactor * fishFactor * agefactor;
         }
 
         // Token: 0x06000006 RID: 6 RVA: 0x00002210 File Offset: 0x00000410
         internal static void ApplyMoodBoostAndInspire(Pawn pawn, Thing FishyThing)
         {
-            CompAquarium CompAQ = FishyThing.TryGetComp<CompAquarium>();
-            Pawn_NeedsTracker needs = pawn.needs;
-            if ((needs?.mood) != null)
+            var CompAQ = FishyThing.TryGetComp<CompAquarium>();
+            var needs = pawn.needs;
+            if (needs?.mood != null)
             {
-                float fishFactor = 1f;
-                float agefactor = 1f;
-                float compare = 30f;
+                var fishFactor = 1f;
+                var agefactor = 1f;
+                var compare = 30f;
                 if (CompAQ != null && CompAQ.numFish > 0 && pawn.IsHashIntervalTick(1000))
                 {
-                    List<string> list = CompAQ.fishData;
+                    var list = CompAQ.fishData;
                     if (list.Count > 0)
                     {
-                        foreach (string listing in list)
+                        foreach (var listing in list)
                         {
-                            ThingDef fishdef = ThingDef.Named(CompAquarium.StringValuePart(listing, 1));
-                            if (fishdef != null)
+                            var fishdef = ThingDef.Named(CompAquarium.StringValuePart(listing, 1));
+                            if (fishdef == null)
                             {
-                                float value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
-                                fishFactor *= value / compare;
-                                agefactor *= Mathf.Lerp(0.75f, 1f, Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) / CompAquarium.oldFishAge);
+                                continue;
                             }
+
+                            var value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
+                            fishFactor *= value / compare;
+                            agefactor *= Mathf.Lerp(0.75f, 1f,
+                                Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) /
+                                CompAquarium.oldFishAge);
                         }
                     }
-                    if (IsInspired((int)(CompAQ.numFish * 25 * fishFactor * agefactor)))
+
+                    if (IsInspired((int) (CompAQ.numFish * 25 * fishFactor * agefactor)))
                     {
-                        ThoughtDef fishRelaxDef = ThoughtDef.Named("AQObserveFish");
-                        pawn.needs.mood.thoughts.memories.TryGainMemory(fishRelaxDef, null);
+                        var fishRelaxDef = ThoughtDef.Named("AQObserveFish");
+                        pawn.needs.mood.thoughts.memories.TryGainMemory(fishRelaxDef);
                     }
                 }
             }
-            if (CompAQ != null && CompAQ.numFish > 0 && Controller.Settings.AllowInspire && pawn.IsHashIntervalTick(1000) && !pawn.IsPrisoner && IsInspired((int)(CompAQ.numFish * Controller.Settings.BaseInspChance)) && !pawn.mindState.inspirationHandler.Inspired)
+
+            if (CompAQ == null || CompAQ.numFish <= 0 || !Controller.Settings.AllowInspire ||
+                !pawn.IsHashIntervalTick(1000) || pawn.IsPrisoner ||
+                !IsInspired((int) (CompAQ.numFish * Controller.Settings.BaseInspChance)) ||
+                pawn.mindState.inspirationHandler.Inspired)
             {
-                InspirationDef IDef = (from x in DefDatabase<InspirationDef>.AllDefsListForReading
-                                       where x.Worker.InspirationCanOccur(pawn)
-                                       select x).RandomElementByWeightWithFallback((InspirationDef x) => x.Worker.CommonalityFor(pawn), null);
-                pawn.mindState.inspirationHandler.TryStartInspiration_NewTemp(IDef, null);
+                return;
             }
+
+            var IDef = (from x in DefDatabase<InspirationDef>.AllDefsListForReading
+                where x.Worker.InspirationCanOccur(pawn)
+                select x).RandomElementByWeightWithFallback(x => x.Worker.CommonalityFor(pawn));
+            pawn.mindState.inspirationHandler.TryStartInspiration_NewTemp(IDef);
         }
 
         // Token: 0x06000007 RID: 7 RVA: 0x00002438 File Offset: 0x00000638
-        internal static bool IsInspired(int chance)
+        private static bool IsInspired(int chance)
         {
             return CompAquarium.RandomFloat(1f, 100f) < chance;
         }
@@ -89,200 +115,215 @@ namespace Aquarium
         // Token: 0x06000008 RID: 8 RVA: 0x00002450 File Offset: 0x00000650
         internal static int GetFoodNumToFullyFeed(CompAquarium AQComp)
         {
-            return Math.Max(0, (int)((1f - AQComp.foodPct) * 10f * Math.Max(0, AQComp.numFish)));
+            return Math.Max(0, (int) ((1f - AQComp.foodPct) * 10f * Math.Max(0, AQComp.numFish)));
         }
 
         // Token: 0x06000009 RID: 9 RVA: 0x00002479 File Offset: 0x00000679
         internal static int GetCleanTime(CompAquarium AQComp)
         {
-            return Math.Max(120, (int)((1f - AQComp.cleanPct) * 10f * 2f * 60f));
+            return Math.Max(120, (int) ((1f - AQComp.cleanPct) * 10f * 2f * 60f));
         }
 
         // Token: 0x0600000A RID: 10 RVA: 0x000024A4 File Offset: 0x000006A4
         internal static bool AddOrRemove(Thing t, out bool Add, out ThingDef fishAddDef, out bool Remove)
         {
-            bool result = false;
-            bool flag = Remove = false;
-            Add = flag;
+            Remove = Add = false;
             fishAddDef = null;
-            CompAquarium CA = t.TryGetComp<CompAquarium>();
-            if (CA != null)
+            var CA = t.TryGetComp<CompAquarium>();
+            if (CA == null)
             {
-                List<string> listing = CA.fishData;
-                if (listing.Count > 0)
+                return false;
+            }
+
+            var listing = CA.fishData;
+            if (listing.Count <= 0)
+            {
+                return false;
+            }
+
+            foreach (var value in listing)
+            {
+                var action = CompAquarium.NumValuePart(value, 4);
+                if (action == 1)
                 {
-                    foreach (string value in listing)
+                    Add = true;
+                    var fishDefString = CompAquarium.StringValuePart(value, 1);
+                    if (fishDefString == "AQRandomFish")
                     {
-                        int action = CompAquarium.NumValuePart(value, 4);
-                        if (action == 1)
+                        if (hammeringCounter != 0)
                         {
-                            Add = true;
-                            var fishDefString = (CompAquarium.StringValuePart(value, 1));
-                            if (fishDefString == "AQRandomFish")
-                            {
-                                if(hammeringCounter != 0)
-                                {
-                                    hammeringCounter--;
-                                    return false;
-                                }
-                                var reachableFish = CA.ReachableDefs;
-                                if (reachableFish.Count > 0)
-                                {
-                                    fishDefString = reachableFish.RandomElement();
-                                } else
-                                {
-                                    hammeringCounter = 20;
-                                    return false;
-                                }
-                            }
-                            fishAddDef = ThingDef.Named(fishDefString);
-                            return true;
+                            hammeringCounter--;
+                            return false;
                         }
-                        if (action == 2)
+
+                        var reachableFish = CA.ReachableDefs;
+                        if (reachableFish.Count > 0)
                         {
-                            Remove = true;
-                            return true;
+                            fishDefString = reachableFish.RandomElement();
+                        }
+                        else
+                        {
+                            hammeringCounter = 20;
+                            return false;
                         }
                     }
-                    return result;
+
+                    fishAddDef = ThingDef.Named(fishDefString);
+                    return true;
                 }
+
+                if (action != 2)
+                {
+                    continue;
+                }
+
+                Remove = true;
+                return true;
             }
-            return result;
+
+            return false;
         }
 
         // Token: 0x0600000B RID: 11 RVA: 0x00002548 File Offset: 0x00000748
         internal static Thing GetClosestFishInBag(Pawn p, ThingDef def, Thing t)
         {
-            Thing result = null;
-            List<Thing> potentials = p.Map.listerThings.ThingsOfDef(ThingDef.Named(def.defName));
-            if (potentials.Count > 0)
+            var potentials = p.Map.listerThings.ThingsOfDef(ThingDef.Named(def.defName));
+            if (potentials.Count <= 0)
             {
-                Thing bestThing = null;
-                float bestScore = 0f;
-                foreach (Thing potential in potentials)
-                {
-                    if (potential.Spawned)
-                    {
-                        CompAQFishInBag CBag = potential.TryGetComp<CompAQFishInBag>();
-                        if (CBag != null && p.CanReserveAndReach(potential, PathEndMode.Touch, Danger.None, 1, -1, null, false))
-                        {
-                            int ticksLeft = CBag.ticksInBagRemain;
-                            float distance = p.Position.DistanceTo(potential.Position);
-                            float score = 1f / ticksLeft * Mathf.Lerp(1f, 0.01f, distance / 9999f);
-                            if (score > bestScore)
-                            {
-                                bestScore = score;
-                                bestThing = potential;
-                            }
-                        }
-                    }
-                }
-                if (bestThing != null)
-                {
-                    return bestThing;
-                }
+                return null;
             }
-            return result;
+
+            Thing bestThing = null;
+            var bestScore = 0f;
+            foreach (var potential in potentials)
+            {
+                if (!potential.Spawned)
+                {
+                    continue;
+                }
+
+                var CBag = potential.TryGetComp<CompAQFishInBag>();
+                if (CBag == null || !p.CanReserveAndReach(potential, PathEndMode.Touch, Danger.None))
+                {
+                    continue;
+                }
+
+                var ticksLeft = CBag.ticksInBagRemain;
+                var distance = p.Position.DistanceTo(potential.Position);
+                var score = 1f / ticksLeft * Mathf.Lerp(1f, 0.01f, distance / 9999f);
+                if (!(score > bestScore))
+                {
+                    continue;
+                }
+
+                bestScore = score;
+                bestThing = potential;
+            }
+
+            return bestThing;
         }
 
         // Token: 0x0600000C RID: 12 RVA: 0x00002644 File Offset: 0x00000844
         internal static Thing GetClosestFeed(Pawn p, Thing t)
         {
-            CompAquarium CA = t.TryGetComp<CompAquarium>();
-            int num = 0;
+            var CA = t.TryGetComp<CompAquarium>();
+            var num = 0;
             if (CA != null)
             {
                 if (CA.numFish < 1)
                 {
                     return null;
                 }
-                num = Math.Max(1, (int)((1f - CA.foodPct) * 10f * Math.Max(1, CA.numFish)));
+
+                num = Math.Max(1, (int) ((1f - CA.foodPct) * 10f * Math.Max(1, CA.numFish)));
             }
-            if (num > 0)
+
+            if (num <= 0)
             {
-                List<Thing> potentials = p.Map.listerThings.ThingsOfDef(ThingDef.Named("AQFishFood"));
-                Thing BestThing = null;
-                float BestScore = 0f;
-                if (potentials.Count > 0)
-                {
-                    foreach (Thing potential in potentials)
-                    {
-                        if (potential.Spawned && p.CanReserveAndReach(potential, PathEndMode.Touch, Danger.None, 1, -1, null, false))
-                        {
-                            float stackFactor = 1f;
-                            if (potential.stackCount < num)
-                            {
-                                stackFactor = 0.5f;
-                            }
-                            float distance = p.Position.DistanceTo(potential.Position);
-                            float score = Mathf.Lerp(1f, 0.01f, distance / 9999f) * stackFactor;
-                            if (score > BestScore)
-                            {
-                                BestScore = score;
-                                BestThing = potential;
-                            }
-                        }
-                    }
-                }
-                return BestThing;
+                return null;
             }
-            return null;
+
+            var potentials = p.Map.listerThings.ThingsOfDef(ThingDef.Named("AQFishFood"));
+            Thing BestThing = null;
+            var BestScore = 0f;
+            if (potentials.Count <= 0)
+            {
+                return null;
+            }
+
+            foreach (var potential in potentials)
+            {
+                if (!potential.Spawned || !p.CanReserveAndReach(potential, PathEndMode.Touch, Danger.None))
+                {
+                    continue;
+                }
+
+                var stackFactor = 1f;
+                if (potential.stackCount < num)
+                {
+                    stackFactor = 0.5f;
+                }
+
+                var distance = p.Position.DistanceTo(potential.Position);
+                var score = Mathf.Lerp(1f, 0.01f, distance / 9999f) * stackFactor;
+                if (!(score > BestScore))
+                {
+                    continue;
+                }
+
+                BestScore = score;
+                BestThing = potential;
+            }
+
+            return BestThing;
         }
 
         // Token: 0x0600000D RID: 13 RVA: 0x0000277C File Offset: 0x0000097C
         internal static bool HasFish(Thing thing)
         {
-            CompAquarium CAQ = thing.TryGetComp<CompAquarium>();
+            var CAQ = thing.TryGetComp<CompAquarium>();
             return CAQ != null && CAQ.numFish > 0;
         }
 
         // Token: 0x0600000E RID: 14 RVA: 0x000027A0 File Offset: 0x000009A0
         internal static bool IsValidAquaRoom(Pawn pawn, Room room)
         {
-            return (room.Role != RoomRoleDefOf.Bedroom && room.Role != RoomRoleDefOf.PrisonCell && room.Role != RoomRoleDefOf.PrisonBarracks) || (pawn.ownership != null && pawn.ownership.OwnedRoom != null && pawn.ownership.OwnedRoom == room) || (pawn.IsPrisoner && (room.Role == RoomRoleDefOf.PrisonCell || room.Role == RoomRoleDefOf.PrisonBarracks) && room == pawn.Position.GetRoom(pawn.Map, RegionType.Set_Passable));
+            return room.Role != RoomRoleDefOf.Bedroom && room.Role != RoomRoleDefOf.PrisonCell &&
+                   room.Role != RoomRoleDefOf.PrisonBarracks ||
+                   pawn.ownership?.OwnedRoom != null && pawn.ownership.OwnedRoom == room || pawn.IsPrisoner &&
+                   (room.Role == RoomRoleDefOf.PrisonCell || room.Role == RoomRoleDefOf.PrisonBarracks) &&
+                   room == pawn.Position.GetRoom(pawn.Map);
         }
 
         // Token: 0x0600000F RID: 15 RVA: 0x00002834 File Offset: 0x00000A34
         internal static void DoSpawnTropicalFishMeat(Thing parent, int age)
         {
-            if (parent.Spawned && (parent?.Map) != null)
+            if (!parent.Spawned || parent.Map == null)
             {
-                int stack = Math.Max(1, (int)Mathf.Lerp(1f, 10f, age / (float)CompAquarium.oldFishAge));
-                ThingPlaceMode TPMode = ThingPlaceMode.Near;
-                Thing thing = ThingMaker.MakeThing(ThingDef.Named("AQFishMeat"), null);
-                thing.stackCount = Math.Min(thing.def.stackLimit, stack);
-                GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, TPMode, null, null, default);
+                return;
             }
+
+            var stack = Math.Max(1, (int) Mathf.Lerp(1f, 10f, age / (float) CompAquarium.oldFishAge));
+            var TPMode = ThingPlaceMode.Near;
+            var thing = ThingMaker.MakeThing(ThingDef.Named("AQFishMeat"));
+            thing.stackCount = Math.Min(thing.def.stackLimit, stack);
+            GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, TPMode);
         }
 
         // Token: 0x06000010 RID: 16 RVA: 0x000028C0 File Offset: 0x00000AC0
         internal static void DebugFishData(CompAquarium CompAQ, int maxNum = 0)
         {
-            Log.Message(string.Concat(new string[]
+            Log.Message(string.Concat(CompAQ.parent.Label, " : ", CompAQ.numFish.ToString(), " : ", maxNum.ToString()));
+            var list = CompAQ.fishData;
+            if (list.Count <= 0)
             {
-                CompAQ.parent.Label,
-                " : ",
-                CompAQ.numFish.ToString(),
-                " : ",
-                maxNum.ToString()
-            }), false);
-            List<string> list = CompAQ.fishData;
-            if (list.Count > 0)
+                return;
+            }
+
+            foreach (var text in list)
             {
-                foreach (string text in list)
-                {
-                    Log.Message(text, false);
-                }
+                Log.Message(text);
             }
         }
-
-        // Token: 0x04000002 RID: 2
-        internal const float AvgFishValue = 30f;
-
-        // Token: 0x04000003 RID: 3
-        internal const int FoodVal = 10;
-
-        internal static int hammeringCounter = 0;
-
     }
 }
