@@ -869,13 +869,13 @@ namespace Aquarium
                 var sandDef = DefsCacher.AQSandDefs[i];
                 list.Add(new FloatMenuOption(textToAdd, delegate ()
                 {
-                    selectedSandDefName = sandDef.defName;
+                    SandSelection(sandDef.defName);
                 }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
             var sortedList = list.OrderBy(option => option.Label).ToList();
             sortedList.Insert(0, new FloatMenuOption("Aquarium.Nothing".Translate(), delegate ()
             {
-                selectedSandDefName = string.Empty;
+                SandSelection(string.Empty);
             }, MenuOptionPriority.Default, null, null, 29f, null, null));
             Find.WindowStack.Add(new FloatMenu(sortedList));
         }
@@ -889,13 +889,13 @@ namespace Aquarium
                 var decorationDef = DefsCacher.AQDecorationDefs[i];
                 list.Add(new FloatMenuOption(textToAdd, delegate ()
                 {
-                    selectedDecorationDefName = decorationDef.defName;
+                    DecorationSelection(decorationDef.defName);
                 }, MenuOptionPriority.Default, null, null, 29f, null, null));
             }
             var sortedList = list.OrderBy(option => option.Label).ToList();
             sortedList.Insert(0, new FloatMenuOption("Aquarium.Nothing".Translate(), delegate ()
             {
-                selectedDecorationDefName = string.Empty;
+                DecorationSelection(String.Empty);
             }, MenuOptionPriority.Default, null, null, 29f, null, null));
             Find.WindowStack.Add(new FloatMenu(sortedList));
         }
@@ -993,6 +993,15 @@ namespace Aquarium
             }
         }
 
+        public void SandSelection(string defName)
+        {
+            selectedSandDefName = defName;
+        }
+
+        public void DecorationSelection(string defName)
+        {
+            selectedDecorationDefName = defName;
+        }
         // Token: 0x0600002D RID: 45 RVA: 0x00003AD0 File Offset: 0x00001CD0
         public override string CompInspectStringExtra()
         {
