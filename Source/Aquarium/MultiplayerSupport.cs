@@ -18,6 +18,8 @@ namespace Aquarium
 				return;
 			}
 			MP.RegisterSyncMethod(typeof(CompAquarium), "FishSelection", null);
+			MP.RegisterSyncMethod(typeof(CompAquarium), "SandSelection", null);
+			MP.RegisterSyncMethod(typeof(CompAquarium), "DecorationSelection", null);
 			MP.RegisterSyncMethod(typeof(CompAquarium), "ToggleDebug", null);
 			MethodInfo[] array = new MethodInfo[]
 			{
