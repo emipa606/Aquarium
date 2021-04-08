@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Plant -->
+  <Plant_AQSpirulina.label>Spirulinapflanze</Plant_AQSpirulina.label>
+  <Plant_AQSpirulina.description>Spirulina ist eine Algenart wie Seetang, die in Süßwasserumgebungen wie Seen, Flüssen und Teichen wächst. Sie kann mit Hydrokultur kultiviert werden.</Plant_AQSpirulina.description>
+  <!-- Raw Material -->
+  <AQSpirulina.label>Spiruline</AQSpirulina.label>
+  <AQSpirulina.description>La spiruline est une biomasse de cyanobactéries (algues / algues bleues) qui peuvent être ingérées par les humains et les animaux. Il est également utilisé comme complément alimentaire dans les industries de l'aquaculture, des aquariums et de la volaille.</AQSpirulina.description>
+</LanguageData>

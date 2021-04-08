@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AQFishPets.label>Poisson de compagnie</AQFishPets.label>
+  <AQFishPets.description>Permet de garder des poissons de compagnie tropicaux pour se divertir.</AQFishPets.description>
+  <AQFishTanks.label>Aquariums en verre</AQFishTanks.label>
+  <AQFishTanks.description>Permet de fabriquer des aquariums en verre pour garder les animaux tropicaux pour se divertir.</AQFishTanks.description>
+  <AQGelatin.label>Gélatine</AQGelatin.label>
+  <AQGelatin.description>Permet la production de gélatine à partir de collagène.</AQGelatin.description>
+  <AQSpirulina.label>Spiruline</AQSpirulina.label>
+  <AQSpirulina.description>Permet la culture de la spiruline.</AQSpirulina.description>
+</LanguageData>

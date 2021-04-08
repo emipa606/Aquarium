@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!--  Settings -->
+  <Aquarium.Name>Aquarium</Aquarium.Name>
+  <Aquarium.DoDeathMsgs>Signaler les décès de poissons de compagnie:</Aquarium.DoDeathMsgs>
+  <Aquarium.AllowTankSounds>Autoriser le bruit ambiant des aquariums:</Aquarium.AllowTankSounds>
+  <Aquarium.AllowInspire>Permet l'inspiration:</Aquarium.AllowInspire>
+  <Aquarium.BaseInspChance>Risque de chirurgie de base par poisson en %:</Aquarium.BaseInspChance>
+  <Aquarium.FishLife>Espérance de vie moyenne des poissons de compagnie (années):</Aquarium.FishLife>
+  <Aquarium.DegradeWaterFactor>Taux équivalent auquel la propreté se détériore %:</Aquarium.DegradeWaterFactor>
+  <Aquarium.DegradeFoodFactor>Taux équivalent auquel l'alimentation des poissons se détériore en %:</Aquarium.DegradeFoodFactor>
+  <Aquarium.RespondClean>Niveau de propreté qui déclenche le nettoyage%:</Aquarium.RespondClean>
+  <Aquarium.RespondFood>Contenu du flux qui déclenche l'alimentation %:</Aquarium.RespondFood>
+  <Aquarium.AllowBreed>Autoriser la pisciculture:</Aquarium.AllowBreed>
+  <Aquarium.BreedChance>Risque qu'un poisson naisse en %:</Aquarium.BreedChance>
+  <!--  Content -->
+  <Aquarium.TankInfo>Propreté:{0}, Fischfutter: {1}</Aquarium.TankInfo>
+  <Aquarium.BagInfo>Âge du poisson: {0} Tage, Gesundheit: {1}, Zeit im Beutel verbleibend: {2} Stunden</Aquarium.BagInfo>
+  <Aquarium.FishDied>Un poisson de compagnie est mort.</Aquarium.FishDied>
+  <Aquarium.NoFish>Pas de poisson</Aquarium.NoFish>
+  <Aquarium.FishSelection>Sélection de poissons</Aquarium.FishSelection>
+  <Aquarium.Adding>Ajouter</Aquarium.Adding>
+  <Aquarium.Removing>Supprimer</Aquarium.Removing>
+  <Aquarium.days>Jours</Aquarium.days>
+  <Aquarium.DoNothing>Ne fais rien</Aquarium.DoNothing>
+  <Aquarium.RemoveFish>Retirer le poisson</Aquarium.RemoveFish>
+  <Aquarium.AddFish>Ajouter des poissons</Aquarium.AddFish>
+  <Aquarium.FishMovesAround>Les poissons se déplacent</Aquarium.FishMovesAround>
+  <Aquarium.FishMovesAroundTooltip>Si cette option n'est pas cochée, les poissons resteront dans leur zone générale.</Aquarium.FishMovesAroundTooltip>
+  <Aquarium.RandomFish>Poisson aléatoire</Aquarium.RandomFish>
+  <Aquarium.NoReachableFish>Aucun poisson accessible</Aquarium.NoReachableFish>
+  <Aquarium.Sand>Couleur sable</Aquarium.Sand>
+  <Aquarium.SandDesc>Déterminez la couleur du sable dans l'aquarium.</Aquarium.SandDesc>
+  <Aquarium.White>blanc</Aquarium.White>
+  <Aquarium.Yellow>Jaune</Aquarium.Yellow>
+  <Aquarium.Red>Rouge</Aquarium.Red>
+  <Aquarium.Blue>Bleu</Aquarium.Blue>
+  <Aquarium.Green>Vert</Aquarium.Green>
+  <Aquarium.Black>Noir</Aquarium.Black>
+  <Aquarium.Purple>Violet</Aquarium.Purple>
+  <Aquarium.Orange>Orange</Aquarium.Orange>
+  <Aquarium.Gray>Gris</Aquarium.Gray>
+  <Aquarium.Pink>Rose</Aquarium.Pink>
+  <Aquarium.Brown>Marron</Aquarium.Brown>
+  <Aquarium.Cyan>Cyan</Aquarium.Cyan>
+  <Aquarium.Decorations>Decoration</Aquarium.Decorations>
+  <Aquarium.DecorationsDesc>Déterminez la décoration de l'aquarium.</Aquarium.DecorationsDesc>
+  <Aquarium.Nothing>Rien</Aquarium.Nothing>
+  <Aquarium.LushGroove>Algues luxuriantes</Aquarium.LushGroove>
+  <Aquarium.RedDawn>Aube Rouge</Aquarium.RedDawn>
+  <Aquarium.PurpleHaze>Brume violette</Aquarium.PurpleHaze>
+  <Aquarium.SpaceJam>espace</Aquarium.SpaceJam>
+  <Aquarium.RockyValley>Sol en pierre</Aquarium.RockyValley>
+  <Aquarium.SparseField>Champ clairsemé</Aquarium.SparseField>
+  <Aquarium.ForrestFloor>Sol forestier</Aquarium.ForrestFloor>
+  <Aquarium.AutumnHarvest>Automnal</Aquarium.AutumnHarvest>
+  <Aquarium.AnemoneGroup>Groupes d'anémones</Aquarium.AnemoneGroup>
+  <Aquarium.PinkPoints>Points roses</Aquarium.PinkPoints>
+</LanguageData>

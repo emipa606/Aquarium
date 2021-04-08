@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- WorkType -->
+  <AQAquarium.label>Aquariophile</AQAquarium.label>
+  <AQAquarium.description>Nourrit les poissons, nettoie les aquariums et gère les populations de poissons d'aquarium.</AQAquarium.description>
+  <AQAquarium.labelShort>Aquariophile</AQAquarium.labelShort>
+  <AQAquarium.pawnLabel>Aquariophile</AQAquarium.pawnLabel>
+  <AQAquarium.gerundLabel>Aquaculture</AQAquarium.gerundLabel>
+  <AQAquarium.verb>Aquaculture</AQAquarium.verb>
+</LanguageData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Tank/Bowl maintenance jobs -->
+  <AQFeeding.reportString>Nourrit les poissons dans TargetA.</AQFeeding.reportString>
+  <AQCleaning.reportString>Nettoit TargetA.</AQCleaning.reportString>
+  <AQManagingAdd.reportString>Ajoute des poissons dans TargetA.</AQManagingAdd.reportString>
+  <AQManagingRemove.reportString>Retire le poisson de TargetA.</AQManagingRemove.reportString>
+  <!-- Joy jobs -->
+  <AQViewFishBowl.reportString>Regarde les poissons.</AQViewFishBowl.reportString>
+  <AQViewFishTank.reportString>Regarde les poissons.</AQViewFishTank.reportString>
+</LanguageData>

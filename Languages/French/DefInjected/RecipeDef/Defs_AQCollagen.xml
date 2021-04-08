@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MakeAQCollagen.label>Faire du collagène</MakeAQCollagen.label>
+  <MakeAQCollagen.description>Faire 10 collagène.</MakeAQCollagen.description>
+  <MakeAQCollagen.jobString>Donne du collagène.</MakeAQCollagen.jobString>
+  <MakeBulkAQCollagen.label>Faire du collagène en vrac</MakeBulkAQCollagen.label>
+  <MakeBulkAQCollagen.description>Faire 50 collagène.</MakeBulkAQCollagen.description>
+  <MakeBulkAQCollagen.jobString>Donne du collagène.</MakeBulkAQCollagen.jobString>
+</LanguageData>

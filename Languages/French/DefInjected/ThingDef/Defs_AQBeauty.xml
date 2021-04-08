@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AQBeautyOne.label>1</AQBeautyOne.label>
+  <AQBeautyTwo.label>2</AQBeautyTwo.label>
+  <AQBeautyFour.label>4</AQBeautyFour.label>
+  <AQBeautyEight.label>8</AQBeautyEight.label>
+  <AQBeautySixteen.label>16</AQBeautySixteen.label>
+  <AQBeautyThirtytwo.label>32</AQBeautyThirtytwo.label>
+  <AQBeautySixtyfour.label>64</AQBeautySixtyfour.label>
+  <AQBeautyOnehundredtwentyeight.label>128</AQBeautyOnehundredtwentyeight.label>
+  <AQBeautyTwohundredfiftysix.label>256</AQBeautyTwohundredfiftysix.label>
+  <AQRandomFish.label>Poisson aléatoire</AQRandomFish.label>
+</LanguageData>

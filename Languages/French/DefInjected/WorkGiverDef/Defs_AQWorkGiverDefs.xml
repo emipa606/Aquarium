@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- WorkGivers -->
+  <AQFeedFishTank.label>Nourrit les poissons de compagnie dans les aquariums à paroi en verre</AQFeedFishTank.label>
+  <AQFeedFishTank.verb>Nourrir</AQFeedFishTank.verb>
+  <AQFeedFishTank.gerund>Nourrit</AQFeedFishTank.gerund>
+  <AQFeedFishBowl.label>Nourrit les poissons de compagnie dans les aquariums à billes de verre</AQFeedFishBowl.label>
+  <AQFeedFishBowl.verb>Nourrir</AQFeedFishBowl.verb>
+  <AQFeedFishBowl.gerund>Nourrit</AQFeedFishBowl.gerund>
+  <AQCleanFishTank.label>Nettoie les aquariums muraux en verre</AQCleanFishTank.label>
+  <AQCleanFishTank.verb>Nettoyer</AQCleanFishTank.verb>
+  <AQCleanFishTank.gerund>Nettoit</AQCleanFishTank.gerund>
+  <AQCleanFishBowl.label>Nettoie les aquariums à billes de verre</AQCleanFishBowl.label>
+  <AQCleanFishBowl.verb>Nettoyer</AQCleanFishBowl.verb>
+  <AQCleanFishBowl.gerund>Nettoit</AQCleanFishBowl.gerund>
+  <AQManageFishTank.label>Gère la population dans les aquariums à parois de verre</AQManageFishTank.label>
+  <AQManageFishTank.verb>Géret</AQManageFishTank.verb>
+  <AQManageFishTank.gerund>Géré</AQManageFishTank.gerund>
+  <AQManageFishBowl.label>Gère la population dans les aquariums à billes de verre</AQManageFishBowl.label>
+  <AQManageFishBowl.verb>Gérer</AQManageFishBowl.verb>
+  <AQManageFishBowl.gerund>Gère</AQManageFishBowl.gerund>
+</LanguageData>
