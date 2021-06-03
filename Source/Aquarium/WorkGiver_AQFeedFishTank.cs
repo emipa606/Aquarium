@@ -32,7 +32,8 @@ namespace Aquarium
             }
 
             var trigger = Controller.Settings.RespondFood / 100f;
-            if (CA.foodPct <= trigger && CA.numFish > 0 && AQUtility.GetClosestFeed(pawn, t) != null)
+            if (CA.foodPct <= trigger && AQUtility.GetAmountOfFish(CA.fishData) > 0 &&
+                AQUtility.GetClosestFeed(pawn, t) != null)
             {
                 return true;
             }
@@ -43,12 +44,11 @@ namespace Aquarium
         // Token: 0x06000080 RID: 128 RVA: 0x00004EC4 File Offset: 0x000030C4
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            var feeddef = DefDatabase<JobDef>.GetNamed("AQFeeding", false);
             var feed = AQUtility.GetClosestFeed(pawn, t);
             Job newJob = null;
-            if (feeddef != null && feed != null)
+            if (feed != null)
             {
-                newJob = new Job(feeddef, t, feed);
+                newJob = new Job(DefsCacher.AQFeedingDef, t, feed);
             }
 
             return newJob;

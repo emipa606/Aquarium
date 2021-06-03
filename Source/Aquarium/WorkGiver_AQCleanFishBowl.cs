@@ -41,14 +41,7 @@ namespace Aquarium
         // Token: 0x06000071 RID: 113 RVA: 0x00004CD4 File Offset: 0x00002ED4
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            var cleandef = DefDatabase<JobDef>.GetNamed("AQCleaning", false);
-            Job newJob = null;
-            if (cleandef != null)
-            {
-                newJob = new Job(cleandef, t);
-            }
-
-            return newJob;
+            return new Job(DefsCacher.AQCleaningDef, t);
         }
     }
 }

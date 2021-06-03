@@ -11,7 +11,7 @@ namespace Aquarium
     public class JoyGiver_AQViewFishBowl : JoyGiver
     {
         // Token: 0x04000022 RID: 34
-        private static readonly List<Thing> candidates = new();
+        private static readonly List<Thing> candidates = new List<Thing>();
 
         // Token: 0x0600005B RID: 91 RVA: 0x00004380 File Offset: 0x00002580
         public override Job TryGiveJob(Pawn pawn)
@@ -39,15 +39,10 @@ namespace Aquarium
                     var room = thing.GetRoom();
                     return room != null && AQUtility.IsValidAquaRoom(pawn, room);
                 }));
-                if (!candidates.TryRandomElementByWeight(
-                    target => Mathf.Max(target.GetStatValue(StatDefOf.Beauty), 0.5f), out var result))
-                {
-                    result2 = null;
-                }
-                else
-                {
-                    result2 = JobMaker.MakeJob(def.jobDef, result);
-                }
+                result2 = !candidates.TryRandomElementByWeight(
+                    target => Mathf.Max(target.GetStatValue(StatDefOf.Beauty), 0.5f), out var result)
+                    ? null
+                    : JobMaker.MakeJob(def.jobDef, result);
             }
             finally
             {

@@ -44,9 +44,9 @@ namespace Aquarium
         private int currentBeauty;
 
         // Token: 0x0400000F RID: 15
-        internal List<string> fishData = new();
+        internal List<string> fishData = new List<string>();
 
-        private List<float[]> fishWandering = new();
+        private List<float[]> fishWandering = new List<float[]>();
 
         // Token: 0x04000010 RID: 16
         private bool fishydebug;
@@ -60,9 +60,9 @@ namespace Aquarium
         // Token: 0x0400000C RID: 12
         internal int numFish;
 
-        internal List<Thing> reservedFish = new();
+        internal List<Thing> reservedFish = new List<Thing>();
 
-        private List<Thing> savedBeauty = new();
+        private List<Thing> savedBeauty = new List<Thing>();
 
         private int selectedDecoration = -1;
 
@@ -90,9 +90,8 @@ namespace Aquarium
         {
             get
             {
-                var bagDefs = BagDefs();
                 var currentDefs = (from x in parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)
-                    where bagDefs.Contains(x.def.defName) && !x.Position.Fogged(parent.Map) &&
+                    where DefsCacher.AQBagDefs.Contains(x.def) && !x.Position.Fogged(parent.Map) &&
                           !x.IsForbidden(Faction.OfPlayerSilentFail)
                     orderby x.def.label
                     select x.def.defName).ToList();
@@ -130,7 +129,7 @@ namespace Aquarium
         {
             var startInMiddle = true;
             perspective = 1f;
-            if (Math.Ceiling((decimal) (Props.maxFish / 2)) % 2 == 0)
+            if (Math.Ceiling(Props.maxFish / (decimal) 2) % 2 == 0)
             {
                 startInMiddle = false;
             }
@@ -212,8 +211,8 @@ namespace Aquarium
                     select decorationDef).First())
                 : -1;
 
-            float tankXRadius = parent.def.size.x / 2;
-            float tankZRadius = parent.def.size.z / 2;
+            var tankXRadius = parent.def.size.x / (float) 2;
+            var tankZRadius = parent.def.size.z / (float) 2;
             if (tankXRadius > 1)
             {
                 tankXRadius += tankXRadius * 0.45f;
@@ -508,7 +507,7 @@ namespace Aquarium
                     }
 
                     var age = NumValuePart(value, 3);
-                    sum += Mathf.Lerp(0.75f, 1f, Math.Min(oldFishAge, age) / oldFishAge);
+                    sum += Mathf.Lerp(0.75f, 1f, Math.Min(oldFishAge, age) / (float) oldFishAge);
                     count++;
                 }
             }
@@ -530,15 +529,16 @@ namespace Aquarium
         }
 
         // Token: 0x06000020 RID: 32 RVA: 0x0000312C File Offset: 0x0000132C
-        private void DumpFish(List<string> fishData)
+        private void DumpFish(List<string> incomingFishData)
         {
-            if (parent.Map == null || parent.Map.ParentFaction != Faction.OfPlayerSilentFail || fishData == null ||
-                fishData.Count <= 0)
+            if (parent.Map == null || parent.Map.ParentFaction != Faction.OfPlayerSilentFail ||
+                incomingFishData == null ||
+                incomingFishData.Count <= 0)
             {
                 return;
             }
 
-            foreach (var value in fishData)
+            foreach (var value in incomingFishData)
             {
                 var health = NumValuePart(value, 2);
                 var age = NumValuePart(value, 3);
@@ -589,7 +589,7 @@ namespace Aquarium
             }
         }
 
-        public void GenerateBeauty(List<string> fishData)
+        public void GenerateBeauty(List<string> incomingFishData)
         {
             if (savedBeauty != null)
             {
@@ -604,12 +604,12 @@ namespace Aquarium
 
             CleanBeautyItems();
             savedBeauty = new List<Thing>();
-            if (fishData != null && fishData.Count > 0)
+            if (incomingFishData != null && incomingFishData.Count > 0)
             {
                 var beauty = 0f;
-                foreach (var value in fishData)
+                foreach (var value in incomingFishData)
                 {
-                    if (!BagDefs().Contains(StringValuePart(value, 1)))
+                    if (!DefsCacher.AQBagDefs.Any(def => def.defName == StringValuePart(value, 1)))
                     {
                         continue;
                     }
@@ -647,11 +647,11 @@ namespace Aquarium
         }
 
         // Token: 0x06000021 RID: 33 RVA: 0x00003238 File Offset: 0x00001438
-        private void DegradeFood(int numFish, float foodPct, float ageF, out float newFoodPct)
+        private void DegradeFood(int numberOfFish, float foodAmount, float ageF, out float newFoodPct)
         {
             var factor = Controller.Settings.DegradeFoodFactor / 100f * 0.0625f * ageF;
-            newFoodPct = foodPct;
-            newFoodPct -= (0.01f + (numFish * RandomFloat(0.01f, 0.04f))) * factor;
+            newFoodPct = foodAmount;
+            newFoodPct -= (0.01f + (numberOfFish * RandomFloat(0.01f, 0.04f))) * factor;
             if (newFoodPct < 0f)
             {
                 newFoodPct = 0f;
@@ -659,12 +659,13 @@ namespace Aquarium
         }
 
         // Token: 0x06000022 RID: 34 RVA: 0x00003298 File Offset: 0x00001498
-        private void DegradeWater(int numFish, float foodPct, float cleanPct, float ageF, out float newCleanPct)
+        private void DegradeWater(int numberFish, float foodAmount, float cleanAmount, float ageF,
+            out float newCleanPct)
         {
             var factor = Controller.Settings.DegradeWaterFactor / 100f * 0.025f * ageF;
-            newCleanPct = cleanPct;
-            newCleanPct -= numFish * RandomFloat(0.02f, 0.03f) * factor;
-            newCleanPct -= Mathf.Lerp(0f, 0.02f, foodPct) * factor;
+            newCleanPct = cleanAmount;
+            newCleanPct -= numberFish * RandomFloat(0.02f, 0.03f) * factor;
+            newCleanPct -= Mathf.Lerp(0f, 0.02f, foodAmount) * factor;
             if (newCleanPct < 0f)
             {
                 newCleanPct = 0f;
@@ -672,23 +673,24 @@ namespace Aquarium
         }
 
         // Token: 0x06000023 RID: 35 RVA: 0x0000330C File Offset: 0x0000150C
-        private void EffectFish(int numFish, List<string> fishData, float foodPct, float cleanPct, out int newNumFish,
+        private void EffectFish(int numberOfFish, List<string> incomingFishData, float foodAmount, float cleanAmount,
+            out int newNumFish,
             out List<string> newFishData)
         {
-            newNumFish = numFish;
-            newFishData = fishData;
-            if (numFish <= 0)
+            newNumFish = numberOfFish;
+            newFishData = incomingFishData;
+            if (numberOfFish <= 0)
             {
                 return;
             }
 
             var degradingHealth = 0;
-            if (foodPct <= 0f)
+            if (foodAmount <= 0f)
             {
                 degradingHealth++;
             }
 
-            if (cleanPct <= 0.25f)
+            if (cleanAmount <= 0.25f)
             {
                 degradingHealth++;
             }
@@ -771,7 +773,7 @@ namespace Aquarium
                 }
             }
 
-            if (fishData.Count != changedFishData.Count)
+            if (incomingFishData.Count != changedFishData.Count)
             {
                 GenerateBeauty(changedFishData);
             }
@@ -820,7 +822,7 @@ namespace Aquarium
         private void StartMixSustainer()
         {
             var info = SoundInfo.InMap(parent, MaintenanceType.PerTick);
-            mixSustainer = SoundDef.Named("AQFishTank").TrySpawnSustainer(info);
+            mixSustainer = DefsCacher.AQSoundDef.TrySpawnSustainer(info);
         }
 
         // Token: 0x06000028 RID: 40 RVA: 0x00003695 File Offset: 0x00001895
@@ -981,9 +983,9 @@ namespace Aquarium
             }
             else
             {
-                var randomFishDef = DefDatabase<ThingDef>.GetNamed("AQRandomFish");
                 list.Add(new FloatMenuOption("Aquarium.RandomFish".Translate(),
-                    delegate { FishSelection(randomFishDef, selindex, ActionType.Add); }, MenuOptionPriority.Default,
+                    delegate { FishSelection(DefsCacher.AQRandomFishDef, selindex, ActionType.Add); },
+                    MenuOptionPriority.Default,
                     null, null, 29f));
                 if (ReachableDefs.Count == 0)
                 {
@@ -1152,15 +1154,6 @@ namespace Aquarium
             return "Aquarium.TankInfo".Translate(cleanPct.ToStringPercent(), foodPct.ToStringPercent(), currentBeauty);
         }
 
-        // Token: 0x0600002F RID: 47 RVA: 0x00003C24 File Offset: 0x00001E24
-        private List<string> BagDefs()
-        {
-            var bagDefs = (from bagdef in DefDatabase<ThingDef>.AllDefsListForReading
-                where bagdef.defName.StartsWith("AQFishInBag")
-                select bagdef.defName).ToList();
-            bagDefs.SortBy(s => ThingDef.Named(s).label);
-            return bagDefs;
-        }
 
         private static int WordsToNumbers(string word)
         {

@@ -11,21 +11,17 @@ namespace Aquarium
     public class JoyGiver_AQViewFishTank : JoyGiver
     {
         // Token: 0x04000023 RID: 35
-        private static readonly List<Thing> candidates = new();
+        private static readonly List<Thing> candidates = new List<Thing>();
 
         // Token: 0x0600005E RID: 94 RVA: 0x00004464 File Offset: 0x00002664
         public override Job TryGiveJob(Pawn pawn)
         {
             var allowedOutside = JoyUtility.EnjoyableOutsideNow(pawn);
-            var tankDefs = (from tankDef in DefDatabase<ThingDef>.AllDefsListForReading
-                where tankDef.defName.StartsWith("AQFishTank")
-                select tankDef.defName).ToList();
-            foreach (var tankDef in tankDefs)
+            foreach (var tankDef in DefsCacher.AQFishTankDefs)
             {
                 try
                 {
-                    var AQBowlDef = ThingDef.Named(tankDef);
-                    candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
+                    candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(tankDef).Where(delegate(Thing thing)
                     {
                         if (!AQUtility.HasFish(thing))
                         {

@@ -35,12 +35,12 @@ namespace Aquarium
                     f = AQUtility.GetClosestFishInBag(pawn, fAddDef, t);
                     if (f != null)
                     {
-                        useDef = DefDatabase<JobDef>.GetNamed("AQManagingAdd", false);
+                        useDef = DefsCacher.AQManagingAddDef;
                     }
                 }
                 else if (Remove)
                 {
-                    useDef = DefDatabase<JobDef>.GetNamed("AQManagingRemove", false);
+                    useDef = DefsCacher.AQManagingRemoveDef;
                 }
             }
 

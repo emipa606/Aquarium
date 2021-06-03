@@ -10,7 +10,7 @@ namespace Aquarium
     internal static class MultiplayerSupport
     {
         // Token: 0x04000001 RID: 1
-        private static readonly Harmony harmony = new("rimworld.pelador.aquarium.multiplayersupport");
+        private static readonly Harmony harmony = new Harmony("rimworld.pelador.aquarium.multiplayersupport");
 
         // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
         static MultiplayerSupport()

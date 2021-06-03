@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using UnityEngine;
@@ -47,7 +48,8 @@ namespace Aquarium
                 var value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
                 fishFactor *= value / compare;
                 agefactor *= Mathf.Lerp(0.75f, 1f,
-                    Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) / CompAquarium.oldFishAge);
+                    Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) /
+                    (float) CompAquarium.oldFishAge);
             }
 
             return beautyFactor * fishFactor * agefactor;
@@ -80,7 +82,7 @@ namespace Aquarium
                             fishFactor *= value / compare;
                             agefactor *= Mathf.Lerp(0.75f, 1f,
                                 Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) /
-                                CompAquarium.oldFishAge);
+                                (float) CompAquarium.oldFishAge);
                         }
                     }
 
@@ -282,7 +284,38 @@ namespace Aquarium
         internal static bool HasFish(Thing thing)
         {
             var CAQ = thing.TryGetComp<CompAquarium>();
-            return CAQ != null && CAQ.numFish > 0;
+            return CAQ != null && GetAmountOfFish(CAQ.fishData) > 0;
+        }
+
+        internal static int GetAmountOfFish(List<string> fishData)
+        {
+            if (fishData == null || fishData.Count == 0)
+            {
+                return 0;
+            }
+
+            var counter = 0;
+            foreach (var text in fishData)
+            {
+                if (CompAquarium.NumValuePart(text, 4) == 1)
+                {
+                    continue;
+                }
+
+                if (string.IsNullOrEmpty(CompAquarium.StringValuePart(text, 1)))
+                {
+                    continue;
+                }
+
+                if (CompAquarium.StringValuePart(text, 1) == "AQRandomFish")
+                {
+                    continue;
+                }
+
+                counter++;
+            }
+
+            return counter;
         }
 
         // Token: 0x0600000E RID: 14 RVA: 0x000027A0 File Offset: 0x000009A0
