@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Abstract="True" Name="AQDecorations">
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+    </graphicData>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_A</defName>
+    <label>LushGroove</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_B</defName>
+    <label>RedDawn</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_C</defName>
+    <label>PurpleHaze</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_D</defName>
+    <label>SpaceJam</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_E</defName>
+    <label>RockyValley</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_F</defName>
+    <label>SparseField</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_G</defName>
+    <label>ForrestFloor</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_H</defName>
+    <label>AutumnHarvest</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_I</defName>
+    <label>AnemoneGroup</label>
+  </ThingDef>
+  <ThingDef ParentName="AQDecorations">
+    <defName>AQDecoration_J</defName>
+    <label>PinkPoints</label>
+  </ThingDef>
+</Defs>

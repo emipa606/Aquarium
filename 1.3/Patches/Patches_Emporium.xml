@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Emporium (Continued)</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/TraderKindDef[defName="Caravan_Emporeum"]/stockGenerators</xpath>
+          <value>
+            <li Class="StockGenerator_Category">
+              <categoryDef>AQTropicalFish</categoryDef>
+              <thingDefCountRange>
+                <min>-1</min>
+                <max>5</max>
+              </thingDefCountRange>
+              <totalPriceRange>
+                <min>50</min>
+                <max>150</max>
+              </totalPriceRange>
+            </li>
+            <li Class="StockGenerator_SingleDef">
+              <thingDef>AQFishFood</thingDef>
+              <countRange>200~500</countRange>
+            </li>
+            <li Class="StockGenerator_SingleDef">
+              <thingDef>AQGlassBowl</thingDef>
+              <countRange>0~4</countRange>
+            </li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

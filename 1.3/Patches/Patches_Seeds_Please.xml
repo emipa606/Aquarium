@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Spirulina -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>SeedsPlease</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <SeedsPlease.SeedDef ParentName="SeedBase">
+              <defName>Seed_AQSpirulina</defName>
+              <label>Spirulina seeds</label>
+              <sources>
+                <li>Plant_AQSpirulina</li>
+              </sources>
+            </SeedsPlease.SeedDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <RecipeDef ParentName="ExtractSeed">
+              <defName>ExtractSeed_AQSpirulina</defName>
+              <label>extract spirulina seeds</label>
+              <description>Prepares useful seeds from spirulina.</description>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>AQSpirulina</li>
+                    </thingDefs>
+                  </filter>
+                  <count>5</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>AQSpirulina</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Seed_AQSpirulina>5</Seed_AQSpirulina>
+              </products>
+            </RecipeDef>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

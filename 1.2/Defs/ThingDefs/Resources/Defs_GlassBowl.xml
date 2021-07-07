@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>AQGlassBowl</defName>
+    <label>Glass fish bowl</label>
+    <description>A glass bowl for keeping tropical fish in.</description>
+    <techLevel>Medieval</techLevel>
+    <graphicData>
+      <texPath>Things/Bowls/FishBowl_Empty</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>7.4</MarketValue>
+      <Mass>2.0</Mass>
+      <Flammability>0.2</Flammability>
+      <DeteriorationRate>0.1</DeteriorationRate>
+    </statBases>
+    <intricate>false</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  <RecipeDef>
+    <defName>Make_AQGlassBowl</defName>
+    <label>make glass fish bowl</label>
+    <description>Make glass fish bowl.</description>
+    <jobString>Making glass fish bowl.</jobString>
+    <workAmount>2500</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Smelt</effectWorking>
+    <soundWorking>Recipe_Cremate</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+    </ingredients>
+    <products>
+      <AQGlassBowl>1</AQGlassBowl>
+    </products>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <workSkill>Crafting</workSkill>
+    <skillRequirements>
+      <Crafting>5</Crafting>
+    </skillRequirements>
+    <recipeUsers>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+      <li>ElectricSmelter</li>
+    </recipeUsers>
+    <researchPrerequisite>AQFishPets</researchPrerequisite>
+  </RecipeDef>
+</Defs>

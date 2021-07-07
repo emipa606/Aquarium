@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Name="AQBeautyBase" ParentName="BuildingBase" Abstract="true">
+    <defName>AQBeautyBase</defName>
+    <label> </label>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <texPath>Things/Empty</texPath>
+    </graphicData>
+    <selectable>false</selectable>
+    <building>
+      <isInert>true</isInert>
+      <isEdifice>false</isEdifice>
+      <deconstructible>false</deconstructible>
+    </building>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyOne</defName>
+    <statBases>
+      <Beauty>1</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyTwo</defName>
+    <statBases>
+      <Beauty>2</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyFour</defName>
+    <statBases>
+      <Beauty>4</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyEight</defName>
+    <statBases>
+      <Beauty>8</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautySixteen</defName>
+    <statBases>
+      <Beauty>16</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyThirtytwo</defName>
+    <statBases>
+      <Beauty>32</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautySixtyfour</defName>
+    <statBases>
+      <Beauty>64</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyOnehundredtwentyeight</defName>
+    <statBases>
+      <Beauty>128</Beauty>
+    </statBases>
+  </ThingDef>
+  <ThingDef ParentName="AQBeautyBase">
+    <defName>AQBeautyTwohundredfiftysix</defName>
+    <statBases>
+      <Beauty>256</Beauty>
+    </statBases>
+  </ThingDef>
+</Defs>

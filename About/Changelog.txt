@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.0.32.0 - Mod updated for 1.3 and passed autotests
+
+
 1.0.31.0 - Optimizations, via Taranchuk. Also, no more feeding of empty tanks.
 
 

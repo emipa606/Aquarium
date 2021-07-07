@@ -105,7 +105,7 @@ namespace Aquarium
             var IDef = (from x in DefDatabase<InspirationDef>.AllDefsListForReading
                 where x.Worker.InspirationCanOccur(pawn)
                 select x).RandomElementByWeightWithFallback(x => x.Worker.CommonalityFor(pawn));
-            pawn.mindState.inspirationHandler.TryStartInspiration_NewTemp(IDef);
+            pawn.mindState.inspirationHandler.TryStartInspiration(IDef);
         }
 
         // Token: 0x06000007 RID: 7 RVA: 0x00002438 File Offset: 0x00000638
