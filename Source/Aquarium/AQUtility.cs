@@ -65,7 +65,7 @@ namespace Aquarium
                 var fishFactor = 1f;
                 var agefactor = 1f;
                 var compare = 30f;
-                if (CompAQ != null && CompAQ.numFish > 0 && pawn.IsHashIntervalTick(1000))
+                if (CompAQ is {numFish: > 0} && pawn.IsHashIntervalTick(1000))
                 {
                     var list = CompAQ.fishData;
                     if (list.Count > 0)

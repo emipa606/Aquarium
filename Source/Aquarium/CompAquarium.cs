@@ -604,7 +604,7 @@ namespace Aquarium
 
             CleanBeautyItems();
             savedBeauty = new List<Thing>();
-            if (incomingFishData != null && incomingFishData.Count > 0)
+            if (incomingFishData is {Count: > 0})
             {
                 var beauty = 0f;
                 foreach (var value in incomingFishData)
@@ -874,7 +874,7 @@ namespace Aquarium
                 graphicPath = "Things/Fish/UI/Decoration_Icon";
                 defaultLabel = selectedDecoration >= 0
                     ? $"{("Aquarium." + DefsCacher.AQDecorationDefs[selectedDecoration].label).Translate()}\n{"Aquarium.Decorations".Translate()}"
-                    : (string) "Aquarium.Decorations".Translate();
+                    : "Aquarium.Decorations".Translate();
                 yield return new Command_Action
                 {
                     defaultLabel = defaultLabel,
@@ -1244,7 +1244,7 @@ namespace Aquarium
             }
 
             var CPT = parent.TryGetComp<CompPowerTrader>();
-            return CPT != null && CPT.PowerOn;
+            return CPT is {PowerOn: true};
         }
 
         // Token: 0x06000032 RID: 50 RVA: 0x00003D5C File Offset: 0x00001F5C
