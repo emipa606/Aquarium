@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Aquarium (Continued)</name>
   <packageId>Mlie.Aquarium</packageId>
@@ -20,7 +20,7 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 
@@ -79,10 +79,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Made the fish move smoother and more fish-like
 - Made the selector to add fish only show available fish
 - Added selectable sand and decorations in the tanks
-- Added a &quot;Add random fish&quot; function
+- Added a "Add random fish" function
 - Made the beauty of the tanks based on the fish inside the tank
 - Food and cleanliness will not degrade with no fish in the tanks
-- Added a &quot;Nothing&quot;-option to the tank decor
+- Added a "Nothing"-option to the tank decor
 - Added German translation, thanks Erdnussbrot!
 - Added French translation, thanks qux!
 - Added some optimizations, thanks Taranchuk!
@@ -96,7 +96,7 @@ New graphic creators
 
 - Multiplayer fixes by Cody-Spring
 
-[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+[img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
 	[tr]
@@ -105,7 +105,7 @@ New graphic creators
 	[/tr]
 [/table]
 	
-[img]https://i.imgur.com/NOW7jU1.png[/img]
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 
 [h1]Overview[/h1] V1.1
 
@@ -130,7 +130,7 @@ Vanilla - items added to exotic and shaman traders.
 RFF - use of sand in glass recipes.
 Glass and lights - use of workbenches.
 Multiplayer - native support.
-VFE - chance to get tropical fish as &quot;special items&quot; from fishing.
+VFE - chance to get tropical fish as "special items" from fishing.
 
 [h1]Credits[/h1]
 
@@ -141,7 +141,7 @@ Fish and tank/bowl art graphics - Kasmex Forever
 (CC BY-NC-SA 4.0)
 
 
-[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
@@ -150,6 +150,5 @@ Fish and tank/bowl art graphics - Kasmex Forever
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [/list]
-
 </description>
 </ModMetaData>

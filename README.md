@@ -1,6 +1,6 @@
 # Aquarium
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
@@ -62,10 +62,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Made the fish move smoother and more fish-like
 - Made the selector to add fish only show available fish
 - Added selectable sand and decorations in the tanks
-- Added a &quot;Add random fish&quot; function
+- Added a "Add random fish" function
 - Made the beauty of the tanks based on the fish inside the tank
 - Food and cleanliness will not degrade with no fish in the tanks
-- Added a &quot;Nothing&quot;-option to the tank decor
+- Added a "Nothing"-option to the tank decor
 - Added German translation, thanks Erdnussbrot!
 - Added French translation, thanks qux!
 - Added some optimizations, thanks Taranchuk!
@@ -81,19 +81,10 @@ New graphic creators
 
 - Multiplayer fixes by Cody-Spring
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/Aquarium]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 # Overview
@@ -122,7 +113,7 @@ Vanilla - items added to exotic and shaman traders.
 RFF - use of sand in glass recipes.
 Glass and lights - use of workbenches.
 Multiplayer - native support.
-VFE - chance to get tropical fish as &quot;special items&quot; from fishing.
+VFE - chance to get tropical fish as "special items" from fishing.
 
 # Credits
 
@@ -134,7 +125,7 @@ Fish and tank/bowl art graphics - Kasmex Forever
 (CC BY-NC-SA 4.0)
 
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -144,7 +135,6 @@ Fish and tank/bowl art graphics - Kasmex Forever
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
-
 
 
 

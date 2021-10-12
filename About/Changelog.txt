@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.0.34.0 - Should now be possible to place fish bowls on floors in ships in SOS2
+
+
 1.0.33.0 - Fixed the invisible fish and decorations
 
 
