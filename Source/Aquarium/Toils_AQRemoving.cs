@@ -1,90 +1,87 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using Verse.AI;
 
-namespace Aquarium
+namespace Aquarium;
+
+public class Toils_AQRemoving
 {
-    // Token: 0x02000016 RID: 22
-    public class Toils_AQRemoving
+    public static Toil FinalizeRemoving(TargetIndex RemoveFrom)
     {
-        // Token: 0x0600006C RID: 108 RVA: 0x00004C1C File Offset: 0x00002E1C
-        public static Toil FinalizeRemoving(TargetIndex RemoveFrom)
+        var toil = new Toil();
+        toil.initAction = delegate
         {
-            var toil = new Toil();
-            toil.initAction = delegate
+            var curJob = toil.actor.CurJob;
+            var thing = curJob.GetTarget(RemoveFrom).Thing;
+            Thing removedThing = null;
+            var AQComp = thing.TryGetComp<CompAquarium>();
+            if (AQComp != null && AQComp.fishData.Count > 0)
             {
-                var curJob = toil.actor.CurJob;
-                var thing = curJob.GetTarget(RemoveFrom).Thing;
-                Thing removedThing = null;
-                var AQComp = thing.TryGetComp<CompAquarium>();
-                if (AQComp != null && AQComp.fishData.Count > 0)
+                var newList = new List<string>();
+                var newIndex = 0;
+                var removed = false;
+                foreach (var value in AQComp.fishData)
                 {
-                    var newList = new List<string>();
-                    var newIndex = 0;
-                    var removed = false;
-                    foreach (var value in AQComp.fishData)
+                    newIndex++;
+                    var prevDefVal = CompAquarium.StringValuePart(value, 1);
+                    var prevHealth = CompAquarium.NumValuePart(value, 2);
+                    var prevAge = CompAquarium.NumValuePart(value, 3);
+                    var prevAct = CompAquarium.NumValuePart(value, 4);
+                    if (prevAct == 2 && !removed)
                     {
-                        newIndex++;
-                        var prevDefVal = CompAquarium.StringValuePart(value, 1);
-                        var prevHealth = CompAquarium.NumValuePart(value, 2);
-                        var prevAge = CompAquarium.NumValuePart(value, 3);
-                        var prevAct = CompAquarium.NumValuePart(value, 4);
-                        if (prevAct == 2 && !removed)
+                        var thing2 = ThingMaker.MakeThing(ThingDef.Named(prevDefVal));
+                        thing2.stackCount = 1;
+                        GenPlace.TryPlaceThing(thing2, toil.actor.Position, toil.actor.Map, ThingPlaceMode.Near,
+                            out var newFishBag);
+                        removed = true;
+                        toil.actor.skills.Learn(SkillDefOf.Animals, 80f);
+                        newIndex--;
+                        var CBag = newFishBag.TryGetComp<CompAQFishInBag>();
+                        newFishBag.stackCount = 1;
+                        if (CBag != null)
                         {
-                            var thing2 = ThingMaker.MakeThing(ThingDef.Named(prevDefVal));
-                            thing2.stackCount = 1;
-                            GenPlace.TryPlaceThing(thing2, toil.actor.Position, toil.actor.Map, ThingPlaceMode.Near,
-                                out var newFishBag);
-                            removed = true;
-                            toil.actor.skills.Learn(SkillDefOf.Animals, 80f);
-                            newIndex--;
-                            var CBag = newFishBag.TryGetComp<CompAQFishInBag>();
-                            newFishBag.stackCount = 1;
-                            if (CBag != null)
-                            {
-                                CBag.fishhealth = prevHealth;
-                                CBag.age = prevAge;
-                            }
+                            CBag.fishhealth = prevHealth;
+                            CBag.age = prevAge;
+                        }
 
-                            removedThing = newFishBag;
-                        }
-                        else
-                        {
-                            var newValue =
-                                CompAquarium.CreateValuePart(newIndex, prevDefVal, prevHealth, prevAge, prevAct);
-                            newList.Add(newValue);
-                        }
+                        removedThing = newFishBag;
                     }
-
-                    if (removed)
+                    else
                     {
-                        AQComp.numFish--;
+                        var newValue =
+                            CompAquarium.CreateValuePart(newIndex, prevDefVal, prevHealth, prevAge, prevAct);
+                        newList.Add(newValue);
                     }
-
-                    AQComp.fishData = newList;
-                    AQComp.GenerateBeauty(AQComp.fishData);
                 }
 
-                if (removedThing == null)
+                if (removed)
                 {
-                    return;
+                    AQComp.numFish--;
                 }
 
-                var currentPriority = StoreUtility.CurrentStoragePriorityOf(removedThing);
-                if (StoreUtility.TryFindBestBetterStoreCellFor(removedThing, toil.actor, toil.actor.Map,
+                AQComp.fishData = newList;
+                AQComp.GenerateBeauty(AQComp.fishData);
+            }
+
+            if (removedThing == null)
+            {
+                return;
+            }
+
+            var currentPriority = StoreUtility.CurrentStoragePriorityOf(removedThing);
+            if (StoreUtility.TryFindBestBetterStoreCellFor(removedThing, toil.actor, toil.actor.Map,
                     currentPriority, toil.actor.Faction, out var c))
-                {
-                    curJob.SetTarget(TargetIndex.B, removedThing);
-                    curJob.count = removedThing.stackCount;
-                    curJob.SetTarget(TargetIndex.C, c);
-                    return;
-                }
+            {
+                curJob.SetTarget(TargetIndex.B, removedThing);
+                curJob.count = removedThing.stackCount;
+                curJob.SetTarget(TargetIndex.C, c);
+                return;
+            }
 
-                curJob.GetCachedDriverDirect?.EndJobWith(JobCondition.Incompletable);
-            };
-            toil.defaultCompleteMode = ToilCompleteMode.Instant;
-            return toil;
-        }
+            curJob.GetCachedDriverDirect?.EndJobWith(JobCondition.Incompletable);
+        };
+        toil.defaultCompleteMode = ToilCompleteMode.Instant;
+        return toil;
     }
 }

@@ -1,14 +1,11 @@
-﻿using Verse;
+using Verse;
 
-namespace Aquarium
+namespace Aquarium;
+
+public class CompProperties_AQFishInBag : CompProperties
 {
-    // Token: 0x02000005 RID: 5
-    public class CompProperties_AQFishInBag : CompProperties
+    public CompProperties_AQFishInBag()
     {
-        // Token: 0x06000018 RID: 24 RVA: 0x00002BCA File Offset: 0x00000DCA
-        public CompProperties_AQFishInBag()
-        {
-            compClass = typeof(CompAQFishInBag);
-        }
+        compClass = typeof(CompAQFishInBag);
     }
 }

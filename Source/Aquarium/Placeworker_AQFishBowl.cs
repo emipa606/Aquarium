@@ -1,68 +1,65 @@
-﻿using Verse;
+using Verse;
 
-namespace Aquarium
+namespace Aquarium;
+
+public class Placeworker_AQFishBowl : PlaceWorker
 {
-    // Token: 0x02000011 RID: 17
-    public class Placeworker_AQFishBowl : PlaceWorker
+    public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map,
+        Thing thingToIgnore = null, Thing thing = null)
     {
-        // Token: 0x06000061 RID: 97 RVA: 0x00004548 File Offset: 0x00002748
-        public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map,
-            Thing thingToIgnore = null, Thing thing = null)
+        if (!loc.InBounds(map))
         {
-            if (!loc.InBounds(map))
-            {
 #if DEBUG
                 Log.Message("Not in bounds of map");
 #endif
-                return false;
-            }
+            return false;
+        }
 
-            if (loc.Filled(map))
-            {
+        if (loc.Filled(map))
+        {
 #if DEBUG
                 Log.Message("Location is filled already");
 #endif
-                return false;
-            }
+            return false;
+        }
 
-            var list = map.thingGrid.ThingsListAt(loc);
-            foreach (var thingy in list)
+        var list = map.thingGrid.ThingsListAt(loc);
+        foreach (var thingy in list)
+        {
+            if (thingy.def.IsBlueprint || thingy.def.IsFrame)
             {
-                if (thingy.def.IsBlueprint || thingy.def.IsFrame)
-                {
 #if DEBUG
                     Log.Message("Blueprint/frame is in the way");
 #endif
-                    return false;
-                }
+                return false;
+            }
 
-                if (thingy.def.category == ThingCategory.Plant)
-                {
+            if (thingy.def.category == ThingCategory.Plant)
+            {
 #if DEBUG
                     Log.Message("Plant is in the way");
 #endif
-                    return false;
-                }
+                return false;
+            }
 
-                if (thingy.def.category == ThingCategory.Building && thingy.def.surfaceType != SurfaceType.Item &&
-                    thingy.def.surfaceType != SurfaceType.Eat && thingy.def.defName != "ShipHullTile")
-                {
+            if (thingy.def.category == ThingCategory.Building && thingy.def.surfaceType != SurfaceType.Item &&
+                thingy.def.surfaceType != SurfaceType.Eat && thingy.def.defName != "ShipHullTile")
+            {
 #if DEBUG
                     Log.Message("Its a building but not a table or SOS2 floor");
 #endif
-                    return false;
-                }
+                return false;
+            }
 
-                if (thingy.def.category == ThingCategory.Item)
-                {
+            if (thingy.def.category == ThingCategory.Item)
+            {
 #if DEBUG
                     Log.Message("Its an item in the way");
 #endif
-                    return false;
-                }
+                return false;
             }
-
-            return true;
         }
+
+        return true;
     }
 }

@@ -2,53 +2,53 @@
 using System.Linq;
 using Verse;
 
-namespace Aquarium
+namespace Aquarium;
+
+[StaticConstructorOnStartup]
+internal static class DefsCacher
 {
-    [StaticConstructorOnStartup]
-    internal static class DefsCacher
+    public static readonly List<ThingDef> AQFishTankDefs;
+
+    public static readonly List<ThingDef> AQSandDefs;
+
+    public static readonly List<ThingDef> AQDecorationDefs;
+
+    public static readonly List<ThingDef> AQBagDefs;
+
+    public static readonly SoundDef AQSoundDef;
+
+    public static readonly ThingDef AQRandomFishDef;
+
+    public static readonly JobDef AQCleaningDef;
+
+    public static readonly JobDef AQFeedingDef;
+    public static readonly JobDef AQManagingAddDef;
+    public static readonly JobDef AQManagingRemoveDef;
+
+
+    static DefsCacher()
     {
-        public static readonly List<ThingDef> AQFishTankDefs;
+        AQFishTankDefs = (from tankDef in DefDatabase<ThingDef>.AllDefsListForReading
+            where tankDef.defName.StartsWith("AQFishTank")
+            select tankDef).ToList();
+        AQSandDefs = (from sandDef in DefDatabase<ThingDef>.AllDefsListForReading
+            where sandDef.defName.StartsWith("AQSand")
+            orderby sandDef.defName
+            select sandDef).ToList();
+        AQDecorationDefs = (from decorationDef in DefDatabase<ThingDef>.AllDefsListForReading
+            where decorationDef.defName.StartsWith("AQDecoration")
+            orderby decorationDef.defName
+            select decorationDef).ToList();
+        AQBagDefs = (from bagdef in DefDatabase<ThingDef>.AllDefsListForReading
+            where bagdef.defName.StartsWith("AQFishInBag")
+            orderby bagdef.label
+            select bagdef).ToList();
 
-        public static readonly List<ThingDef> AQSandDefs;
-
-        public static readonly List<ThingDef> AQDecorationDefs;
-
-        public static readonly List<ThingDef> AQBagDefs;
-
-        public static readonly SoundDef AQSoundDef;
-
-        public static readonly ThingDef AQRandomFishDef;
-
-        public static readonly JobDef AQCleaningDef;
-
-        public static readonly JobDef AQFeedingDef;
-        public static readonly JobDef AQManagingAddDef;
-        public static readonly JobDef AQManagingRemoveDef;
-
-        static DefsCacher()
-        {
-            AQFishTankDefs = (from tankDef in DefDatabase<ThingDef>.AllDefsListForReading
-                where tankDef.defName.StartsWith("AQFishTank")
-                select tankDef).ToList();
-            AQSandDefs = (from sandDef in DefDatabase<ThingDef>.AllDefsListForReading
-                where sandDef.defName.StartsWith("AQSand")
-                orderby sandDef.defName
-                select sandDef).ToList();
-            AQDecorationDefs = (from decorationDef in DefDatabase<ThingDef>.AllDefsListForReading
-                where decorationDef.defName.StartsWith("AQDecoration")
-                orderby decorationDef.defName
-                select decorationDef).ToList();
-            AQBagDefs = (from bagdef in DefDatabase<ThingDef>.AllDefsListForReading
-                where bagdef.defName.StartsWith("AQFishInBag")
-                orderby bagdef.label
-                select bagdef).ToList();
-
-            AQSoundDef = SoundDef.Named("AQFishTank");
-            AQRandomFishDef = DefDatabase<ThingDef>.GetNamed("AQRandomFish");
-            AQCleaningDef = DefDatabase<JobDef>.GetNamed("AQCleaning", false);
-            AQFeedingDef = DefDatabase<JobDef>.GetNamed("AQFeeding", false);
-            AQManagingAddDef = DefDatabase<JobDef>.GetNamed("AQManagingAdd", false);
-            AQManagingRemoveDef = DefDatabase<JobDef>.GetNamed("AQManagingRemove", false);
-        }
+        AQSoundDef = SoundDef.Named("AQFishTank");
+        AQRandomFishDef = DefDatabase<ThingDef>.GetNamed("AQRandomFish");
+        AQCleaningDef = DefDatabase<JobDef>.GetNamed("AQCleaning", false);
+        AQFeedingDef = DefDatabase<JobDef>.GetNamed("AQFeeding", false);
+        AQManagingAddDef = DefDatabase<JobDef>.GetNamed("AQManagingAdd", false);
+        AQManagingRemoveDef = DefDatabase<JobDef>.GetNamed("AQManagingRemove", false);
     }
 }

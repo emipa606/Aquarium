@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.0.35.0 - Should now be possible to force adding/removing/feeding fish in fish tanks as well as force cleaning the fish tanks
+
+
 1.0.34.0 - Should now be possible to place fish bowls on floors in ships in SOS2
 
 
