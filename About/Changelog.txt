@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.0.37.0 - Changed tech-level of the fishfood to Medieval, thanks MiguelVitta for the input
+
+
 1.0.36.0 - Added some extra checks for viewing fish, hopefully fixing some rare error
 
 
