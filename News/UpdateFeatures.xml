@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="Aquarium_UpdateFeatureBase">
     <modNameReadable>Aquarium</modNameReadable>
     <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2194463553</linkUrl>
   </HugsLib.UpdateFeatureDef>
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
     <defName>Aquarium_1_0_9_0</defName>
     <assemblyVersion>1.0.9.0</assemblyVersion>
     <content>A bit of a large update of the mod.
@@ -14,13 +14,13 @@ I have plans of making a walled version of the tank as well. Either one that can
 Lastly I made the fish move a little smoother more like normal fish, and not flip the texture every x ticks but instead when a fish starts swim in the opposite direction. Hope you like it!
 </content>
   </HugsLib.UpdateFeatureDef>
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
     <defName>Aquarium_1_0_18_0</defName>
     <assemblyVersion>1.0.18.0</assemblyVersion>
     <content>There is now an option to control how the fish use the tank they are in. Default is now to use the whole tank instead of just using a small part. If you like the previous, more organized positions, you can change this in the options.
 </content>
   </HugsLib.UpdateFeatureDef>
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
     <defName>Aquarium_1_0_20_0</defName>
     <assemblyVersion>1.0.20.0</assemblyVersion>
     <content>Tanks look a bit empty? 
@@ -29,7 +29,7 @@ Thats because you can now select the sand color and decorations of your tanks!
 Also added some fish and an option to add a Random Fish to that tank. If this is selected the pawns will look for any reachable fish and add it to the tank. Can be a good way to be sure that newly caught fish from Vanilla Fishing Expanded or newly bought fish from a trader gets in a saftey of a tank as soon as possible.
 </content>
   </HugsLib.UpdateFeatureDef>
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+  <HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
     <defName>Aquarium_1_0_21_0</defName>
     <assemblyVersion>1.0.21.0</assemblyVersion>
     <content>Another little update, this time regarding beauty. Previously the tanks had a static beauty-value, this is now instead based on the type of fish in the tank. The tank itself has a limited beauty-value and the rest is based on the value of each fish in the tank. The more rare the fish, the more beauty it adds to the tank.
