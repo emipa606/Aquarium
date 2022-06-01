@@ -80,6 +80,7 @@ New graphic creators
 
 
 - Multiplayer fixes by Cody-Spring
+- For detailed description, download the https://github.com/emipa606/Aquarium/raw/main/Source/Aquarium.pdf]PDF
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
@@ -135,6 +136,7 @@ Fish and tank/bowl art graphics - Kasmex Forever
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 
