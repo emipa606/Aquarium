@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.3.3 - Added some more caching, also fixed the workgivers for the tank-jobs. Should now hopefully not cause lag
+
+
 1.3.2 - Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2654088143]Soil Relocation Framework[/url]
 
 

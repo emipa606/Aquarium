@@ -17,8 +17,7 @@ public class JoyGiver_AQViewFishBowl : JoyGiver
         Job result2;
         try
         {
-            var AQBowlDef = ThingDef.Named("AQFishBowl");
-            candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(AQBowlDef).Where(delegate(Thing thing)
+            candidates.AddRange(pawn.Map.listerThings.ThingsOfDef(DefsCacher.AQFishBowlDef).Where(delegate(Thing thing)
             {
                 if (!AQUtility.HasFish(thing))
                 {

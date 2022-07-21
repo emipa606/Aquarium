@@ -13,26 +13,39 @@ public class WorkGiver_AQManageFishTank : WorkGiver_Scanner
 
     public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
-        return pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None) &&
-               AQUtility.AddOrRemove(t, out var Add, out var fdef, out var Remove) &&
-               (Add && AQUtility.GetClosestFishInBag(pawn, fdef, t) != null || Remove);
+        if (!DefsCacher.AQFishTankDefs.Contains(t.def))
+        {
+            return false;
+        }
+
+        if (!pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None))
+        {
+            return false;
+        }
+
+        if (!AQUtility.AddOrRemove(t, out var add, out var fishDef, out var remove))
+        {
+            return false;
+        }
+
+        return add && AQUtility.GetClosestFishInBag(pawn, fishDef, t) != null || remove;
     }
 
     public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
         Thing f = null;
         JobDef useDef = null;
-        if (AQUtility.AddOrRemove(t, out var Add, out var fAddDef, out var Remove))
+        if (AQUtility.AddOrRemove(t, out var add, out var fishDef, out var remove))
         {
-            if (Add)
+            if (add)
             {
-                f = AQUtility.GetClosestFishInBag(pawn, fAddDef, t);
+                f = AQUtility.GetClosestFishInBag(pawn, fishDef, t);
                 if (f != null)
                 {
                     useDef = DefsCacher.AQManagingAddDef;
                 }
             }
-            else if (Remove)
+            else if (remove)
             {
                 useDef = DefsCacher.AQManagingRemoveDef;
             }

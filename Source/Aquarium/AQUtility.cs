@@ -234,7 +234,7 @@ public class AQUtility
             return null;
         }
 
-        var potentials = p.Map.listerThings.ThingsOfDef(ThingDef.Named("AQFishFood"));
+        var potentials = p.Map.listerThings.ThingsOfDef(DefsCacher.AQFishFoodDef);
         Thing BestThing = null;
         var BestScore = 0f;
         if (potentials.Count <= 0)
@@ -324,7 +324,7 @@ public class AQUtility
 
         var stack = Math.Max(1, (int)Mathf.Lerp(1f, 10f, age / (float)CompAquarium.oldFishAge));
         var TPMode = ThingPlaceMode.Near;
-        var thing = ThingMaker.MakeThing(ThingDef.Named("AQFishMeat"));
+        var thing = ThingMaker.MakeThing(DefsCacher.AQFishMeatDef);
         thing.stackCount = Math.Min(thing.def.stackLimit, stack);
         GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, TPMode);
     }

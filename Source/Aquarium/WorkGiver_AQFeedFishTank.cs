@@ -13,25 +13,25 @@ public class WorkGiver_AQFeedFishTank : WorkGiver_Scanner
 
     public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
     {
+        if (!DefsCacher.AQFishTankDefs.Contains(t.def))
+        {
+            return false;
+        }
+
         if (!pawn.CanReserveAndReach(t, PathEndMode.Touch, Danger.None))
         {
             return false;
         }
 
-        var CA = t.TryGetComp<CompAquarium>();
-        if (CA == null)
+        var ca = t.TryGetComp<CompAquarium>();
+        if (ca == null)
         {
             return false;
         }
 
         var trigger = Controller.Settings.RespondFood / 100f;
-        if (CA.foodPct <= trigger && AQUtility.GetAmountOfFish(CA.fishData) > 0 &&
-            AQUtility.GetClosestFeed(pawn, t) != null)
-        {
-            return true;
-        }
-
-        return false;
+        return ca.foodPct <= trigger && AQUtility.GetAmountOfFish(ca.fishData) > 0 &&
+               AQUtility.GetClosestFeed(pawn, t) != null;
     }
 
     public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)

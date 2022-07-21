@@ -19,18 +19,23 @@ internal static class DefsCacher
 
     public static readonly ThingDef AQRandomFishDef;
 
+    public static readonly ThingDef AQFishBowlDef;
+
+    public static readonly ThingDef AQFishFoodDef;
+    public static readonly ThingDef AQFishMeatDef;
+
     public static readonly JobDef AQCleaningDef;
 
     public static readonly JobDef AQFeedingDef;
     public static readonly JobDef AQManagingAddDef;
     public static readonly JobDef AQManagingRemoveDef;
 
-
     static DefsCacher()
     {
         AQFishTankDefs = (from tankDef in DefDatabase<ThingDef>.AllDefsListForReading
             where tankDef.defName.StartsWith("AQFishTank")
             select tankDef).ToList();
+        AQFishBowlDef = ThingDef.Named("AQFishBowl");
         AQSandDefs = (from sandDef in DefDatabase<ThingDef>.AllDefsListForReading
             where sandDef.defName.StartsWith("AQSand")
             orderby sandDef.defName
@@ -45,6 +50,8 @@ internal static class DefsCacher
             select bagdef).ToList();
 
         AQSoundDef = SoundDef.Named("AQFishTank");
+        AQFishFoodDef = ThingDef.Named("AQFishFood");
+        AQFishMeatDef = ThingDef.Named("AQFishMeat");
         AQRandomFishDef = DefDatabase<ThingDef>.GetNamed("AQRandomFish");
         AQCleaningDef = DefDatabase<JobDef>.GetNamed("AQCleaning", false);
         AQFeedingDef = DefDatabase<JobDef>.GetNamed("AQFeeding", false);
