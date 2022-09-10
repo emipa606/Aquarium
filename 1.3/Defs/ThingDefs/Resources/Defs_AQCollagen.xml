@@ -55,6 +55,7 @@
           </categories>
           <disallowedThingDefs>
             <li>AQCollagen</li>
+            <li>AQGelatin</li>
             <li>Meat_Megaspider</li>
           </disallowedThingDefs>
         </filter>
@@ -67,6 +68,7 @@
       </categories>
       <disallowedThingDefs>
         <li>AQCollagen</li>
+        <li>AQGelatin</li>
         <li>Meat_Megaspider</li>
       </disallowedThingDefs>
     </fixedIngredientFilter>
@@ -104,6 +106,7 @@
           </categories>
           <disallowedThingDefs>
             <li>AQCollagen</li>
+            <li>AQGelatin</li>
             <li>Meat_Megaspider</li>
           </disallowedThingDefs>
         </filter>
@@ -116,6 +119,7 @@
       </categories>
       <disallowedThingDefs>
         <li>AQCollagen</li>
+        <li>AQGelatin</li>
         <li>Meat_Megaspider</li>
       </disallowedThingDefs>
     </fixedIngredientFilter>
