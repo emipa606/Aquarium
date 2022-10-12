@@ -31,7 +31,7 @@ public class Settings : ModSettings
 
     public void DoWindowContents(Rect canvas)
     {
-        var gap = 8f;
+        var gap = 6f;
         var listing_Standard = new Listing_Standard
         {
             ColumnWidth = canvas.width
@@ -72,6 +72,14 @@ public class Settings : ModSettings
             listing_Standard.Label("Aquarium.BreedChance".Translate() + "  " + (int)BreedChance);
             BreedChance = (int)listing_Standard.Slider((int)BreedChance, 25f, 75f);
             listing_Standard.Gap(gap);
+            if (Controller.currentVersion != null)
+            {
+                listing_Standard.Gap();
+                GUI.contentColor = Color.gray;
+                listing_Standard.Label("Aquarium.CurrentModVersion".Translate(Controller.currentVersion));
+                GUI.contentColor = Color.white;
+            }
+
             listing_Standard.Gap(gap);
             listing_Standard.End();
         }

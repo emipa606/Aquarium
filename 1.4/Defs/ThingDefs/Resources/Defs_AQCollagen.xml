@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>AQCollagen</defName>
+    <label>Collagen</label>
+    <description>Collagen is the main structural protein in the extracellular matrix in the various connective tissues in the body. As the main component of connective tissue, it is the most abundant protein in mammals, making up from 25% to 35% of the whole-body protein content. It is mostly found in fibrous tissues such as tendons, ligaments, and skin.</description>
+    <graphicData>
+      <texPath>Things/Raw/AQCollagen/AQCollagen</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.5</MarketValue>
+      <Mass>0.03</Mass>
+      <Nutrition>0.02</Nutrition>
+      <FoodPoisonChanceFixedHuman>0.04</FoodPoisonChanceFixedHuman>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <thingCategories Inherit="false">
+      <li>MeatRaw</li>
+    </thingCategories>
+    <ingestible>
+      <preferability>RawBad</preferability>
+      <optimalityOffsetHumanlikes>-10</optimalityOffsetHumanlikes>
+      <tasteThought>AteRawFood</tasteThought>
+      <foodType>Meat</foodType>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>RawVegetable_Eat</ingestSound>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>15</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+  <RecipeDef>
+    <defName>MakeAQCollagen</defName>
+    <label>Make Collagen</label>
+    <description>Make 10 Collagen</description>
+    <jobString>Making Collagen</jobString>
+    <workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
+    <effectWorking>ButcherFlesh</effectWorking>
+    <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <workAmount>350</workAmount>
+    <targetCountAdjustment>10</targetCountAdjustment>
+    <workSkill>Cooking</workSkill>
+    <efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>AQCollagen</li>
+            <li>AQGelatin</li>
+            <li>Meat_Megaspider</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>0.25</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>AQCollagen</li>
+        <li>AQGelatin</li>
+        <li>Meat_Megaspider</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <AQCollagen>10</AQCollagen>
+    </products>
+    <recipeUsers>
+      <li>ButcherSpot</li>
+      <li>TableButcher</li>
+    </recipeUsers>
+    <skillRequirements>
+      <Cooking>2</Cooking>
+    </skillRequirements>
+    <researchPrerequisite>AQGelatin</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef>
+    <defName>MakeBulkAQCollagen</defName>
+    <label>Make Collagen in bulk</label>
+    <description>Make 50 Collagen</description>
+    <jobString>Making Collagen</jobString>
+    <workSpeedStat>ButcheryFleshSpeed</workSpeedStat>
+    <effectWorking>ButcherFlesh</effectWorking>
+    <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <workAmount>1750</workAmount>
+    <targetCountAdjustment>50</targetCountAdjustment>
+    <workSkill>Cooking</workSkill>
+    <efficiencyStat>ButcheryFleshEfficiency</efficiencyStat>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>AQCollagen</li>
+            <li>AQGelatin</li>
+            <li>Meat_Megaspider</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>1.25</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>AQCollagen</li>
+        <li>AQGelatin</li>
+        <li>Meat_Megaspider</li>
+      </disallowedThingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <AQCollagen>50</AQCollagen>
+    </products>
+    <recipeUsers>
+      <li>ButcherSpot</li>
+      <li>TableButcher</li>
+    </recipeUsers>
+    <skillRequirements>
+      <Cooking>3</Cooking>
+    </skillRequirements>
+    <researchPrerequisite>AQGelatin</researchPrerequisite>
+  </RecipeDef>
+</Defs>

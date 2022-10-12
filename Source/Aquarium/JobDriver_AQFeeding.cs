@@ -27,15 +27,7 @@ public class JobDriver_AQFeeding : JobDriver
     protected override IEnumerable<Toil> MakeNewToils()
     {
         this.FailOnDespawnedNullOrForbidden(Feedable);
-        AddEndCondition(delegate
-        {
-            if (AQComp.foodPct > 0.95f)
-            {
-                return JobCondition.Succeeded;
-            }
-
-            return JobCondition.Ongoing;
-        });
+        AddEndCondition(() => AQComp.foodPct > 0.95f ? JobCondition.Succeeded : JobCondition.Ongoing);
         yield return Toils_General.DoAtomic(delegate { job.count = AQUtility.GetFoodNumToFullyFeed(AQComp); });
         var reserveFood = Toils_Reserve.Reserve(Foodybits);
         yield return reserveFood;

@@ -21,15 +21,7 @@ public class JobDriver_AQCleaning : JobDriver
     protected override IEnumerable<Toil> MakeNewToils()
     {
         this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-        AddEndCondition(delegate
-        {
-            if (AQComp.cleanPct > 0.95f)
-            {
-                return JobCondition.Succeeded;
-            }
-
-            return JobCondition.Ongoing;
-        });
+        AddEndCondition(() => AQComp.cleanPct > 0.95f ? JobCondition.Succeeded : JobCondition.Ongoing);
         yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
         yield return Toils_General.Wait(AQUtility.GetCleanTime(AQComp))
             .FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch)
