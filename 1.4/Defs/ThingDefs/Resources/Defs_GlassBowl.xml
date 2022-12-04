@@ -40,6 +40,10 @@
         <filter>
           <thingDefs>
             <li>Steel</li>
+            <li MayRequire="jamaicancastle.RF.fertilefields">SandPile</li>
+            <li MayRequire="UdderlyEvelyn.SoilRelocation">SR_Sand</li>
+            <li MayRequire="NanoCE.GlassLights">Glass</li>
+            <li MayRequire="carnap2.TMaterials.Glass">TMaterials_Glass</li>
           </thingDefs>
         </filter>
         <count>4</count>
@@ -51,6 +55,10 @@
     <fixedIngredientFilter>
       <thingDefs>
         <li>Steel</li>
+        <li MayRequire="jamaicancastle.RF.fertilefields">SandPile</li>
+        <li MayRequire="UdderlyEvelyn.SoilRelocation">SR_Sand</li>
+        <li MayRequire="NanoCE.GlassLights">Glass</li>
+        <li MayRequire="carnap2.TMaterials.Glass">TMaterials_Glass</li>
       </thingDefs>
     </fixedIngredientFilter>
     <workSkill>Crafting</workSkill>
@@ -61,6 +69,8 @@
       <li>FueledSmithy</li>
       <li>ElectricSmithy</li>
       <li>ElectricSmelter</li>
+      <li MayRequire="NanoCE.GlassLights">GlassworkTable</li>
+      <li MayRequire="NanoCE.GlassLights">FueledGlassworkTable</li>
     </recipeUsers>
     <researchPrerequisite>AQFishPets</researchPrerequisite>
   </RecipeDef>
