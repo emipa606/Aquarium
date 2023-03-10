@@ -1,5 +1,9 @@
 # Changelog for Aquarium
 
+1.4.4 - Remade the fish-immortality.
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.4.3 - Added an option for aquariums to not require food or cleaning.
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 

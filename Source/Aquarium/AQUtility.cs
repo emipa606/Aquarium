@@ -322,7 +322,8 @@ public class AQUtility
             return;
         }
 
-        var stack = Math.Max(1, (int)Mathf.Lerp(1f, 10f, age / (float)CompAquarium.oldFishAge));
+        var stack = Math.Max(1,
+            (int)Mathf.Lerp(1f, 10f, Math.Min(CompAquarium.oldFishAge, age) / (float)CompAquarium.oldFishAge));
         var TPMode = ThingPlaceMode.Near;
         var thing = ThingMaker.MakeThing(DefsCacher.AQFishMeatDef);
         thing.stackCount = Math.Min(thing.def.stackLimit, stack);

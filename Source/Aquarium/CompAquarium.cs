@@ -437,20 +437,11 @@ public class CompAquarium : ThingComp
 
                 if (numFish > 0)
                 {
-                    if (Controller.Settings.NoFishUpkeep)
-                    {
-                        foodPct = 1f;
-                        cleanPct = 1f;
-                    }
-                    else
-                    {
-                        var ageFactor = GetAvgAgeMultiplier(fishData);
-                        DegradeFood(numFish, foodPct, ageFactor, out var newFoodPct);
-                        foodPct = newFoodPct;
-                        DegradeWater(numFish, foodPct, cleanPct, ageFactor, out var newCleanPct);
-                        cleanPct = newCleanPct;
-                    }
-
+                    var ageFactor = GetAvgAgeMultiplier(fishData);
+                    DegradeFood(numFish, foodPct, ageFactor, out var newFoodPct);
+                    foodPct = newFoodPct;
+                    DegradeWater(numFish, foodPct, cleanPct, ageFactor, out var newCleanPct);
+                    cleanPct = newCleanPct;
                     EffectFish(numFish, fishData, foodPct, cleanPct, out var newNumFish, out var newFishData);
                     numFish = newNumFish;
                     fishData = newFishData;
@@ -707,7 +698,8 @@ public class CompAquarium : ThingComp
                     if (poorhealth > 0)
                     {
                         health -= (int)Math.Max(1f,
-                            poorhealth * Mathf.Lerp(0.5f, 1f, Math.Max(1f, age / (float)oldFishAge)));
+                            poorhealth * Mathf.Lerp(0.5f, 1f,
+                                Math.Max(1f, Math.Min(oldFishAge, age) / (float)oldFishAge)));
                         if (health <= 0)
                         {
                             died = true;
@@ -715,7 +707,8 @@ public class CompAquarium : ThingComp
                     }
                     else if (health < 100)
                     {
-                        health += (int)Math.Max(1f, Mathf.Lerp(1f, 0.5f, Math.Max(1f, age / (float)oldFishAge)));
+                        health += (int)Math.Max(1f,
+                            Mathf.Lerp(1f, 0.5f, Math.Max(1f, Math.Min(oldFishAge, age) / (float)oldFishAge)));
                         if (health > 100)
                         {
                             health = 100;

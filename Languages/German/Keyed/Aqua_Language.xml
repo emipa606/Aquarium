@@ -60,4 +60,5 @@
   <Aquarium.CurrentModVersion>Installierte Mod-Version: {0}</Aquarium.CurrentModVersion>
   <Aquarium.NoFishUpkeep>Fische benötigen keine Pflege</Aquarium.NoFishUpkeep>
   <Aquarium.NoFishUpkeepTooltip>Wenn diese Funktion aktiviert ist, brauchen die Fische kein Futter und die Becken müssen nicht gereinigt oder gewartet werden.</Aquarium.NoFishUpkeepTooltip>
+  <Aquarium.ImmortalFish>Fische altern nicht</Aquarium.ImmortalFish>
 </LanguageData>

@@ -1,3 +1,4 @@
+using System;
 using RimWorld;
 using Verse;
 
@@ -33,7 +34,9 @@ public class CompAQFishInBag : ThingComp
 
         var died = false;
         age += bagTicks;
-        if (age + (int)CompAquarium.RandomFloat(-450000f, 450000f) > CompAquarium.oldFishAge)
+        if (!Controller.Settings.ImmortalFish &&
+            Math.Min(CompAquarium.oldFishAge, age + (int)CompAquarium.RandomFloat(-450000f, 450000f)) >
+            CompAquarium.oldFishAge)
         {
             fishhealth--;
         }
@@ -46,7 +49,7 @@ public class CompAQFishInBag : ThingComp
                 fishhealth--;
             }
 
-            if (parent.AmbientTemperature < 1f || parent.AmbientTemperature > 55f)
+            if (parent.AmbientTemperature is < 1f or > 55f)
             {
                 fishhealth--;
             }

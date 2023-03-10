@@ -59,4 +59,5 @@
   <Aquarium.Cyan>Cyan</Aquarium.Cyan>
   <Aquarium.NoFishUpkeep>Рыбы не требуют ухода</Aquarium.NoFishUpkeep>
   <Aquarium.NoFishUpkeepTooltip>Если эта функция включена, рыбам не требуется корм, а аквариумы не нуждаются в чистке и уходе.</Aquarium.NoFishUpkeepTooltip>
+  <Aquarium.ImmortalFish>Рыбы не стареют</Aquarium.ImmortalFish>
 </LanguageData>

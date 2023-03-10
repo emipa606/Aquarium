@@ -69,6 +69,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Added German translation, thanks Erdnussbrot!
 - Added French translation, thanks qux!
 - Added some optimizations, thanks Taranchuk!
+- Added an option for aquariums to not require food or cleaning.
 
 New graphic creators
 
