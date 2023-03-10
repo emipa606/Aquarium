@@ -12,8 +12,7 @@ public class Controller : Mod
     public Controller(ModContentPack content) : base(content)
     {
         Settings = GetSettings<Settings>();
-        currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(ModLister.GetActiveModWithIdentifier("Mlie.Aquarium"));
+        currentVersion = VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     public override string SettingsCategory()

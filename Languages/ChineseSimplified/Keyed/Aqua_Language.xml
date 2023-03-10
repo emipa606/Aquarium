@@ -56,4 +56,7 @@
   <Aquarium.Gray>灰色</Aquarium.Gray>
   <Aquarium.Pink>粉红色</Aquarium.Pink>
   <Aquarium.Brown>棕色</Aquarium.Brown>
+  <Aquarium.NoFishUpkeep>鱼类不需要保养</Aquarium.NoFishUpkeep>
+  <Aquarium.NoFishUpkeepTooltip>如果启用这个功能，鱼不需要食物，鱼缸也不需要清洁或维护。</Aquarium.NoFishUpkeepTooltip>
+  <Aquarium.Cyan>青色</Aquarium.Cyan>
 </LanguageData>

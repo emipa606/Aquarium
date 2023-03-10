@@ -25,6 +25,8 @@ public class Settings : ModSettings
 
     public bool FishMovesAround = true;
 
+    public bool NoFishUpkeep;
+
     public float RespondClean = 50f;
 
     public float RespondFood = 50f;
@@ -52,20 +54,27 @@ public class Settings : ModSettings
             listing_Standard.Label("Aquarium.BaseInspChance".Translate() + "  " + (int)BaseInspChance);
             BaseInspChance = (int)listing_Standard.Slider((int)BaseInspChance, 1f, 10f);
             listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.FishLife".Translate() + "  " + (int)FishLife);
-            FishLife = (int)listing_Standard.Slider((int)FishLife, 1f, 3f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)DegradeWaterFactor);
-            DegradeWaterFactor = (int)listing_Standard.Slider((int)DegradeWaterFactor, 50f, 200f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)DegradeFoodFactor);
-            DegradeFoodFactor = (int)listing_Standard.Slider((int)DegradeFoodFactor, 50f, 200f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.RespondClean".Translate() + "  " + (int)RespondClean);
-            RespondClean = (int)listing_Standard.Slider((int)RespondClean, 25f, 75f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.RespondFood".Translate() + "  " + (int)RespondFood);
-            RespondFood = (int)listing_Standard.Slider((int)RespondFood, 25f, 75f);
+            listing_Standard.CheckboxLabeled("Aquarium.NoFishUpkeep".Translate(), ref NoFishUpkeep,
+                "Aquarium.NoFishUpkeepTooltip".Translate());
+            if (!NoFishUpkeep)
+            {
+                listing_Standard.Gap(gap);
+                listing_Standard.Label("Aquarium.FishLife".Translate() + "  " + (int)FishLife);
+                FishLife = (int)listing_Standard.Slider((int)FishLife, 1f, 3f);
+                listing_Standard.Gap(gap);
+                listing_Standard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)DegradeWaterFactor);
+                DegradeWaterFactor = (int)listing_Standard.Slider((int)DegradeWaterFactor, 50f, 200f);
+                listing_Standard.Gap(gap);
+                listing_Standard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)DegradeFoodFactor);
+                DegradeFoodFactor = (int)listing_Standard.Slider((int)DegradeFoodFactor, 50f, 200f);
+                listing_Standard.Gap(gap);
+                listing_Standard.Label("Aquarium.RespondClean".Translate() + "  " + (int)RespondClean);
+                RespondClean = (int)listing_Standard.Slider((int)RespondClean, 25f, 75f);
+                listing_Standard.Gap(gap);
+                listing_Standard.Label("Aquarium.RespondFood".Translate() + "  " + (int)RespondFood);
+                RespondFood = (int)listing_Standard.Slider((int)RespondFood, 25f, 75f);
+            }
+
             listing_Standard.Gap(gap);
             listing_Standard.CheckboxLabeled("Aquarium.AllowBreed".Translate(), ref AllowBreed);
             listing_Standard.Gap(gap);
@@ -99,6 +108,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref RespondClean, "RespondClean", 50f);
         Scribe_Values.Look(ref RespondFood, "RespondFood", 50f);
         Scribe_Values.Look(ref AllowBreed, "AllowBreed", true);
+        Scribe_Values.Look(ref NoFishUpkeep, "NoFishUpkeep");
         Scribe_Values.Look(ref BreedChance, "BreedChance", 50f);
     }
 }

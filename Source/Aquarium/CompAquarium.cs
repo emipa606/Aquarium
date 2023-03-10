@@ -437,11 +437,20 @@ public class CompAquarium : ThingComp
 
                 if (numFish > 0)
                 {
-                    var ageFactor = GetAvgAgeMultiplier(fishData);
-                    DegradeFood(numFish, foodPct, ageFactor, out var newFoodPct);
-                    foodPct = newFoodPct;
-                    DegradeWater(numFish, foodPct, cleanPct, ageFactor, out var newCleanPct);
-                    cleanPct = newCleanPct;
+                    if (Controller.Settings.NoFishUpkeep)
+                    {
+                        foodPct = 1f;
+                        cleanPct = 1f;
+                    }
+                    else
+                    {
+                        var ageFactor = GetAvgAgeMultiplier(fishData);
+                        DegradeFood(numFish, foodPct, ageFactor, out var newFoodPct);
+                        foodPct = newFoodPct;
+                        DegradeWater(numFish, foodPct, cleanPct, ageFactor, out var newCleanPct);
+                        cleanPct = newCleanPct;
+                    }
+
                     EffectFish(numFish, fishData, foodPct, cleanPct, out var newNumFish, out var newFishData);
                     numFish = newNumFish;
                     fishData = newFishData;
@@ -668,7 +677,7 @@ public class CompAquarium : ThingComp
             degradingHealth++;
         }
 
-        if (parent.AmbientTemperature > 55f || parent.AmbientTemperature < 1f)
+        if (parent.AmbientTemperature is > 55f or < 1f)
         {
             degradingHealth++;
         }
