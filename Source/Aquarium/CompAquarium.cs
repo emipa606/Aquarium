@@ -35,9 +35,9 @@ public class CompAquarium : ThingComp
 
     private int currentBeauty;
 
-    internal List<string> fishData = new List<string>();
+    internal List<string> fishData = [];
 
-    private List<float[]> fishWandering = new List<float[]>();
+    private List<float[]> fishWandering = [];
 
     private bool fishydebug;
 
@@ -47,9 +47,9 @@ public class CompAquarium : ThingComp
 
     internal int numFish;
 
-    internal List<Thing> reservedFish = new List<Thing>();
+    internal List<Thing> reservedFish = [];
 
-    private List<Thing> savedBeauty = new List<Thing>();
+    private List<Thing> savedBeauty = [];
 
     private int selectedDecoration = -1;
 
@@ -91,7 +91,7 @@ public class CompAquarium : ThingComp
         Scribe_Values.Look(ref selectedDecorationDefName, "selectedDecorationDefName", string.Empty);
         Scribe_Values.Look(ref cleanPct, "cleanPct", 1f);
         Scribe_Values.Look(ref foodPct, "foodPct");
-        Scribe_Collections.Look(ref fishData, "fishData", LookMode.Value, Array.Empty<object>());
+        Scribe_Collections.Look(ref fishData, "fishData", LookMode.Value, []);
     }
 
     public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -246,7 +246,7 @@ public class CompAquarium : ThingComp
             var count = 0;
             var rand = new Random();
             var totalFish = fishData.Count;
-            fishWandering ??= new List<float[]>();
+            fishWandering ??= [];
             if (fishData.Count > fishWandering.Count)
             {
                 for (var i = fishWandering.Count - 1; i < fishData.Count; i++)
@@ -254,20 +254,20 @@ public class CompAquarium : ThingComp
                     if (Controller.Settings.FishMovesAround)
                     {
                         fishWandering.Add(rand.Next(0, 2) < 1
-                            ? new[]
-                            {
-                                (float)(rand.NextDouble() * tankXRadius),
-                                (float)(rand.NextDouble() * tankZRadius), 0, rand.Next(0, 2)
-                            }
-                            : new[]
-                            {
-                                (float)(rand.NextDouble() * -tankXRadius),
-                                (float)(rand.NextDouble() * -tankZRadius), 0, rand.Next(0, 2)
-                            });
+                            ?
+                            [
+                                (float)(rand.NextDouble() * tankXRadius), (float)(rand.NextDouble() * tankZRadius), 0,
+                                rand.Next(0, 2)
+                            ]
+                            :
+                            [
+                                (float)(rand.NextDouble() * -tankXRadius), (float)(rand.NextDouble() * -tankZRadius), 0,
+                                rand.Next(0, 2)
+                            ]);
                     }
                     else
                     {
-                        fishWandering.Add(new float[] { 0, 0, 0, rand.Next(0, 2) });
+                        fishWandering.Add([0, 0, 0, rand.Next(0, 2)]);
                     }
                 }
             }
@@ -462,7 +462,7 @@ public class CompAquarium : ThingComp
         {
             numFish = 0;
             DumpFish(fishData);
-            fishData = new List<string>();
+            fishData = [];
             GenerateBeauty(fishData);
             foodPct = 0f;
             cleanPct = 1f;
@@ -508,8 +508,7 @@ public class CompAquarium : ThingComp
     private void DumpFish(List<string> incomingFishData)
     {
         if (parent.Map == null || parent.Map.ParentFaction != Faction.OfPlayerSilentFail ||
-            incomingFishData == null ||
-            incomingFishData.Count <= 0)
+            incomingFishData is not { Count: > 0 })
         {
             return;
         }
@@ -579,7 +578,7 @@ public class CompAquarium : ThingComp
         }
 
         CleanBeautyItems();
-        savedBeauty = new List<Thing>();
+        savedBeauty = [];
         if (incomingFishData is { Count: > 0 })
         {
             var beauty = 0f;
@@ -765,9 +764,9 @@ public class CompAquarium : ThingComp
     internal static int NumValuePart(string value, int pos)
     {
         char[] divider =
-        {
+        [
             ';'
-        };
+        ];
         var segments = value.Split(divider);
         try
         {
@@ -784,9 +783,9 @@ public class CompAquarium : ThingComp
     internal static string StringValuePart(string value, int pos)
     {
         char[] divider =
-        {
+        [
             ';'
-        };
+        ];
         return value.Split(divider)[pos];
     }
 

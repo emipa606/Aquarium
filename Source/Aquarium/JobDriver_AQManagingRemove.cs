@@ -10,7 +10,7 @@ public class JobDriver_AQManagingRemove : JobDriver
 
     private const int RemoveDuration = 600;
 
-    private Thing Thing => job.GetTarget(TargetIndex.A).Thing;
+    private Thing Thing => job.GetTarget(RemoveFrom).Thing;
 
     protected CompAquarium AQComp => Thing.TryGetComp<CompAquarium>();
 
@@ -21,11 +21,11 @@ public class JobDriver_AQManagingRemove : JobDriver
 
     protected override IEnumerable<Toil> MakeNewToils()
     {
-        this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
-        yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-        yield return Toils_General.Wait(600).FailOnDestroyedNullOrForbidden(TargetIndex.A)
-            .FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch).WithProgressBarToilDelay(TargetIndex.A);
-        yield return Toils_AQRemoving.FinalizeRemoving(TargetIndex.A);
+        this.FailOnDespawnedNullOrForbidden(RemoveFrom);
+        yield return Toils_Goto.GotoThing(RemoveFrom, PathEndMode.Touch);
+        yield return Toils_General.Wait(RemoveDuration).FailOnDestroyedNullOrForbidden(RemoveFrom)
+            .FailOnCannotTouch(RemoveFrom, PathEndMode.Touch).WithProgressBarToilDelay(RemoveFrom);
+        yield return Toils_AQRemoving.FinalizeRemoving(RemoveFrom);
         yield return Toils_Reserve.Reserve(TargetIndex.B);
         yield return Toils_Reserve.Reserve(TargetIndex.C);
         yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);

@@ -22,9 +22,9 @@ internal static class MultiplayerSupport
         MP.RegisterSyncMethod(typeof(CompAquarium), "DecorationSelection");
         MP.RegisterSyncMethod(typeof(CompAquarium), "ToggleDebug");
         MethodInfo[] array =
-        {
+        [
             AccessTools.Method(typeof(CompAquarium), "RandomFloat")
-        };
+        ];
         foreach (var methodInfo in array)
         {
             FixRNG(methodInfo);

@@ -9,7 +9,7 @@ namespace Aquarium;
 
 public class JoyGiver_AQViewFishBowl : JoyGiver
 {
-    private static readonly List<Thing> candidates = new List<Thing>();
+    private static readonly List<Thing> candidates = [];
 
     public override Job TryGiveJob(Pawn pawn)
     {

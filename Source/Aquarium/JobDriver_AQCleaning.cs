@@ -9,7 +9,7 @@ public class JobDriver_AQCleaning : JobDriver
 {
     private const TargetIndex Cleanable = TargetIndex.A;
 
-    private Thing CleanThing => job.GetTarget(TargetIndex.A).Thing;
+    private Thing CleanThing => job.GetTarget(Cleanable).Thing;
 
     private CompAquarium AQComp => CleanThing.TryGetComp<CompAquarium>();
 
@@ -20,13 +20,13 @@ public class JobDriver_AQCleaning : JobDriver
 
     protected override IEnumerable<Toil> MakeNewToils()
     {
-        this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
+        this.FailOnDespawnedNullOrForbidden(Cleanable);
         AddEndCondition(() => AQComp.cleanPct > 0.95f ? JobCondition.Succeeded : JobCondition.Ongoing);
-        yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
+        yield return Toils_Goto.GotoThing(Cleanable, PathEndMode.Touch);
         yield return Toils_General.Wait(AQUtility.GetCleanTime(AQComp))
-            .FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch)
-            .WithProgressBarToilDelay(TargetIndex.A).WithEffect(EffecterDefOf.Clean, TargetIndex.A)
+            .FailOnDestroyedNullOrForbidden(Cleanable).FailOnCannotTouch(Cleanable, PathEndMode.Touch)
+            .WithProgressBarToilDelay(Cleanable).WithEffect(EffecterDefOf.Clean, Cleanable)
             .PlaySustainerOrSound(() => SoundDefOf.Interact_CleanFilth);
-        yield return Toils_AQClean.FinalizeCleaning(TargetIndex.A);
+        yield return Toils_AQClean.FinalizeCleaning(Cleanable);
     }
 }

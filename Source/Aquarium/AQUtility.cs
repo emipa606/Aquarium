@@ -89,7 +89,7 @@ public class AQUtility
             }
         }
 
-        if (CompAQ == null || CompAQ.numFish <= 0 || !Controller.Settings.AllowInspire ||
+        if (CompAQ is not { numFish: > 0 } || !Controller.Settings.AllowInspire ||
             !pawn.IsHashIntervalTick(1000) || pawn.IsPrisoner ||
             !IsInspired((int)(CompAQ.numFish * Controller.Settings.BaseInspChance)) ||
             pawn.mindState.inspirationHandler.Inspired)
