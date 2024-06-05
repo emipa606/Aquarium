@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.5.1 - Bowls should no longer cause issues when being moved
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 

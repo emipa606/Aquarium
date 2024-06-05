@@ -540,6 +540,11 @@ public class CompAquarium : ThingComp
 
     private void CleanBeautyItems()
     {
+        if (!parent.Spawned)
+        {
+            return;
+        }
+
         var parentArea = parent.OccupiedRect();
         var thingsToDestroy = new HashSet<Thing>();
         foreach (var cell in parentArea.Cells)
