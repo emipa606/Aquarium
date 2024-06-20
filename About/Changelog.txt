@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.5.2 - Fish should not age in aquariums when the no-age setting is selected
+
+
 1.5.1 - Bowls should no longer cause issues when being moved
 
 

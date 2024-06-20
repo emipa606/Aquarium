@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>89a42902-1cf0-477e-a54e-7e3f136d8cd3</ID>
   <ModName>Aquarium (Continued)</ModName>
-  <Version>1.5.1</Version>
+  <Version>1.5.2</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,3 +12,4 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
+

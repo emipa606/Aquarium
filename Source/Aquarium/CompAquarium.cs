@@ -91,7 +91,7 @@ public class CompAquarium : ThingComp
         Scribe_Values.Look(ref selectedDecorationDefName, "selectedDecorationDefName", string.Empty);
         Scribe_Values.Look(ref cleanPct, "cleanPct", 1f);
         Scribe_Values.Look(ref foodPct, "foodPct");
-        Scribe_Collections.Look(ref fishData, "fishData", LookMode.Value, []);
+        Scribe_Collections.Look(ref fishData, "fishData", LookMode.Value);
     }
 
     public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -704,7 +704,7 @@ public class CompAquarium : ThingComp
                         health -= (int)Math.Max(1f,
                             poorhealth * Mathf.Lerp(0.5f, 1f,
                                 Math.Max(1f, Math.Min(oldFishAge, age) / (float)oldFishAge)));
-                        if (health <= 0)
+                        if (!Controller.Settings.ImmortalFish && health <= 0)
                         {
                             died = true;
                         }
