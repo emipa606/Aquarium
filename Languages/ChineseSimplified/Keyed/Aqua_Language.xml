@@ -60,4 +60,5 @@
   <Aquarium.NoFishUpkeepTooltip>如果启用这个功能，鱼不需要食物，鱼缸也不需要清洁或维护。</Aquarium.NoFishUpkeepTooltip>
   <Aquarium.Cyan>青色</Aquarium.Cyan>
   <Aquarium.ImmortalFish>鱼类不会衰老</Aquarium.ImmortalFish>
+  <Aquarium.RandomFishUntilFull>随机鱼（满为止）</Aquarium.RandomFishUntilFull>
 </LanguageData>

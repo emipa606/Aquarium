@@ -119,12 +119,50 @@
         <maxFish>10</maxFish>
         <powerNeeded>true</powerNeeded>
         <targetTemp>24.0</targetTemp>
-        <heatPerSecond>12.0</heatPerSecond>
+        <heatPerSecond>14.0</heatPerSecond>
       </li>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <shortCircuitInRain>false</shortCircuitInRain>
-        <basePowerConsumption>160</basePowerConsumption>
+        <basePowerConsumption>155</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="AQFishTankBase">
+    <defName>AQFishTankLarge</defName>
+    <label>Fish Tank Large</label>
+    <description>A large glass tank with water and decorations for keeping pet fish in.</description>
+    <graphicData>
+      <texPath>Things/Tanks/TankLarge_Empty</texPath>
+      <drawSize>(4,4)</drawSize>
+      <damageData>
+        <rect>(0.35,2.35,0.3,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <size>(4,4)</size>
+    <costStuffCount>240</costStuffCount>
+    <costList>
+      <AQGlassPanel>16</AQGlassPanel>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Mass>80</Mass>
+      <WorkToBuild>18000</WorkToBuild>
+      <Beauty>60</Beauty>
+    </statBases>
+    <comps>
+      <li Class="Aquarium.CompProperties_CompAquarium">
+        <maxFish>20</maxFish>
+        <powerNeeded>true</powerNeeded>
+        <targetTemp>24.0</targetTemp>
+        <heatPerSecond>18.0</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>300</basePowerConsumption>
       </li>
     </comps>
   </ThingDef>

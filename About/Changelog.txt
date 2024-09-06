@@ -1,5 +1,11 @@
 # Changelog for Aquarium
 
+1.5.3 - Added large 4x4 tank
+Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763]Vanilla Nutrient Paste Expanded[/url] to autofeed fishes
+Added until full-option when adding random fish
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.5.2 - Fish should not age in aquariums when the no-age setting is selected
 
 

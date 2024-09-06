@@ -60,6 +60,7 @@ public class Toils_AQAdding
                     }
 
                     AQComp.fishData = newList;
+                    AQComp.CheckToContinue();
                     AQComp.GenerateBeauty(AQComp.fishData);
                 }
             }

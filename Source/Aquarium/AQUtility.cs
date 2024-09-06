@@ -332,7 +332,7 @@ public class AQUtility
 
     internal static void DebugFishData(CompAquarium CompAQ, int maxNum = 0)
     {
-        Log.Message(string.Concat(CompAQ.parent.Label, " : ", CompAQ.numFish.ToString(), " : ", maxNum.ToString()));
+        Log.Message($"{CompAQ.parent.Label} : {CompAQ.numFish} : {maxNum}");
         var list = CompAQ.fishData;
         if (list.Count <= 0)
         {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!--  Settings -->
   <Aquarium.Name>Aquarium</Aquarium.Name>
@@ -61,4 +61,5 @@
   <Aquarium.NoFishUpkeep>Fische benötigen keine Pflege</Aquarium.NoFishUpkeep>
   <Aquarium.NoFishUpkeepTooltip>Wenn diese Funktion aktiviert ist, brauchen die Fische kein Futter und die Becken müssen nicht gereinigt oder gewartet werden.</Aquarium.NoFishUpkeepTooltip>
   <Aquarium.ImmortalFish>Fische altern nicht</Aquarium.ImmortalFish>
+  <Aquarium.RandomFishUntilFull>Zufallsfisch (bis voll)</Aquarium.RandomFishUntilFull>
 </LanguageData>

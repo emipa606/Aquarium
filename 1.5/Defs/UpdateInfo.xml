@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TabulaRasa.UpdateDef Abstract="true" Name="Aquarium_UpdateInfoBase">
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2194463553</linkUrl>
+		<banner>UpdateInfo/Aquarium</banner>
+	</TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="Aquarium_UpdateInfoBase">
+		<defName>Aquarium_1_5_2</defName>
+		<date>2024/9/6</date>
+		<content>This update adds a larger tank, twice the size as the wide tank.
+There is also an option to continually add fish to a tank when possible.
+The empty gizmos for selecting fish to add is now capped to one for visibility.
+
+You can now also auto-feed your fish using the Vanilla Nutrient Paste Expanded-mod as the tanks will draw meals from your pipe-network when connected when needed.
+I will add a rotated wide tank in a future update.
+Hope these added features are appreciated!</content>
+	</TabulaRasa.UpdateDef>
+</Defs>
+

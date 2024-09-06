@@ -18,7 +18,7 @@
   <Aquarium.ImmortalFish>Fish do not age</Aquarium.ImmortalFish>
   <Aquarium.CurrentModVersion>Installed mod-version: {0}</Aquarium.CurrentModVersion>
   <!--  Content -->
-  <Aquarium.TankInfo>Cleanliness: {0}, Food: {1}, Fish beauty: {2}</Aquarium.TankInfo>
+  <Aquarium.TankInfo>Cleanliness: {0}, Food: {1}, Fish beauty: {2}, Free space: {3}</Aquarium.TankInfo>
   <Aquarium.BagInfo>Fish Age: {0} days, Health: {1}, Hours remaining safe in bag: {2}</Aquarium.BagInfo>
   <Aquarium.FishDied>A pet fish has died.</Aquarium.FishDied>
   <Aquarium.NoFish>No fish</Aquarium.NoFish>
@@ -30,6 +30,7 @@
   <Aquarium.RemoveFish>Remove fish</Aquarium.RemoveFish>
   <Aquarium.AddFish>Add fish:</Aquarium.AddFish>
   <Aquarium.RandomFish>Random Fish</Aquarium.RandomFish>
+  <Aquarium.RandomFishUntilFull>Random Fish (until full)</Aquarium.RandomFishUntilFull>
   <Aquarium.Sand>Sand color</Aquarium.Sand>
   <Aquarium.SandDesc>Different colors of sand for the bottom of the tank</Aquarium.SandDesc>
   <Aquarium.Decorations>Decorations</Aquarium.Decorations>
