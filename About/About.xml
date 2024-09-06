@@ -81,7 +81,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Made the fish move smoother and more fish-like
 - Made the selector to add fish only show available fish
 - Added selectable sand and decorations in the tanks
-- Added a "Add random fish" function
+- Added a "Add random fish" option
 - Made the beauty of the tanks based on the fish inside the tank
 - Food and cleanliness will not degrade with no fish in the tanks
 - Added a "Nothing"-option to the tank decor
@@ -89,6 +89,9 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Added French translation, thanks qux!
 - Added some optimizations, thanks Taranchuk!
 - Added an option for fish not aging
+- Added a "Add random fish until tank full"-option
+- Added a larger 2x2 size tank
+- Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763]Vanilla Nutrient Paste Expanded[/url], as the tanks can draw meals from the pipe network to auto-feed the fish
 
 New graphic creators
 [list]
@@ -161,5 +164,5 @@ Fish and tank/bowl art graphics - Kasmex Forever
 [/list]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2194463553][img]https://img.shields.io/github/v/release/emipa606/Aquarium?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.3</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.4</modVersion>
 </ModMetaData>

@@ -129,6 +129,44 @@
     </comps>
   </ThingDef>
   <ThingDef ParentName="AQFishTankBase">
+    <defName>AQFishTankLong</defName>
+    <label>Fish Tank Long</label>
+    <description>A long glass tank with water and decorations for keeping pet fish in.</description>
+    <graphicData>
+      <texPath>Things/Tanks/TankLong_Empty</texPath>
+      <drawSize>(2,4)</drawSize>
+      <damageData>
+        <rect>(0.35,2.35,0.3,0.3)</rect>
+      </damageData>
+    </graphicData>
+    <size>(2,4)</size>
+    <costStuffCount>120</costStuffCount>
+    <costList>
+      <AQGlassPanel>8</AQGlassPanel>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <statBases>
+      <MaxHitPoints>500</MaxHitPoints>
+      <Mass>40</Mass>
+      <WorkToBuild>10000</WorkToBuild>
+      <Beauty>40</Beauty>
+    </statBases>
+    <comps>
+      <li Class="Aquarium.CompProperties_CompAquarium">
+        <maxFish>10</maxFish>
+        <powerNeeded>true</powerNeeded>
+        <targetTemp>24.0</targetTemp>
+        <heatPerSecond>14.0</heatPerSecond>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>155</basePowerConsumption>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="AQFishTankBase">
     <defName>AQFishTankLarge</defName>
     <label>Fish Tank Large</label>
     <description>A large glass tank with water and decorations for keeping pet fish in.</description>

@@ -62,7 +62,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Made the fish move smoother and more fish-like
 - Made the selector to add fish only show available fish
 - Added selectable sand and decorations in the tanks
-- Added a "Add random fish" function
+- Added a "Add random fish" option
 - Made the beauty of the tanks based on the fish inside the tank
 - Food and cleanliness will not degrade with no fish in the tanks
 - Added a "Nothing"-option to the tank decor
@@ -70,6 +70,9 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Added French translation, thanks qux!
 - Added some optimizations, thanks Taranchuk!
 - Added an option for fish not aging
+- Added a "Add random fish until tank full"-option
+- Added a larger 2x2 size tank
+- Added support for [Vanilla Nutrient Paste Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763), as the tanks can draw meals from the pipe network to auto-feed the fish
 
 New graphic creators
 

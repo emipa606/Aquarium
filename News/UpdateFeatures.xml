@@ -35,16 +35,14 @@ Also added some fish and an option to add a Random Fish to that tank. If this is
     <content>Another little update, this time regarding beauty. Previously the tanks had a static beauty-value, this is now instead based on the type of fish in the tank. The tank itself has a limited beauty-value and the rest is based on the value of each fish in the tank. The more rare the fish, the more beauty it adds to the tank.
 </content>
   </HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
-		<defName>Aquarium_1_5_2</defName>
-		<assemblyVersion>1.5.2</assemblyVersion>
-		<content>This update adds a larger tank, twice the size as the wide tank.
+  <HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
+    <defName>Aquarium_1_5_2</defName>
+    <assemblyVersion>1.5.2</assemblyVersion>
+    <content>This update adds a larger tank, twice the size as the wide tank as well as a vertical variant of the wide tank.
 There is also an option to continually add fish to a tank when possible.
 The empty gizmos for selecting fish to add is now capped to one for visibility.
 
 You can now also auto-feed your fish using the Vanilla Nutrient Paste Expanded-mod as the tanks will draw meals from your pipe-network when connected when needed.
-I will add a rotated wide tank in a future update.
 Hope these added features are appreciated!</content>
-	</HugsLib.UpdateFeatureDef>
+  </HugsLib.UpdateFeatureDef>
 </Defs>
-

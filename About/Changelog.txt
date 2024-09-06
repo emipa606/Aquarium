@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.5.4 - Added the long 4x2 tank, also fixed some issues with the decoration-textures for the new tanks
+
+
 1.5.3 - Added large 4x4 tank
 Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763]Vanilla Nutrient Paste Expanded[/url] to autofeed fishes
 Added until full-option when adding random fish
