@@ -192,7 +192,7 @@
     </statBases>
     <comps>
       <li Class="Aquarium.CompProperties_CompAquarium">
-        <maxFish>20</maxFish>
+        <maxFish>24</maxFish>
         <powerNeeded>true</powerNeeded>
         <targetTemp>24.0</targetTemp>
         <heatPerSecond>18.0</heatPerSecond>

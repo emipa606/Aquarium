@@ -58,7 +58,6 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 
 - Added visual stacksize for petfood and fish meat
 - Improved textures for fish meat
-- Added a larger tank holding up to 10 fish
 - Made the fish move smoother and more fish-like
 - Made the selector to add fish only show available fish
 - Added selectable sand and decorations in the tanks
@@ -71,7 +70,9 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Added some optimizations, thanks Taranchuk!
 - Added an option for fish not aging
 - Added a "Add random fish until tank full"-option
-- Added a larger 2x2 size tank
+- Added a larger 4x4 size tank, holds 20 fish
+- Added a long 4x2 size tank, holds 10 fish
+- Added a wide 2x4 size tank, holds 10 fish
 - Added support for [Vanilla Nutrient Paste Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763), as the tanks can draw meals from the pipe network to auto-feed the fish
 
 New graphic creators

@@ -77,7 +77,6 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 
 - Added visual stacksize for petfood and fish meat
 - Improved textures for fish meat
-- Added a larger tank holding up to 10 fish
 - Made the fish move smoother and more fish-like
 - Made the selector to add fish only show available fish
 - Added selectable sand and decorations in the tanks
@@ -90,7 +89,9 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
 - Added some optimizations, thanks Taranchuk!
 - Added an option for fish not aging
 - Added a "Add random fish until tank full"-option
-- Added a larger 2x2 size tank
+- Added a larger 4x4 size tank, holds 20 fish
+- Added a long 4x2 size tank, holds 10 fish
+- Added a wide 2x4 size tank, holds 10 fish
 - Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763]Vanilla Nutrient Paste Expanded[/url], as the tanks can draw meals from the pipe network to auto-feed the fish
 
 New graphic creators
@@ -164,5 +165,5 @@ Fish and tank/bowl art graphics - Kasmex Forever
 [/list]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2194463553][img]https://img.shields.io/github/v/release/emipa606/Aquarium?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.4</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.5</modVersion>
 </ModMetaData>
