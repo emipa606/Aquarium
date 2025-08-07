@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: make glass fish bowl -->
+  <Make_AQGlassBowl.label>make glass fish bowl</Make_AQGlassBowl.label>
+  <!-- EN: Make glass fish bowl. -->
+  <Make_AQGlassBowl.description>Make glass fish bowl.</Make_AQGlassBowl.description>
+  <!-- EN: Making glass fish bowl. -->
+  <Make_AQGlassBowl.jobString>Making glass fish bowl.</Make_AQGlassBowl.jobString>
+</LanguageData>

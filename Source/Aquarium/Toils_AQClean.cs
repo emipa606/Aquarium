@@ -11,13 +11,13 @@ public class Toils_AQClean
         var toil = new Toil();
         toil.initAction = delegate
         {
-            var AQComp = toil.actor.CurJob.GetTarget(cleanable).Thing.TryGetComp<CompAquarium>();
-            if (AQComp == null)
+            var aqComp = toil.actor.CurJob.GetTarget(cleanable).Thing.TryGetComp<CompAquarium>();
+            if (aqComp == null)
             {
                 return;
             }
 
-            AQComp.cleanPct = 1f;
+            aqComp.cleanPct = 1f;
             toil.actor.skills.Learn(SkillDefOf.Animals, 50f);
         };
         toil.defaultCompleteMode = ToilCompleteMode.Instant;

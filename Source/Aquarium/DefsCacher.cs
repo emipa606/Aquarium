@@ -44,10 +44,10 @@ internal static class DefsCacher
             where decorationDef.defName.StartsWith("AQDecoration")
             orderby decorationDef.defName
             select decorationDef).ToList();
-        AQBagDefs = (from bagdef in DefDatabase<ThingDef>.AllDefsListForReading
-            where bagdef.defName.StartsWith("AQFishInBag")
-            orderby bagdef.label
-            select bagdef).ToList();
+        AQBagDefs = (from bagDef in DefDatabase<ThingDef>.AllDefsListForReading
+            where bagDef.defName.StartsWith("AQFishInBag")
+            orderby bagDef.label
+            select bagDef).ToList();
 
         AQSoundDef = SoundDef.Named("AQFishTank");
         AQFishFoodDef = ThingDef.Named("AQFishFood");

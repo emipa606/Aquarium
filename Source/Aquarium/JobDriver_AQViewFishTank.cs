@@ -8,9 +8,9 @@ public class JobDriver_AQViewFishTank : JobDriver_VisitJoyThing
 {
     private Thing FishyThing => job?.GetTarget(TargetIndex.A).Thing;
 
-    protected override void WaitTickAction()
+    protected override void WaitTickAction(int delta)
     {
-        pawn.GainComfortFromCellIfPossible();
+        pawn.GainComfortFromCellIfPossible(delta);
         if (FishyThing == null)
         {
             return;
@@ -20,7 +20,7 @@ public class JobDriver_AQViewFishTank : JobDriver_VisitJoyThing
             FishyThing.GetStatValue(StatDefOf.Beauty) / FishyThing.def.GetStatValueAbstract(StatDefOf.Beauty),
             FishyThing);
         var extraJoyGainFactor = num > 0f ? num : 0f;
-        JoyUtility.JoyTickCheckEnd(pawn, JoyTickFullJoyAction.EndJob, extraJoyGainFactor, (Building)FishyThing);
-        AQUtility.ApplyMoodBoostAndInspire(pawn, FishyThing);
+        JoyUtility.JoyTickCheckEnd(pawn, delta, JoyTickFullJoyAction.EndJob, extraJoyGainFactor, (Building)FishyThing);
+        AQUtility.ApplyMoodBoostAndInspire(pawn, FishyThing, delta);
     }
 }

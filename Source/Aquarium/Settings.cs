@@ -33,64 +33,64 @@ public class Settings : ModSettings
 
     public void DoWindowContents(Rect canvas)
     {
-        var gap = 6f;
-        var listing_Standard = new Listing_Standard
+        const float gap = 6f;
+        var listingStandard = new Listing_Standard
         {
             ColumnWidth = canvas.width
         };
-        listing_Standard.Begin(canvas);
-        listing_Standard.Gap(gap);
-        listing_Standard.CheckboxLabeled("Aquarium.DoDeathMsgs".Translate(), ref DoDeathMsgs);
-        listing_Standard.Gap(gap);
-        listing_Standard.CheckboxLabeled("Aquarium.AllowTankSounds".Translate(), ref AllowTankSounds);
-        listing_Standard.Gap(gap);
-        listing_Standard.CheckboxLabeled("Aquarium.FishMovesAround".Translate(), ref FishMovesAround,
+        listingStandard.Begin(canvas);
+        listingStandard.Gap(gap);
+        listingStandard.CheckboxLabeled("Aquarium.DoDeathMsgs".Translate(), ref DoDeathMsgs);
+        listingStandard.Gap(gap);
+        listingStandard.CheckboxLabeled("Aquarium.AllowTankSounds".Translate(), ref AllowTankSounds);
+        listingStandard.Gap(gap);
+        listingStandard.CheckboxLabeled("Aquarium.FishMovesAround".Translate(), ref FishMovesAround,
             "Aquarium.FishMovesAroundTooltip".Translate());
-        listing_Standard.Gap(gap);
-        listing_Standard.CheckboxLabeled("Aquarium.AllowInspire".Translate(), ref AllowInspire);
-        listing_Standard.Gap(gap);
+        listingStandard.Gap(gap);
+        listingStandard.CheckboxLabeled("Aquarium.AllowInspire".Translate(), ref AllowInspire);
+        listingStandard.Gap(gap);
         checked
         {
-            listing_Standard.Label("Aquarium.BaseInspChance".Translate() + "  " + (int)BaseInspChance);
-            BaseInspChance = (int)listing_Standard.Slider((int)BaseInspChance, 1f, 10f);
-            listing_Standard.Gap(gap);
-            listing_Standard.CheckboxLabeled("Aquarium.ImmortalFish".Translate(), ref ImmortalFish);
+            listingStandard.Label("Aquarium.BaseInspChance".Translate() + "  " + (int)BaseInspChance);
+            BaseInspChance = (int)listingStandard.Slider((int)BaseInspChance, 1f, 10f);
+            listingStandard.Gap(gap);
+            listingStandard.CheckboxLabeled("Aquarium.ImmortalFish".Translate(), ref ImmortalFish);
             if (!ImmortalFish)
             {
-                listing_Standard.Gap(gap);
-                listing_Standard.Label("Aquarium.FishLife".Translate() + "  " + (int)FishLife);
-                FishLife = (int)listing_Standard.Slider((int)FishLife, 1f, 3f);
+                listingStandard.Gap(gap);
+                listingStandard.Label("Aquarium.FishLife".Translate() + "  " + (int)FishLife);
+                FishLife = (int)listingStandard.Slider((int)FishLife, 1f, 3f);
             }
 
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)DegradeWaterFactor);
-            DegradeWaterFactor = (int)listing_Standard.Slider((int)DegradeWaterFactor, 0, 200f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)DegradeFoodFactor);
-            DegradeFoodFactor = (int)listing_Standard.Slider((int)DegradeFoodFactor, 0, 200f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.RespondClean".Translate() + "  " + (int)RespondClean);
-            RespondClean = (int)listing_Standard.Slider((int)RespondClean, 25f, 75f);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.RespondFood".Translate() + "  " + (int)RespondFood);
-            RespondFood = (int)listing_Standard.Slider((int)RespondFood, 25f, 75f);
+            listingStandard.Gap(gap);
+            listingStandard.Label("Aquarium.DegradeWaterFactor".Translate() + "  " + (int)DegradeWaterFactor);
+            DegradeWaterFactor = (int)listingStandard.Slider((int)DegradeWaterFactor, 0, 200f);
+            listingStandard.Gap(gap);
+            listingStandard.Label("Aquarium.DegradeFoodFactor".Translate() + "  " + (int)DegradeFoodFactor);
+            DegradeFoodFactor = (int)listingStandard.Slider((int)DegradeFoodFactor, 0, 200f);
+            listingStandard.Gap(gap);
+            listingStandard.Label("Aquarium.RespondClean".Translate() + "  " + (int)RespondClean);
+            RespondClean = (int)listingStandard.Slider((int)RespondClean, 25f, 75f);
+            listingStandard.Gap(gap);
+            listingStandard.Label("Aquarium.RespondFood".Translate() + "  " + (int)RespondFood);
+            RespondFood = (int)listingStandard.Slider((int)RespondFood, 25f, 75f);
 
-            listing_Standard.Gap(gap);
-            listing_Standard.CheckboxLabeled("Aquarium.AllowBreed".Translate(), ref AllowBreed);
-            listing_Standard.Gap(gap);
-            listing_Standard.Label("Aquarium.BreedChance".Translate() + "  " + (int)BreedChance);
-            BreedChance = (int)listing_Standard.Slider((int)BreedChance, 25f, 75f);
-            listing_Standard.Gap(gap);
-            if (Controller.currentVersion != null)
+            listingStandard.Gap(gap);
+            listingStandard.CheckboxLabeled("Aquarium.AllowBreed".Translate(), ref AllowBreed);
+            listingStandard.Gap(gap);
+            listingStandard.Label("Aquarium.BreedChance".Translate() + "  " + (int)BreedChance);
+            BreedChance = (int)listingStandard.Slider((int)BreedChance, 25f, 75f);
+            listingStandard.Gap(gap);
+            if (Controller.CurrentVersion != null)
             {
-                listing_Standard.Gap();
+                listingStandard.Gap();
                 GUI.contentColor = Color.gray;
-                listing_Standard.Label("Aquarium.CurrentModVersion".Translate(Controller.currentVersion));
+                listingStandard.Label("Aquarium.CurrentModVersion".Translate(Controller.CurrentVersion));
                 GUI.contentColor = Color.white;
             }
 
-            listing_Standard.Gap(gap);
-            listing_Standard.End();
+            listingStandard.Gap(gap);
+            listingStandard.End();
         }
     }
 

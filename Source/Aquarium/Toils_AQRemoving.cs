@@ -15,13 +15,13 @@ public class Toils_AQRemoving
             var curJob = toil.actor.CurJob;
             var thing = curJob.GetTarget(RemoveFrom).Thing;
             Thing removedThing = null;
-            var AQComp = thing.TryGetComp<CompAquarium>();
-            if (AQComp != null && AQComp.fishData.Count > 0)
+            var aqComp = thing.TryGetComp<CompAquarium>();
+            if (aqComp != null && aqComp.fishData.Count > 0)
             {
                 var newList = new List<string>();
                 var newIndex = 0;
                 var removed = false;
-                foreach (var value in AQComp.fishData)
+                foreach (var value in aqComp.fishData)
                 {
                     newIndex++;
                     var prevDefVal = CompAquarium.StringValuePart(value, 1);
@@ -37,12 +37,12 @@ public class Toils_AQRemoving
                         removed = true;
                         toil.actor.skills.Learn(SkillDefOf.Animals, 80f);
                         newIndex--;
-                        var CBag = newFishBag.TryGetComp<CompAQFishInBag>();
+                        var cBag = newFishBag.TryGetComp<CompAQFishInBag>();
                         newFishBag.stackCount = 1;
-                        if (CBag != null)
+                        if (cBag != null)
                         {
-                            CBag.fishhealth = prevHealth;
-                            CBag.age = prevAge;
+                            cBag.fishhealth = prevHealth;
+                            cBag.age = prevAge;
                         }
 
                         removedThing = newFishBag;
@@ -57,11 +57,11 @@ public class Toils_AQRemoving
 
                 if (removed)
                 {
-                    AQComp.numFish--;
+                    aqComp.numFish--;
                 }
 
-                AQComp.fishData = newList;
-                AQComp.GenerateBeauty(AQComp.fishData);
+                aqComp.fishData = newList;
+                aqComp.GenerateBeauty(aqComp.fishData);
             }
 
             if (removedThing == null)

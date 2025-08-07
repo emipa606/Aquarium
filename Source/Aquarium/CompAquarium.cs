@@ -110,7 +110,7 @@ public class CompAquarium : ThingComp
         base.PostDestroy(mode, previousMap);
     }
 
-    private Vector3 GetDrawPos(int currentFishNumber, Vector3 baseVector, out float perspective)
+    private Vector3 getDrawPos(int currentFishNumber, Vector3 baseVector, out float perspective)
     {
         var startInMiddle = true;
         perspective = 1f;
@@ -209,9 +209,9 @@ public class CompAquarium : ThingComp
 
         tankXRadius *= swimAdjustment;
         tankZRadius *= swimAdjustment;
-        Matrix4x4 matrix4x;
-        Vector3 Size;
-        Graphic ImageGraphic;
+        Matrix4x4 matrix4X;
+        Vector3 size;
+        Graphic imageGraphic;
         string path;
         if (Props.maxFish > 1)
         {
@@ -220,13 +220,13 @@ public class CompAquarium : ThingComp
                 var sandLocation = parent.DrawPos;
                 sandLocation.z -= 0.1f;
                 sandLocation.y += 0.0254545468f;
-                Size = new Vector3(parent.def.size.x - 0.54f, 1.0f, parent.def.size.z - 1.3f);
+                size = new Vector3(parent.def.size.x - 0.54f, 1.0f, parent.def.size.z - 1.3f);
                 path = parent.Graphic.path.Replace("_Empty", "_Sand");
-                ImageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.Cutout, Vector2.one,
+                imageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.Cutout, Vector2.one,
                     DefsCacher.AQSandDefs[selectedSand].graphicData.color);
-                matrix4x = default;
-                matrix4x.SetTRS(sandLocation, Quaternion.AngleAxis(0, Vector3.up), Size);
-                Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
+                matrix4X = default;
+                matrix4X.SetTRS(sandLocation, Quaternion.AngleAxis(0, Vector3.up), size);
+                Graphics.DrawMesh(MeshPool.plane10, matrix4X, imageGraphic.MatSingle, 0);
             }
 
             if (selectedDecoration >= 0)
@@ -234,13 +234,13 @@ public class CompAquarium : ThingComp
                 var decorationLocation = parent.DrawPos;
                 decorationLocation.z += 0.11f;
                 decorationLocation.y += 0.0354545468f;
-                Size = new Vector3(parent.def.size.x - 0.54f, 1.0f, parent.def.size.z - 0.8f);
+                size = new Vector3(parent.def.size.x - 0.54f, 1.0f, parent.def.size.z - 0.8f);
                 path = $"{parent.Graphic.path.Replace("_Empty", "_Decoration")}_{selectedDecoration}";
-                ImageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.TransparentPostLight,
+                imageGraphic = GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.TransparentPostLight,
                     Vector2.one, Color.white);
-                matrix4x = default;
-                matrix4x.SetTRS(decorationLocation, Quaternion.AngleAxis(0, Vector3.up), Size);
-                Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
+                matrix4X = default;
+                matrix4X.SetTRS(decorationLocation, Quaternion.AngleAxis(0, Vector3.up), size);
+                Graphics.DrawMesh(MeshPool.plane10, matrix4X, imageGraphic.MatSingle, 0);
             }
         }
 
@@ -347,7 +347,7 @@ public class CompAquarium : ThingComp
                     drawPos.z -= 0.1f;
                     if (totalFish > 1)
                     {
-                        drawPos = GetDrawPos(count, drawPos, out perspective);
+                        drawPos = getDrawPos(count, drawPos, out perspective);
                     }
 
                     if (!Find.TickManager.Paused)
@@ -388,17 +388,17 @@ public class CompAquarium : ThingComp
                 drawPos.x += fishWandering[iterator][0];
                 drawPos.z += fishWandering[iterator][1];
                 drawPos.y += 0.0454545468f;
-                var defname = StringValuePart(value, 1);
-                var gfxName = WordsToNumbers(defname.Replace("AQFishInBag", ""));
-                var ImagePath = $"Things/Fish/Fish{gfxName}";
+                var defName = StringValuePart(value, 1);
+                var gfxName = wordsToNumbers(defName.Replace("AQFishInBag", ""));
+                var imagePath = $"Things/Fish/Fish{gfxName}";
                 var adjustedSizeVector = ageFactor * perspective;
-                Size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
-                ImageGraphic = GraphicDatabase.Get<Graphic_Single>(ImagePath, ShaderDatabase.TransparentPostLight,
+                size = new Vector3(adjustedSizeVector, 1f, adjustedSizeVector);
+                imageGraphic = GraphicDatabase.Get<Graphic_Single>(imagePath, ShaderDatabase.TransparentPostLight,
                     Vector2.one, Color.white);
-                matrix4x = default;
-                matrix4x.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), Size);
+                matrix4X = default;
+                matrix4X.SetTRS(drawPos, Quaternion.AngleAxis(0, Vector3.up), size);
                 Graphics.DrawMesh(fishWandering[count - 1][3] == 0 ? MeshPool.plane10Flip : MeshPool.plane10,
-                    matrix4x, ImageGraphic.MatSingle, 0);
+                    matrix4X, imageGraphic.MatSingle, 0);
             }
         }
 
@@ -410,19 +410,19 @@ public class CompAquarium : ThingComp
         var waterLocation = parent.DrawPos;
         waterLocation.z += 0.11f;
         waterLocation.y += 0.0554545468f;
-        Size = new Vector3(parent.def.size.x - 0.54f, 1.0f, parent.def.size.z - 0.8f);
+        size = new Vector3(parent.def.size.x - 0.54f, 1.0f, parent.def.size.z - 0.8f);
         path = "Things/Tanks/Water";
         if (parent.def.size.z > 2)
         {
             path = "Things/Tanks/WaterHigh";
         }
 
-        ImageGraphic =
+        imageGraphic =
             GraphicDatabase.Get<Graphic_Single>(path, ShaderDatabase.TransparentPostLight, Vector2.one,
                 Color.white);
-        matrix4x = default;
-        matrix4x.SetTRS(waterLocation, Quaternion.AngleAxis(0, Vector3.up), Size);
-        Graphics.DrawMesh(MeshPool.plane10, matrix4x, ImageGraphic.MatSingle, 0);
+        matrix4X = default;
+        matrix4X.SetTRS(waterLocation, Quaternion.AngleAxis(0, Vector3.up), size);
+        Graphics.DrawMesh(MeshPool.plane10, matrix4X, imageGraphic.MatSingle, 0);
     }
 
 
@@ -431,26 +431,26 @@ public class CompAquarium : ThingComp
         base.CompTick();
         if (parent.Spawned)
         {
-            if (Controller.Settings.AllowTankSounds && Props.powerNeeded && IsPowered())
+            if (Controller.Settings.AllowTankSounds && Props.powerNeeded && isPowered())
             {
-                DoTankSound();
+                doTankSound();
             }
 
             if (parent.IsHashIntervalTick(Ticks))
             {
-                if (Props.powerNeeded && IsPowered() && ShouldPushHeatNow)
+                if (Props.powerNeeded && isPowered() && ShouldPushHeatNow)
                 {
                     GenTemperature.PushHeat(parent.PositionHeld, parent.MapHeld, Props.heatPerSecond * 5f);
                 }
 
                 if (numFish > 0)
                 {
-                    var ageFactor = GetAvgAgeMultiplier(fishData);
-                    DegradeFood(numFish, foodPct, ageFactor, out var newFoodPct);
+                    var ageFactor = getAvgAgeMultiplier(fishData);
+                    degradeFood(numFish, foodPct, ageFactor, out var newFoodPct);
                     foodPct = newFoodPct;
-                    DegradeWater(numFish, foodPct, cleanPct, ageFactor, out var newCleanPct);
+                    degradeWater(numFish, foodPct, cleanPct, ageFactor, out var newCleanPct);
                     cleanPct = newCleanPct;
-                    EffectFish(numFish, fishData, foodPct, cleanPct, out var newNumFish, out var newFishData);
+                    effectFish(numFish, fishData, foodPct, cleanPct, out var newNumFish, out var newFishData);
                     numFish = newNumFish;
                     fishData = newFishData;
                 }
@@ -463,13 +463,13 @@ public class CompAquarium : ThingComp
 
             if (parent.IsHashIntervalTick(BreedingTicks))
             {
-                TankBreeding();
+                tankBreeding();
             }
         }
         else
         {
             numFish = 0;
-            DumpFish(fishData);
+            dumpFish(fishData);
             fishData = [];
             GenerateBeauty(fishData);
             foodPct = 0f;
@@ -483,7 +483,7 @@ public class CompAquarium : ThingComp
         }
     }
 
-    private float GetAvgAgeMultiplier(List<string> fdata)
+    private static float getAvgAgeMultiplier(List<string> fdata)
     {
         var factor = 1f;
         var sum = 0f;
@@ -517,7 +517,7 @@ public class CompAquarium : ThingComp
         return Rand.Range(min, max);
     }
 
-    private void DumpFish(List<string> incomingFishData)
+    private void dumpFish(List<string> incomingFishData)
     {
         if (parent.Map == null || parent.Map.ParentFaction != Faction.OfPlayerSilentFail ||
             incomingFishData is not { Count: > 0 })
@@ -550,7 +550,7 @@ public class CompAquarium : ThingComp
         }
     }
 
-    private void CleanBeautyItems()
+    private void cleanBeautyItems()
     {
         if (!parent.Spawned)
         {
@@ -594,7 +594,7 @@ public class CompAquarium : ThingComp
             }
         }
 
-        CleanBeautyItems();
+        cleanBeautyItems();
         savedBeauty = [];
         if (incomingFishData is { Count: > 0 })
         {
@@ -620,7 +620,7 @@ public class CompAquarium : ThingComp
                 }
 
                 var valueToAdd = Convert.ToInt32(Math.Pow(2, i));
-                var thingToSpawn = ThingDef.Named($"AQBeauty{NumberToWords(valueToAdd).CapitalizeFirst()}");
+                var thingToSpawn = ThingDef.Named($"AQBeauty{numberToWords(valueToAdd).CapitalizeFirst()}");
                 thingToSpawn.size = parent.def.size;
                 var position = parent.Position;
                 if (thingToSpawn.size.x == 4)
@@ -638,7 +638,7 @@ public class CompAquarium : ThingComp
         }
     }
 
-    private void DegradeFood(int numberOfFish, float foodAmount, float ageF, out float newFoodPct)
+    private static void degradeFood(int numberOfFish, float foodAmount, float ageF, out float newFoodPct)
     {
         var factor = Controller.Settings.DegradeFoodFactor / 100f * 0.0625f * ageF;
         newFoodPct = foodAmount;
@@ -649,7 +649,7 @@ public class CompAquarium : ThingComp
         }
     }
 
-    private void DegradeWater(int numberFish, float foodAmount, float cleanAmount, float ageF,
+    private static void degradeWater(int numberFish, float foodAmount, float cleanAmount, float ageF,
         out float newCleanPct)
     {
         var factor = Controller.Settings.DegradeWaterFactor / 100f * 0.025f * ageF;
@@ -662,7 +662,7 @@ public class CompAquarium : ThingComp
         }
     }
 
-    private void EffectFish(int numberOfFish, List<string> incomingFishData, float foodAmount, float cleanAmount,
+    private void effectFish(int numberOfFish, List<string> incomingFishData, float foodAmount, float cleanAmount,
         out int newNumFish,
         out List<string> newFishData)
     {
@@ -697,20 +697,20 @@ public class CompAquarium : ThingComp
             {
                 var died = false;
                 NumValuePart(value, 0);
-                var defval = StringValuePart(value, 1);
+                var defVal = StringValuePart(value, 1);
                 var health = NumValuePart(value, 2);
                 var age = NumValuePart(value, 3);
                 var action = NumValuePart(value, 4);
-                var agedegradingHealth = 0;
+                var ageDegradingHealth = 0;
                 if (action != 1)
                 {
                     age += Ticks;
                     if (age + (int)RandomFloat(-450000f, 450000f) > oldFishAge)
                     {
-                        agedegradingHealth = 1;
+                        ageDegradingHealth = 1;
                     }
 
-                    var poorhealth = degradingHealth + agedegradingHealth;
+                    var poorhealth = degradingHealth + ageDegradingHealth;
                     if (poorhealth > 0)
                     {
                         health -= (int)Math.Max(1f,
@@ -735,7 +735,7 @@ public class CompAquarium : ThingComp
                 if (!died)
                 {
                     newIndex++;
-                    var newValue = CreateValuePart(newIndex, defval, health, age, action);
+                    var newValue = CreateValuePart(newIndex, defVal, health, age, action);
                     changedFishData.Add(newValue);
                 }
                 else
@@ -805,23 +805,17 @@ public class CompAquarium : ThingComp
         return value.Split(divider)[pos];
     }
 
-    private void StartMixSustainer()
+    private void startMixSustainer()
     {
         var info = SoundInfo.InMap(parent, MaintenanceType.PerTick);
         mixSustainer = DefsCacher.AQSoundDef.TrySpawnSustainer(info);
     }
 
-    private void DoTankSound()
+    private void doTankSound()
     {
-        if (mixSustainer == null)
+        if (mixSustainer == null || mixSustainer.Ended)
         {
-            StartMixSustainer();
-            return;
-        }
-
-        if (mixSustainer.Ended)
-        {
-            StartMixSustainer();
+            startMixSustainer();
             return;
         }
 
@@ -853,7 +847,7 @@ public class CompAquarium : ThingComp
                 defaultLabel = defaultLabel,
                 icon = ContentFinder<Texture2D>.Get(graphicPath),
                 defaultDesc = "Aquarium.SandDesc".Translate(),
-                action = SelectSand
+                action = selectSand
             };
             graphicPath = "Things/Fish/UI/Decoration_Icon";
             defaultLabel = selectedDecoration >= 0
@@ -864,7 +858,7 @@ public class CompAquarium : ThingComp
                 defaultLabel = defaultLabel,
                 icon = ContentFinder<Texture2D>.Get(graphicPath),
                 defaultDesc = "Aquarium.DecorationsDesc".Translate(),
-                action = SelectDecorations
+                action = selectDecorations
             };
         }
 
@@ -910,7 +904,7 @@ public class CompAquarium : ThingComp
                 }
                 else
                 {
-                    graphicPath = $"Things/Fish/Fish{WordsToNumbers(fishGfx)}";
+                    graphicPath = $"Things/Fish/Fish{wordsToNumbers(fishGfx)}";
                 }
 
                 switch (fishAction)
@@ -934,7 +928,7 @@ public class CompAquarium : ThingComp
                 defaultLabel = fishLabel,
                 icon = fishIcon,
                 defaultDesc = fishDesc,
-                action = delegate { SelectFish(fishDef, numLabel); }
+                action = delegate { selectFish(fishDef, numLabel); }
             };
             if (fishDef == null || fishstring == "AQRandomFish" && keepFilling)
             {
@@ -950,29 +944,29 @@ public class CompAquarium : ThingComp
                 defaultLabel = "Debug Mode",
                 defaultDesc = "Send debug messages to Log",
                 isActive = () => fishydebug,
-                toggleAction = delegate { ToggleDebug(fishydebug); }
+                toggleAction = delegate { toggleDebug(fishydebug); }
             };
         }
     }
 
-    private void ToggleDebug(bool flag)
+    private void toggleDebug(bool flag)
     {
         fishydebug = !flag;
     }
 
-    private void SelectFish(ThingDef afishDef, string fishLabel)
+    private void selectFish(ThingDef aFishDef, string fishLabel)
     {
-        var selindex = Convert.ToInt32(fishLabel.Split(':')[0]);
+        var selIndex = Convert.ToInt32(fishLabel.Split(':')[0]);
         var list = new List<FloatMenuOption>();
         string text = "Aquarium.DoNothing".Translate();
-        list.Add(new FloatMenuOption(text, delegate { FishSelection(null, 0, ActionType.Nothing); },
+        list.Add(new FloatMenuOption(text, delegate { fishSelection(null, 0, ActionType.Nothing); },
             MenuOptionPriority.Default, null, null, 29f));
-        if (afishDef != null)
+        if (aFishDef != null)
         {
             text = "Aquarium.RemoveFish".Translate();
             list.Add(new FloatMenuOption(text, delegate
                 {
-                    FishSelection(afishDef, selindex, ActionType.Remove);
+                    fishSelection(aFishDef, selIndex, ActionType.Remove);
                     keepFilling = false;
                 },
                 MenuOptionPriority.Default, null, null, 29f));
@@ -982,7 +976,7 @@ public class CompAquarium : ThingComp
             list.Add(new FloatMenuOption("Aquarium.RandomFish".Translate(),
                 delegate
                 {
-                    FishSelection(DefsCacher.AQRandomFishDef, selindex, ActionType.Add);
+                    fishSelection(DefsCacher.AQRandomFishDef, selIndex, ActionType.Add);
                     keepFilling = false;
                 },
                 MenuOptionPriority.Default,
@@ -990,7 +984,7 @@ public class CompAquarium : ThingComp
             list.Add(new FloatMenuOption("Aquarium.RandomFishUntilFull".Translate(),
                 delegate
                 {
-                    FishSelection(DefsCacher.AQRandomFishDef, selindex, ActionType.Add);
+                    fishSelection(DefsCacher.AQRandomFishDef, selIndex, ActionType.Add);
                     keepFilling = true;
                 },
                 MenuOptionPriority.Default,
@@ -1008,7 +1002,7 @@ public class CompAquarium : ThingComp
                 list.Add(new FloatMenuOption(text,
                     delegate
                     {
-                        FishSelection(potfishDef, selindex, ActionType.Add);
+                        fishSelection(potfishDef, selIndex, ActionType.Add);
                         keepFilling = false;
                     }, MenuOptionPriority.Default,
                     null, null, 29f));
@@ -1018,49 +1012,49 @@ public class CompAquarium : ThingComp
         Find.WindowStack.Add(new FloatMenu(list));
     }
 
-    private void SelectSand()
+    private void selectSand()
     {
         var list = new List<FloatMenuOption>();
         for (var i = DefsCacher.AQSandDefs.Count - 1; i >= 0; i--)
         {
             var textToAdd = $"Aquarium.{DefsCacher.AQSandDefs[i].label}".Translate();
             var sandDef = DefsCacher.AQSandDefs[i];
-            list.Add(new FloatMenuOption(textToAdd, delegate { SandSelection(sandDef.defName); },
+            list.Add(new FloatMenuOption(textToAdd, delegate { sandSelection(sandDef.defName); },
                 MenuOptionPriority.Default, null, null, 29f));
         }
 
         var sortedList = list.OrderBy(option => option.Label).ToList();
         sortedList.Insert(0,
-            new FloatMenuOption("Aquarium.Nothing".Translate(), delegate { SandSelection(string.Empty); },
+            new FloatMenuOption("Aquarium.Nothing".Translate(), delegate { sandSelection(string.Empty); },
                 MenuOptionPriority.Default, null, null, 29f));
         Find.WindowStack.Add(new FloatMenu(sortedList));
     }
 
-    private void SelectDecorations()
+    private void selectDecorations()
     {
         var list = new List<FloatMenuOption>();
         foreach (var thingDef in DefsCacher.AQDecorationDefs)
         {
             var textToAdd = $"Aquarium.{thingDef.label}".Translate();
             var decorationDef = thingDef;
-            list.Add(new FloatMenuOption(textToAdd, delegate { DecorationSelection(decorationDef.defName); },
+            list.Add(new FloatMenuOption(textToAdd, delegate { decorationSelection(decorationDef.defName); },
                 MenuOptionPriority.Default, null, null, 29f));
         }
 
         var sortedList = list.OrderBy(option => option.Label).ToList();
         sortedList.Insert(0,
-            new FloatMenuOption("Aquarium.Nothing".Translate(), delegate { DecorationSelection(string.Empty); },
+            new FloatMenuOption("Aquarium.Nothing".Translate(), delegate { decorationSelection(string.Empty); },
                 MenuOptionPriority.Default, null, null, 29f));
         Find.WindowStack.Add(new FloatMenu(sortedList));
     }
 
-    private void FishSelection(ThingDef selfishDef, int fishindex, ActionType actionType)
+    private void fishSelection(ThingDef selfishDef, int fishIndex, ActionType actionType)
     {
         switch (actionType)
         {
             case ActionType.Add:
                 var newFishData = new List<string>();
-                var newindex = 0;
+                var newIndex = 0;
                 if (fishData.Count > 0)
                 {
                     foreach (var value3 in fishData)
@@ -1070,14 +1064,14 @@ public class CompAquarium : ThingComp
                         var prevHealth = NumValuePart(value3, 2);
                         var prevAge = NumValuePart(value3, 3);
                         var prevAction = NumValuePart(value3, 4);
-                        newindex++;
-                        var newValue = CreateValuePart(newindex, prevfishdefName, prevHealth, prevAge, prevAction);
+                        newIndex++;
+                        var newValue = CreateValuePart(newIndex, prevfishdefName, prevHealth, prevAge, prevAction);
                         newFishData.Add(newValue);
                     }
                 }
 
-                newindex++;
-                var addValue = CreateValuePart(newindex, selfishDef.defName, 0, 0, 1);
+                newIndex++;
+                var addValue = CreateValuePart(newIndex, selfishDef.defName, 0, 0, 1);
                 newFishData.Add(addValue);
                 fishData = newFishData;
                 break;
@@ -1093,22 +1087,26 @@ public class CompAquarium : ThingComp
                         var prevHealth2 = NumValuePart(value, 2);
                         var prevAge2 = NumValuePart(value, 3);
                         var prevAction2 = NumValuePart(value, 4);
-                        if (row == fishindex)
+                        if (row == fishIndex)
                         {
-                            if (prevAction2 == 0)
+                            switch (prevAction2)
                             {
-                                var newValue2 = CreateValuePart(row, prevfishdefName2, prevHealth2, prevAge2, 2);
-                                newFishData2.Add(newValue2);
-                            }
-                            else if (prevAction2 == 1)
-                            {
-                                var newValue3 = CreateValuePart(row, prevfishdefName2, prevHealth2, prevAge2, 3);
-                                newFishData2.Add(newValue3);
-                                cancel = true;
-                            }
-                            else
-                            {
-                                newFishData2.Add(value);
+                                case 0:
+                                {
+                                    var newValue2 = CreateValuePart(row, prevfishdefName2, prevHealth2, prevAge2, 2);
+                                    newFishData2.Add(newValue2);
+                                    break;
+                                }
+                                case 1:
+                                {
+                                    var newValue3 = CreateValuePart(row, prevfishdefName2, prevHealth2, prevAge2, 3);
+                                    newFishData2.Add(newValue3);
+                                    cancel = true;
+                                    break;
+                                }
+                                default:
+                                    newFishData2.Add(value);
+                                    break;
                             }
                         }
                         else
@@ -1122,22 +1120,22 @@ public class CompAquarium : ThingComp
                 if (cancel)
                 {
                     var cancelFishData = new List<string>();
-                    var newindex2 = 0;
+                    var newIndex2 = 0;
                     if (fishData.Count > 0)
                     {
                         foreach (var value2 in fishData)
                         {
-                            newindex2++;
+                            newIndex2++;
                             var prevAction3 = NumValuePart(value2, 4);
                             if (prevAction3 != 3)
                             {
-                                var newValue4 = CreateValuePart(newindex2, StringValuePart(value2, 1),
+                                var newValue4 = CreateValuePart(newIndex2, StringValuePart(value2, 1),
                                     NumValuePart(value2, 2), NumValuePart(value2, 3), prevAction3);
                                 cancelFishData.Add(newValue4);
                             }
                             else
                             {
-                                newindex2--;
+                                newIndex2--;
                             }
                         }
                     }
@@ -1149,12 +1147,12 @@ public class CompAquarium : ThingComp
         }
     }
 
-    private void SandSelection(string defName)
+    private void sandSelection(string defName)
     {
         selectedSandDefName = defName;
     }
 
-    private void DecorationSelection(string defName)
+    private void decorationSelection(string defName)
     {
         selectedDecorationDefName = defName;
     }
@@ -1166,11 +1164,11 @@ public class CompAquarium : ThingComp
     }
 
 
-    private static int WordsToNumbers(string word)
+    private static int wordsToNumbers(string word)
     {
         for (var i = 0; i < 500; i++)
         {
-            if (NumberToWords(i) == word.ToLower())
+            if (numberToWords(i) == word.ToLower())
             {
                 return i;
             }
@@ -1179,33 +1177,33 @@ public class CompAquarium : ThingComp
         return 1;
     }
 
-    private static string NumberToWords(int number)
+    private static string numberToWords(int number)
     {
         switch (number)
         {
             case 0:
                 return "zero";
             case < 0:
-                return $"minus{NumberToWords(Math.Abs(number))}";
+                return $"minus{numberToWords(Math.Abs(number))}";
         }
 
         var words = "";
 
         if (number / 1000000 > 0)
         {
-            words += $"{NumberToWords(number / 1000000)}million";
+            words += $"{numberToWords(number / 1000000)}million";
             number %= 1000000;
         }
 
         if (number / 1000 > 0)
         {
-            words += $"{NumberToWords(number / 1000)}thousand";
+            words += $"{numberToWords(number / 1000)}thousand";
             number %= 1000;
         }
 
         if (number / 100 > 0)
         {
-            words += $"{NumberToWords(number / 100)}hundred";
+            words += $"{numberToWords(number / 100)}hundred";
             number %= 100;
         }
 
@@ -1239,7 +1237,7 @@ public class CompAquarium : ThingComp
     }
 
 
-    private bool IsPowered()
+    private bool isPowered()
     {
         if (!parent.Spawned)
         {
@@ -1251,11 +1249,11 @@ public class CompAquarium : ThingComp
             return false;
         }
 
-        var CPT = parent.TryGetComp<CompPowerTrader>();
-        return CPT is { PowerOn: true };
+        var cpt = parent.TryGetComp<CompPowerTrader>();
+        return cpt is { PowerOn: true };
     }
 
-    private void TankBreeding()
+    private void tankBreeding()
     {
         if (!Controller.Settings.AllowBreed || numFish <= 1 || numFish >= Props.maxFish || fishData.Count <= 0)
         {
@@ -1265,20 +1263,20 @@ public class CompAquarium : ThingComp
         var breeders = new List<string>();
         var potentials = new List<string>();
         var newFishList = new List<string>();
-        var newindex = 0;
+        var newIndex = 0;
         var birth = false;
         foreach (var fish in fishData)
         {
-            newindex++;
+            newIndex++;
             if (NumValuePart(fish, 3) >= oldFishAge / 2 && NumValuePart(fish, 4) == 0)
             {
-                var fishdef = StringValuePart(fish, 1);
-                if (breeders.Contains(fishdef))
+                var fishDef = StringValuePart(fish, 1);
+                if (breeders.Contains(fishDef))
                 {
-                    potentials.AddDistinct(fishdef);
+                    potentials.AddDistinct(fishDef);
                 }
 
-                breeders.Add(fishdef);
+                breeders.Add(fishDef);
             }
 
             newFishList.Add(fish);
@@ -1286,9 +1284,9 @@ public class CompAquarium : ThingComp
 
         if (potentials.Count > 0 && RandomFloat(1f, 100f) <= Controller.Settings.BreedChance)
         {
-            newindex++;
+            newIndex++;
             var babyFishDef = potentials.RandomElement();
-            var newValue = CreateValuePart(newindex, babyFishDef, 75, 0, 0);
+            var newValue = CreateValuePart(newIndex, babyFishDef, 75, 0, 0);
             newFishList.Add(newValue);
             birth = true;
         }
@@ -1322,7 +1320,7 @@ public class CompAquarium : ThingComp
             return;
         }
 
-        FishSelection(DefsCacher.AQRandomFishDef, fishData.Count, ActionType.Add);
+        fishSelection(DefsCacher.AQRandomFishDef, fishData.Count, ActionType.Add);
     }
 
     private float foodPercentPerMeal()

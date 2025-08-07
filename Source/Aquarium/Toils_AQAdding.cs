@@ -17,15 +17,15 @@ public class Toils_AQAdding
             var fishThing = curJob.GetTarget(fish).Thing;
             if (tankThing != null && fishThing != null)
             {
-                var AQComp = tankThing.TryGetComp<CompAquarium>();
-                if (AQComp != null)
+                var aqComp = tankThing.TryGetComp<CompAquarium>();
+                if (aqComp != null)
                 {
                     var newList = new List<string>();
                     var newIndex = 0;
-                    if (AQComp.fishData.Count > 0)
+                    if (aqComp.fishData.Count > 0)
                     {
                         var tryToAdd = true;
-                        foreach (var value in AQComp.fishData)
+                        foreach (var value in aqComp.fishData)
                         {
                             var prevDefVal = CompAquarium.StringValuePart(value, 1);
                             var prevHealth = CompAquarium.NumValuePart(value, 2);
@@ -47,7 +47,7 @@ public class Toils_AQAdding
                                 var newValue = CompAquarium.CreateValuePart(newIndex, fishThing.def.defName, health,
                                     age, 0);
                                 newList.Add(newValue);
-                                AQComp.numFish++;
+                                aqComp.numFish++;
                                 tryToAdd = false;
                             }
                             else
@@ -59,9 +59,9 @@ public class Toils_AQAdding
                         }
                     }
 
-                    AQComp.fishData = newList;
-                    AQComp.CheckToContinue();
-                    AQComp.GenerateBeauty(AQComp.fishData);
+                    aqComp.fishData = newList;
+                    aqComp.CheckToContinue();
+                    aqComp.GenerateBeauty(aqComp.fishData);
                 }
             }
 

@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.6.0 - Mod updated for 1.6 and passed autotests
+
+
 1.5.5 - Increased the amount of fish in the large aquarium to 24 to be more in line with the others
 
 

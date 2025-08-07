@@ -51,7 +51,7 @@ public class AQUtility
         return beautyFactor * fishFactor * agefactor;
     }
 
-    internal static void ApplyMoodBoostAndInspire(Pawn pawn, Thing FishyThing)
+    internal static void ApplyMoodBoostAndInspire(Pawn pawn, Thing FishyThing, int delta)
     {
         var CompAQ = FishyThing.TryGetComp<CompAquarium>();
         var needs = pawn.needs;
@@ -60,7 +60,7 @@ public class AQUtility
             var fishFactor = 1f;
             var agefactor = 1f;
             var compare = 30f;
-            if (CompAQ is { numFish: > 0 } && pawn.IsHashIntervalTick(1000))
+            if (CompAQ is { numFish: > 0 } && pawn.IsHashIntervalTick(1000, delta))
             {
                 var list = CompAQ.fishData;
                 if (list.Count > 0)
@@ -90,7 +90,7 @@ public class AQUtility
         }
 
         if (CompAQ is not { numFish: > 0 } || !Controller.Settings.AllowInspire ||
-            !pawn.IsHashIntervalTick(1000) || pawn.IsPrisoner ||
+            !pawn.IsHashIntervalTick(1000, delta) || pawn.IsPrisoner ||
             !IsInspired((int)(CompAQ.numFish * Controller.Settings.BaseInspChance)) ||
             pawn.mindState.inspirationHandler.Inspired)
         {

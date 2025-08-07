@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: make fish food -->
+  <Make_AQFishFood.label>make fish food</Make_AQFishFood.label>
+  <!-- EN: Make 100 fish food by combining egg or gelatin, with kibble (other foods) or spirulina. -->
+  <Make_AQFishFood.description>Make 100 fish food by combining egg or gelatin, with kibble (other foods) or spirulina.</Make_AQFishFood.description>
+  <!-- EN: Making fish food. -->
+  <Make_AQFishFood.jobString>Making fish food.</Make_AQFishFood.jobString>
+</LanguageData>

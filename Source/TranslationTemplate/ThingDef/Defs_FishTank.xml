@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Fish Tank -->
+  <AQFishTank.label>Fish Tank</AQFishTank.label>
+  <!-- EN: A large glass tank with water and decorations for keeping pet fish in. -->
+  <AQFishTank.description>A large glass tank with water and decorations for keeping pet fish in.</AQFishTank.description>
+  <!-- EN: Fish Tank Large -->
+  <AQFishTankLarge.label>Fish Tank Large</AQFishTankLarge.label>
+  <!-- EN: A large glass tank with water and decorations for keeping pet fish in. -->
+  <AQFishTankLarge.description>A large glass tank with water and decorations for keeping pet fish in.</AQFishTankLarge.description>
+  <!-- EN: Fish Tank Long -->
+  <AQFishTankLong.label>Fish Tank Long</AQFishTankLong.label>
+  <!-- EN: A long glass tank with water and decorations for keeping pet fish in. -->
+  <AQFishTankLong.description>A long glass tank with water and decorations for keeping pet fish in.</AQFishTankLong.description>
+  <!-- EN: Fish Tank Wide -->
+  <AQFishTankWide.label>Fish Tank Wide</AQFishTankWide.label>
+  <!-- EN: A wide glass tank with water and decorations for keeping pet fish in. -->
+  <AQFishTankWide.description>A wide glass tank with water and decorations for keeping pet fish in.</AQFishTankWide.description>
+</LanguageData>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: White -->
+  <AQSand_A.label>White</AQSand_A.label>
+  <!-- EN: Yellow -->
+  <AQSand_B.label>Yellow</AQSand_B.label>
+  <!-- EN: Red -->
+  <AQSand_C.label>Red</AQSand_C.label>
+  <!-- EN: Blue -->
+  <AQSand_D.label>Blue</AQSand_D.label>
+  <!-- EN: Green -->
+  <AQSand_E.label>Green</AQSand_E.label>
+  <!-- EN: Black -->
+  <AQSand_F.label>Black</AQSand_F.label>
+  <!-- EN: Purple -->
+  <AQSand_G.label>Purple</AQSand_G.label>
+  <!-- EN: Orange -->
+  <AQSand_H.label>Orange</AQSand_H.label>
+  <!-- EN: Gray -->
+  <AQSand_I.label>Gray</AQSand_I.label>
+  <!-- EN: Pink -->
+  <AQSand_J.label>Pink</AQSand_J.label>
+  <!-- EN: Brown -->
+  <AQSand_K.label>Brown</AQSand_K.label>
+  <!-- EN: Cyan -->
+  <AQSand_L.label>Cyan</AQSand_L.label>
+</LanguageData>

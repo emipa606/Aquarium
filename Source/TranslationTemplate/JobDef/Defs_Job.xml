@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: cleaning TargetA. -->
+  <AQCleaning.reportString>cleaning TargetA.</AQCleaning.reportString>
+  <!-- EN: Feeding fish in TargetA. -->
+  <AQFeeding.reportString>Feeding fish in TargetA.</AQFeeding.reportString>
+  <!-- EN: adding fish to TargetA. -->
+  <AQManagingAdd.reportString>adding fish to TargetA.</AQManagingAdd.reportString>
+  <!-- EN: removing fish from TargetA. -->
+  <AQManagingRemove.reportString>removing fish from TargetA.</AQManagingRemove.reportString>
+  <!-- EN: viewing fish. -->
+  <AQViewFishBowl.reportString>viewing fish.</AQViewFishBowl.reportString>
+  <!-- EN: viewing fish. -->
+  <AQViewFishTank.reportString>viewing fish.</AQViewFishTank.reportString>
+</LanguageData>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Arowana -->
+  <AQFishInBagEight.label>Arowana</AQFishInBagEight.label>
+  <!-- EN: The Asian arowana is a prehistoric freshwater fish that has a long, narrow and flat body. The arowana is often called "dragon fish" because of its enormous scales and long, whisker-like chin barbels. -->
+  <AQFishInBagEight.description>The Asian arowana is a prehistoric freshwater fish that has a long, narrow and flat body. The arowana is often called "dragon fish" because of its enormous scales and long, whisker-like chin barbels.</AQFishInBagEight.description>
+  <!-- EN: Perch -->
+  <AQFishInBagEighteen.label>Perch</AQFishInBagEighteen.label>
+  <!-- EN: Perch are carnivorous fish most commonly found in small ponds, lakes, streams, or rivers. These fish feed on smaller fish, shellfish, or insect larvae. -->
+  <AQFishInBagEighteen.description>Perch are carnivorous fish most commonly found in small ponds, lakes, streams, or rivers. These fish feed on smaller fish, shellfish, or insect larvae.</AQFishInBagEighteen.description>
+  <!-- EN: Zebra Angelfish -->
+  <AQFishInBagEleven.label>Zebra Angelfish</AQFishInBagEleven.label>
+  <!-- EN: Zebra angelfish, also known as Zebra lyretail. Zebra angelfish inhabit steep slopes in moderate to deep waters and are found only in the Red Sea and the Western Indian Ocean. -->
+  <AQFishInBagEleven.description>Zebra angelfish, also known as Zebra lyretail. Zebra angelfish inhabit steep slopes in moderate to deep waters and are found only in the Red Sea and the Western Indian Ocean.</AQFishInBagEleven.description>
+  <!-- EN: Axolotl -->
+  <AQFishInBagFifteen.label>Axolotl</AQFishInBagFifteen.label>
+  <!-- EN: The axolotl salamander has the rare trait of retaining its larval features throughout its adult life. Axolotls are long-lived, surviving up to 15 years on a diet of mollusks, worms, insect larvae, crustaceans, and some fish. -->
+  <AQFishInBagFifteen.description>The axolotl salamander has the rare trait of retaining its larval features throughout its adult life. Axolotls are long-lived, surviving up to 15 years on a diet of mollusks, worms, insect larvae, crustaceans, and some fish.</AQFishInBagFifteen.description>
+  <!-- EN: Glass Catfish -->
+  <AQFishInBagFifty.label>Glass Catfish</AQFishInBagFifty.label>
+  <!-- EN: If you’re looking for a fish to add an element of surprise to your tank, look no further than the Glass Catfish. After one look at these transparent fish it is clear why they have become so popular in the aquarium hobby. -->
+  <AQFishInBagFifty.description>If you’re looking for a fish to add an element of surprise to your tank, look no further than the Glass Catfish. After one look at these transparent fish it is clear why they have become so popular in the aquarium hobby.</AQFishInBagFifty.description>
+  <!-- EN: Celestial Pearl Danio -->
+  <AQFishInBagFiftyone.label>Celestial Pearl Danio</AQFishInBagFiftyone.label>
+  <!-- EN: The Celestial Pearl Danio is a freshwater fish found in small, vegetated ponds in South East Asia. These fish boast plenty of color from the white pearl like spots on their sides to the red coloration on the fins. Discovered within the past decade, aquarium hobbyist have quickly adopted and fell in love with these little Danios. -->
+  <AQFishInBagFiftyone.description>The Celestial Pearl Danio is a freshwater fish found in small, vegetated ponds in South East Asia. These fish boast plenty of color from the white pearl like spots on their sides to the red coloration on the fins. Discovered within the past decade, aquarium hobbyist have quickly adopted and fell in love with these little Danios.</AQFishInBagFiftyone.description>
+  <!-- EN: Snakeskin barb -->
+  <AQFishInBagFive.label>Snakeskin barb</AQFishInBagFive.label>
+  <!-- EN: Desmopuntius rhomboocellatus, is a species of cyprinid fish. The specific rhomboocellatus refers to the rhomboid ocellus markings of the flanks, which sometimes gives rise to the common name "Snakeskin barb". -->
+  <AQFishInBagFive.description>Desmopuntius rhomboocellatus, is a species of cyprinid fish. The specific rhomboocellatus refers to the rhomboid ocellus markings of the flanks, which sometimes gives rise to the common name "Snakeskin barb".</AQFishInBagFive.description>
+  <!-- EN: Elephantnose Fish -->
+  <AQFishInBagForty.label>Elephantnose Fish</AQFishInBagForty.label>
+  <!-- EN: The Elephant Nose is an interesting fish that originates from the Niger River and its tributaries in Western Africa. Its body is mostly black and is irregularly shaped with a long narrow tail and what looks to be its nose however this is actually an extension of the fish's mouth. The Elephant nose uses its trunk-like extension to forage for food, communicate, move through the water and self defense. -->
+  <AQFishInBagForty.description>The Elephant Nose is an interesting fish that originates from the Niger River and its tributaries in Western Africa. Its body is mostly black and is irregularly shaped with a long narrow tail and what looks to be its nose however this is actually an extension of the fish's mouth. The Elephant nose uses its trunk-like extension to forage for food, communicate, move through the water and self defense.</AQFishInBagForty.description>
+  <!-- EN: Pacu -->
+  <AQFishInBagFortyeight.label>Pacu</AQFishInBagFortyeight.label>
+  <!-- EN: Pacu is a common name used to refer to several species of omnivorous South American freshwater serrasalmid fish that are related to the piranha. Pacu and piranha do not have similar teeth, the main difference being jaw alignment; piranha have pointed, razor-sharp teeth in a pronounced underbite, whereas pacu have squarer, straighter teeth, which are uncannily similar to human teeth, and a less severe underbite, or a slight overbite. -->
+  <AQFishInBagFortyeight.description>Pacu is a common name used to refer to several species of omnivorous South American freshwater serrasalmid fish that are related to the piranha. Pacu and piranha do not have similar teeth, the main difference being jaw alignment; piranha have pointed, razor-sharp teeth in a pronounced underbite, whereas pacu have squarer, straighter teeth, which are uncannily similar to human teeth, and a less severe underbite, or a slight overbite.</AQFishInBagFortyeight.description>
+  <!-- EN: Rummy-Nose Tetra -->
+  <AQFishInBagFortyfive.label>Rummy-Nose Tetra</AQFishInBagFortyfive.label>
+  <!-- EN: The Brilliant Rummy-Nose Tetra gets its name from the red blushing across its nose and face. But its beautiful coloration does not end there. Hemigrammus bleheri has a mirror-like silver body and a jet-black tail striped with white. This color pattern adds a simple, yet striking beauty to any freshwater aquarium. The Brilliant Rummy-Nose Tetra is a peaceful omnivore that makes an excellent addition to community aquariums with non-aggressive tankmates. -->
+  <AQFishInBagFortyfive.description>The Brilliant Rummy-Nose Tetra gets its name from the red blushing across its nose and face. But its beautiful coloration does not end there. Hemigrammus bleheri has a mirror-like silver body and a jet-black tail striped with white. This color pattern adds a simple, yet striking beauty to any freshwater aquarium. The Brilliant Rummy-Nose Tetra is a peaceful omnivore that makes an excellent addition to community aquariums with non-aggressive tankmates.</AQFishInBagFortyfive.description>
+  <!-- EN: Glowlight Tetra -->
+  <AQFishInBagFortyfour.label>Glowlight Tetra</AQFishInBagFortyfour.label>
+  <!-- EN: The glowlight tetra is absolutely gorgeous and surprisingly easy to care for. Originating in the rivers of Guyana, it is easygoing and peaceful and can survive in a fairly wide range of aquarium environments. Because they are schooling fish, you'll want to keep at least six glowlight tetras. -->
+  <AQFishInBagFortyfour.description>The glowlight tetra is absolutely gorgeous and surprisingly easy to care for. Originating in the rivers of Guyana, it is easygoing and peaceful and can survive in a fairly wide range of aquarium environments. Because they are schooling fish, you'll want to keep at least six glowlight tetras.</AQFishInBagFortyfour.description>
+  <!-- EN: Silver Dollar Fish -->
+  <AQFishInBagFortynine.label>Silver Dollar Fish</AQFishInBagFortynine.label>
+  <!-- EN: The round shape and silver color of its body lend the Silver Dollar a very appropriate name. With a maximum size of 6 inches, they are perfect for the larger community aquarium. This hardy characin will be a great choice for the beginner to the expert aquarist. -->
+  <AQFishInBagFortynine.description>The round shape and silver color of its body lend the Silver Dollar a very appropriate name. With a maximum size of 6 inches, they are perfect for the larger community aquarium. This hardy characin will be a great choice for the beginner to the expert aquarist.</AQFishInBagFortynine.description>
+  <!-- EN: Violet Line Piranha -->
+  <AQFishInBagFortyone.label>Violet Line Piranha</AQFishInBagFortyone.label>
+  <!-- EN: The Violet Line Piranhas name is in reference to the unusal purple stripe that runs from the base of the lower jaw over the top of the body. It makes a stunning aquarium fish as it also possesses highly reflective scales, deep orange/red eyes and a compressed, high-bodied shape. Far from widespread in nature or the hobby, it tends to be pricey and highly sought-after when available. -->
+  <AQFishInBagFortyone.description>The Violet Line Piranhas name is in reference to the unusal purple stripe that runs from the base of the lower jaw over the top of the body. It makes a stunning aquarium fish as it also possesses highly reflective scales, deep orange/red eyes and a compressed, high-bodied shape. Far from widespread in nature or the hobby, it tends to be pricey and highly sought-after when available.</AQFishInBagFortyone.description>
+  <!-- EN: Bloodfin Tetra -->
+  <AQFishInBagFortyseven.label>Bloodfin Tetra</AQFishInBagFortyseven.label>
+  <!-- EN: The Bloodfin tetra, also known as True Bloodfin, Redfin Tetra, or Glass Bloodfin, is a very appreciated freshwater fish, especially by beginners, as it is very easy to care for and quite hardy. Even more skilled aquarists will sometimes add a school of these fish to their tanks from time to time because they love this little active schooling fish. -->
+  <AQFishInBagFortyseven.description>The Bloodfin tetra, also known as True Bloodfin, Redfin Tetra, or Glass Bloodfin, is a very appreciated freshwater fish, especially by beginners, as it is very easy to care for and quite hardy. Even more skilled aquarists will sometimes add a school of these fish to their tanks from time to time because they love this little active schooling fish.</AQFishInBagFortyseven.description>
+  <!-- EN: Mexican Tetra -->
+  <AQFishInBagFortysix.label>Mexican Tetra</AQFishInBagFortysix.label>
+  <!-- EN: Astyanax mexicanus, also known as the Mexican Blind Cavefish or Blind Cave Tetra. These fish are unique within the expansive tetra family, and come in two distinct forms: one with eyes and one without any eyes. -->
+  <AQFishInBagFortysix.description>Astyanax mexicanus, also known as the Mexican Blind Cavefish or Blind Cave Tetra. These fish are unique within the expansive tetra family, and come in two distinct forms: one with eyes and one without any eyes.</AQFishInBagFortysix.description>
+  <!-- EN: Wimple Piranha -->
+  <AQFishInBagFortythree.label>Wimple Piranha</AQFishInBagFortythree.label>
+  <!-- EN: This species is not actually a piranha in ichthyologic terms, being monotypic and therefore unique. It was so named due to its general resemblance to true piranha, and the fact that it is quite closely related to Pygocentrus species. Mento means chin, referring to the protruding jaw of the fish. -->
+  <AQFishInBagFortythree.description>This species is not actually a piranha in ichthyologic terms, being monotypic and therefore unique. It was so named due to its general resemblance to true piranha, and the fact that it is quite closely related to Pygocentrus species. Mento means chin, referring to the protruding jaw of the fish.</AQFishInBagFortythree.description>
+  <!-- EN: Black Piranha -->
+  <AQFishInBagFortytwo.label>Black Piranha</AQFishInBagFortytwo.label>
+  <!-- EN: The Black Piranha is similar to the Red Bellied Piranha in appearance, just much larger and slightly darker in color. Some have grown to 7 pounds. Despite their super-size, they are completely solitary so they won't kill a person whereas if a pack of Red Bellies actually attacks than that can be fatal. -->
+  <AQFishInBagFortytwo.description>The Black Piranha is similar to the Red Bellied Piranha in appearance, just much larger and slightly darker in color. Some have grown to 7 pounds. Despite their super-size, they are completely solitary so they won't kill a person whereas if a pack of Red Bellies actually attacks than that can be fatal.</AQFishInBagFortytwo.description>
+  <!-- EN: Fighting fish (red) -->
+  <AQFishInBagFour.label>Fighting fish (red)</AQFishInBagFour.label>
+  <!-- EN: The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial. -->
+  <AQFishInBagFour.description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</AQFishInBagFour.description>
+  <!-- EN: Clownfish -->
+  <AQFishInBagFourteen.label>Clownfish</AQFishInBagFourteen.label>
+  <!-- EN: Bright orange with three distinctive white bars, clown anemonefish are among the most recognizable of all reef-dwellers. They reach about 4.3 inches in length, and are named for the multicolored sea anemone in which they make their homes. -->
+  <AQFishInBagFourteen.description>Bright orange with three distinctive white bars, clown anemonefish are among the most recognizable of all reef-dwellers. They reach about 4.3 inches in length, and are named for the multicolored sea anemone in which they make their homes.</AQFishInBagFourteen.description>
+  <!-- EN: Cherry Shrimp -->
+  <AQFishInBagNine.label>Cherry Shrimp</AQFishInBagNine.label>
+  <!-- EN: The Cherry Shrimp (Neocaridina heteropoda), also known as Red Cherry Shrimp or RCS, is a dwarf freshwater shrimp native to Taiwan. Suitable for both beginners and experienced aquarists, it is one of the hardiest and easy to keep Shrimp available. -->
+  <AQFishInBagNine.description>The Cherry Shrimp (Neocaridina heteropoda), also known as Red Cherry Shrimp or RCS, is a dwarf freshwater shrimp native to Taiwan. Suitable for both beginners and experienced aquarists, it is one of the hardiest and easy to keep Shrimp available.</AQFishInBagNine.description>
+  <!-- EN: Neon Tetra -->
+  <AQFishInBagNineteen.label>Neon Tetra</AQFishInBagNineteen.label>
+  <!-- EN: The neon tetra has a light-blue back over a silver-white abdomen. The fish is characterized by an iridescent blue horizontal stripe along each side of the fish from its nose to the base of the adipose fin. -->
+  <AQFishInBagNineteen.description>The neon tetra has a light-blue back over a silver-white abdomen. The fish is characterized by an iridescent blue horizontal stripe along each side of the fish from its nose to the base of the adipose fin.</AQFishInBagNineteen.description>
+  <!-- EN: Lionfish -->
+  <AQFishInBagOne.label>Lionfish</AQFishInBagOne.label>
+  <!-- EN: Pterois is a genus of venomous marine fish, commonly known as lionfish. Also called zebrafish, firefish, turkeyfish, tastyfish or butterfly-cod, it is characterized by conspicuous warning coloration with red, white, creamy, or black bands, showy pectoral fins, and venomous spiky fin rays. -->
+  <AQFishInBagOne.description>Pterois is a genus of venomous marine fish, commonly known as lionfish. Also called zebrafish, firefish, turkeyfish, tastyfish or butterfly-cod, it is characterized by conspicuous warning coloration with red, white, creamy, or black bands, showy pectoral fins, and venomous spiky fin rays.</AQFishInBagOne.description>
+  <!-- EN: Fighting fish (blue) -->
+  <AQFishInBagSeven.label>Fighting fish (blue)</AQFishInBagSeven.label>
+  <!-- EN: The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial. -->
+  <AQFishInBagSeven.description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</AQFishInBagSeven.description>
+  <!-- EN: Royal Pleco -->
+  <AQFishInBagSeventeen.label>Royal Pleco</AQFishInBagSeventeen.label>
+  <!-- EN: Known for their striking colors and bold patterns, royal plecos are fantastic fish for larger aquariums. Plecos are well-known algae eaters that originated in the rivers of the Amazon jungle in South America. -->
+  <AQFishInBagSeventeen.description>Known for their striking colors and bold patterns, royal plecos are fantastic fish for larger aquariums. Plecos are well-known algae eaters that originated in the rivers of the Amazon jungle in South America.</AQFishInBagSeventeen.description>
+  <!-- EN: Lemon cichlid -->
+  <AQFishInBagSix.label>Lemon cichlid</AQFishInBagSix.label>
+  <!-- EN: Neolamprologus leleupi (lemon cichlid) is a species of cichlid endemic to Lake Tanganyika where it occurs throughout the lake. It is a recess-dweller, inhabiting cracks and crevices. -->
+  <AQFishInBagSix.description>Neolamprologus leleupi (lemon cichlid) is a species of cichlid endemic to Lake Tanganyika where it occurs throughout the lake. It is a recess-dweller, inhabiting cracks and crevices.</AQFishInBagSix.description>
+  <!-- EN: Cerulean Angelfish -->
+  <AQFishInBagSixteen.label>Cerulean Angelfish</AQFishInBagSixteen.label>
+  <!-- EN: Possibly the most recognized freshwater fish in the aquarium hobby, angelfish belong to the family Cichlidae. Admired for their graceful swimming behavior, angelfish make stunning additions to large community aquariums. -->
+  <AQFishInBagSixteen.description>Possibly the most recognized freshwater fish in the aquarium hobby, angelfish belong to the family Cichlidae. Admired for their graceful swimming behavior, angelfish make stunning additions to large community aquariums.</AQFishInBagSixteen.description>
+  <!-- EN: Gourami -->
+  <AQFishInBagTen.label>Gourami</AQFishInBagTen.label>
+  <!-- EN: A Gourami is any fish in the Osphronemidae family. These fish are known for their bright colors and unique appearance. People keep many different species in home aquariums. -->
+  <AQFishInBagTen.description>A Gourami is any fish in the Osphronemidae family. These fish are known for their bright colors and unique appearance. People keep many different species in home aquariums.</AQFishInBagTen.description>
+  <!-- EN: Koi -->
+  <AQFishInBagThirteen.label>Koi</AQFishInBagThirteen.label>
+  <!-- EN: Koi fish are a colorful, ornamental versions of the common carp. There are now dozens of different color varieties of koi. -->
+  <AQFishInBagThirteen.description>Koi fish are a colorful, ornamental versions of the common carp. There are now dozens of different color varieties of koi.</AQFishInBagThirteen.description>
+  <!-- EN: Black Marlin -->
+  <AQFishInBagThirty.label>Black Marlin</AQFishInBagThirty.label>
+  <!-- EN: The black marlin, one of the largest and possibly the fastest fish in the ocean reaching speeds of up to 129 kph or 80 mph. This is a genetically modified version, more fit for aquariums. -->
+  <AQFishInBagThirty.description>The black marlin, one of the largest and possibly the fastest fish in the ocean reaching speeds of up to 129 kph or 80 mph. This is a genetically modified version, more fit for aquariums.</AQFishInBagThirty.description>
+  <!-- EN: Opabinia Regalis -->
+  <AQFishInBagThirtyeight.label>Opabinia Regalis</AQFishInBagThirtyeight.label>
+  <!-- EN: Opabinia regalis is an extinct, stem group arthropod found in the Middle Cambrian Burgess Shale Lagerstätte of British Columbia, Canada. It flourished from 505 million years ago to 487 million years ago during the Cambrian Period of the Paleozoic Era. -->
+  <AQFishInBagThirtyeight.description>Opabinia regalis is an extinct, stem group arthropod found in the Middle Cambrian Burgess Shale Lagerstätte of British Columbia, Canada. It flourished from 505 million years ago to 487 million years ago during the Cambrian Period of the Paleozoic Era.</AQFishInBagThirtyeight.description>
+  <!-- EN: Moon Jellyfish -->
+  <AQFishInBagThirtyfive.label>Moon Jellyfish</AQFishInBagThirtyfive.label>
+  <!-- EN: Though the moon jelly lives throughout the epipelagic zone, it is most commonly found near the coast and in upwelling areas, where its prey occurs in higher concentrations. This species is not a very strong swimmer, so they are often found on beaches after strong storms or tides that push them onshore. -->
+  <AQFishInBagThirtyfive.description>Though the moon jelly lives throughout the epipelagic zone, it is most commonly found near the coast and in upwelling areas, where its prey occurs in higher concentrations. This species is not a very strong swimmer, so they are often found on beaches after strong storms or tides that push them onshore.</AQFishInBagThirtyfive.description>
+  <!-- EN: Green Moray Eel -->
+  <AQFishInBagThirtyfour.label>Green Moray Eel</AQFishInBagThirtyfour.label>
+  <!-- EN: The green moray eel has one long dorsal fin that extends down the entire length of its body and connects to a second fin, the caudal fin. Their faces have two nostrils, made visible by two small openings. On their upper jaw, moray eels have two full rows of teeth, while on the bottom there is just a single row of teeth. -->
+  <AQFishInBagThirtyfour.description>The green moray eel has one long dorsal fin that extends down the entire length of its body and connects to a second fin, the caudal fin. Their faces have two nostrils, made visible by two small openings. On their upper jaw, moray eels have two full rows of teeth, while on the bottom there is just a single row of teeth.</AQFishInBagThirtyfour.description>
+  <!-- EN: Black Skirt Tetra -->
+  <AQFishInBagThirtynine.label>Black Skirt Tetra</AQFishInBagThirtynine.label>
+  <!-- EN: Black Skirt Tetra is a fresh water omnivore of the Characidae family, native to Paraguay and Guapore Rivers of southern Brazil, Argentina, and Bolivia. This fish is recognized quite easily by two vertical black stripes on the front half of the body and black dorsal and anal fins (the latter can be quite long in some varieties). -->
+  <AQFishInBagThirtynine.description>Black Skirt Tetra is a fresh water omnivore of the Characidae family, native to Paraguay and Guapore Rivers of southern Brazil, Argentina, and Bolivia. This fish is recognized quite easily by two vertical black stripes on the front half of the body and black dorsal and anal fins (the latter can be quite long in some varieties).</AQFishInBagThirtynine.description>
+  <!-- EN: Ripsaw Catfish -->
+  <AQFishInBagThirtyone.label>Ripsaw Catfish</AQFishInBagThirtyone.label>
+  <!-- EN: The Ripsaw Catfish is known from lakes, rivers, and streams with muddy or sandy substrates. This hefty, characterful bottom-dweller requires a very spacious aquarium with a soft sand substrate. -->
+  <AQFishInBagThirtyone.description>The Ripsaw Catfish is known from lakes, rivers, and streams with muddy or sandy substrates. This hefty, characterful bottom-dweller requires a very spacious aquarium with a soft sand substrate.</AQFishInBagThirtyone.description>
+  <!-- EN: Ribbon Eel -->
+  <AQFishInBagThirtyseven.label>Ribbon Eel</AQFishInBagThirtyseven.label>
+  <!-- EN: The Blue Ribbon eel is one of the most attractive underwater creatures with their tiny dragon head and long elegant bodies. A favorite subject for underwater photographers and an aquarium creature best left on the reef. Keeping ribbon eels is reserved for only the most advanced saltwater aquarists. -->
+  <AQFishInBagThirtyseven.description>The Blue Ribbon eel is one of the most attractive underwater creatures with their tiny dragon head and long elegant bodies. A favorite subject for underwater photographers and an aquarium creature best left on the reef. Keeping ribbon eels is reserved for only the most advanced saltwater aquarists.</AQFishInBagThirtyseven.description>
+  <!-- EN: Shiny Guppy -->
+  <AQFishInBagThirtysix.label>Shiny Guppy</AQFishInBagThirtysix.label>
+  <!-- EN: The guppy also known as millionfish and rainbow fish, is one of the world's most widely distributed tropical fish and one of the most popular freshwater aquarium fish species. It is a member of the family Poeciliidae and, like almost all American members of the family, is live-bearing. -->
+  <AQFishInBagThirtysix.description>The guppy also known as millionfish and rainbow fish, is one of the world's most widely distributed tropical fish and one of the most popular freshwater aquarium fish species. It is a member of the family Poeciliidae and, like almost all American members of the family, is live-bearing.</AQFishInBagThirtysix.description>
+  <!-- EN: Zebra Moray Eel -->
+  <AQFishInBagThirtythree.label>Zebra Moray Eel</AQFishInBagThirtythree.label>
+  <!-- EN: The Zebra Moray Eel is an eyecatching and extremely docile species that derives its name from the bold pattern of bars on its body. The Zebra Moray Eel is an ideal moray for the community fish tank. -->
+  <AQFishInBagThirtythree.description>The Zebra Moray Eel is an eyecatching and extremely docile species that derives its name from the bold pattern of bars on its body. The Zebra Moray Eel is an ideal moray for the community fish tank.</AQFishInBagThirtythree.description>
+  <!-- EN: Long-Snouted Seahorse -->
+  <AQFishInBagThirtytwo.label>Long-Snouted Seahorse</AQFishInBagThirtytwo.label>
+  <!-- EN: Also known as the Spiny Seahorse, the Long-snouted Seahorse is recognisable by the fleshy mane on its neck and back. They live in shallow coastal waters and are pretty poor swimmers, relying on their prehensile tail to cling onto seaweed and seagrass to stop themselves being swept away. -->
+  <AQFishInBagThirtytwo.description>Also known as the Spiny Seahorse, the Long-snouted Seahorse is recognisable by the fleshy mane on its neck and back. They live in shallow coastal waters and are pretty poor swimmers, relying on their prehensile tail to cling onto seaweed and seagrass to stop themselves being swept away.</AQFishInBagThirtytwo.description>
+  <!-- EN: Fighting fish (green) -->
+  <AQFishInBagThree.label>Fighting fish (green)</AQFishInBagThree.label>
+  <!-- EN: The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial. -->
+  <AQFishInBagThree.description>The Siamese fighting fish (Betta splendens), also known as the betta, is a popular fish in the aquarium trade. Bettas are a member of the gourami family and are known to be highly territorial.</AQFishInBagThree.description>
+  <!-- EN: Blue Tang -->
+  <AQFishInBagTwelve.label>Blue Tang</AQFishInBagTwelve.label>
+  <!-- EN: The Blue Tang boasts a vibrant electric blue body dressed with bold black markings. In fact, the black that begins at the eyes, traces the dorsal line down to the tail, and circles back above the pectoral fin to create a unique shape reminiscent of a painter's palette. -->
+  <AQFishInBagTwelve.description>The Blue Tang boasts a vibrant electric blue body dressed with bold black markings. In fact, the black that begins at the eyes, traces the dorsal line down to the tail, and circles back above the pectoral fin to create a unique shape reminiscent of a painter's palette.</AQFishInBagTwelve.description>
+  <!-- EN: Flame Angel -->
+  <AQFishInBagTwenty.label>Flame Angel</AQFishInBagTwenty.label>
+  <!-- EN: The Flame Angelfish is a flashy addition to many aquariums. One of the most popular of the dwarf angelfish, the Flame Angelfish is a bold red/orange color with vertical black stripes highlighting the body and horizontal black stripes along the caudal portions of the blue-tipped dorsal and anal fins. -->
+  <AQFishInBagTwenty.description>The Flame Angelfish is a flashy addition to many aquariums. One of the most popular of the dwarf angelfish, the Flame Angelfish is a bold red/orange color with vertical black stripes highlighting the body and horizontal black stripes along the caudal portions of the blue-tipped dorsal and anal fins.</AQFishInBagTwenty.description>
+  <!-- EN: Japanese Angelfish -->
+  <AQFishInBagTwentyeight.label>Japanese Angelfish</AQFishInBagTwentyeight.label>
+  <!-- EN: The Japanese Pygmy Angelfish, is one of the most highly prized and desired fish species in the aquarium trade. Found off the coasts of Japan, the Interruptus Angel exhibits vibrant shades of pink and purple, littered with speckled blue dots creating one of the most visually appealing and exciting fish available for purchase. -->
+  <AQFishInBagTwentyeight.description>The Japanese Pygmy Angelfish, is one of the most highly prized and desired fish species in the aquarium trade. Found off the coasts of Japan, the Interruptus Angel exhibits vibrant shades of pink and purple, littered with speckled blue dots creating one of the most visually appealing and exciting fish available for purchase.</AQFishInBagTwentyeight.description>
+  <!-- EN: Tiger Barb -->
+  <AQFishInBagTwentyfive.label>Tiger Barb</AQFishInBagTwentyfive.label>
+  <!-- EN: The very popular tiger barb is an easy fish to care for and can be fun to watch as it swims at high speed in schools of six or more. It is not, however, an ideal fish for a community tank as it does nip any fish with flowing fins and can be mildly aggressive. -->
+  <AQFishInBagTwentyfive.description>The very popular tiger barb is an easy fish to care for and can be fun to watch as it swims at high speed in schools of six or more. It is not, however, an ideal fish for a community tank as it does nip any fish with flowing fins and can be mildly aggressive.</AQFishInBagTwentyfive.description>
+  <!-- EN: Celebes Halfbeak -->
+  <AQFishInBagTwentyfour.label>Celebes Halfbeak</AQFishInBagTwentyfour.label>
+  <!-- EN: The Celebes Half Beak is a very active schooling fish belonging to the Hemirhamphidae family. Males of this species have very colorful fins and a black lobe on the lower jaw. Females have less color in the fins and have a red or uncolored lobe. -->
+  <AQFishInBagTwentyfour.description>The Celebes Half Beak is a very active schooling fish belonging to the Hemirhamphidae family. Males of this species have very colorful fins and a black lobe on the lower jaw. Females have less color in the fins and have a red or uncolored lobe.</AQFishInBagTwentyfour.description>
+  <!-- EN: Blue Marlin -->
+  <AQFishInBagTwentynine.label>Blue Marlin</AQFishInBagTwentynine.label>
+  <!-- EN: The blue marlin, one of the largest and most beautiful fish in the ocean, spends most of its life far out at sea. This is a genetically modified version, more fit for aquariums. -->
+  <AQFishInBagTwentynine.description>The blue marlin, one of the largest and most beautiful fish in the ocean, spends most of its life far out at sea. This is a genetically modified version, more fit for aquariums.</AQFishInBagTwentynine.description>
+  <!-- EN: Redbelly Piranha -->
+  <AQFishInBagTwentyone.label>Redbelly Piranha</AQFishInBagTwentyone.label>
+  <!-- EN: The red-bellied piranha has a popular reputation as a ferocious predator, despite being primarily a scavenger. As their name suggests, red-bellied piranhas have a reddish tinge to the belly when fully grown, although juveniles are a silver color with darker spots. -->
+  <AQFishInBagTwentyone.description>The red-bellied piranha has a popular reputation as a ferocious predator, despite being primarily a scavenger. As their name suggests, red-bellied piranhas have a reddish tinge to the belly when fully grown, although juveniles are a silver color with darker spots.</AQFishInBagTwentyone.description>
+  <!-- EN: Grey Angelfish -->
+  <AQFishInBagTwentyseven.label>Grey Angelfish</AQFishInBagTwentyseven.label>
+  <!-- EN: The adult Gray Black Angelfish, which may also be called the Gray Angelfish, has a gray body with dusky blue polka-dots and the same dusky blue highlights on the caudal, dorsal, and anal fins. The face is a clear, pale silvery-gray. The juvenile is black with yellow stripes. -->
+  <AQFishInBagTwentyseven.description>The adult Gray Black Angelfish, which may also be called the Gray Angelfish, has a gray body with dusky blue polka-dots and the same dusky blue highlights on the caudal, dorsal, and anal fins. The face is a clear, pale silvery-gray. The juvenile is black with yellow stripes.</AQFishInBagTwentyseven.description>
+  <!-- EN: Queen Angelfish -->
+  <AQFishInBagTwentysix.label>Queen Angelfish</AQFishInBagTwentysix.label>
+  <!-- EN: The Queen Angelfish is one of the most striking of all angelfish. Vibrant yellow and electric sapphire-blue highlights give the Queen Angelfish an almost iridescent appearance. It has a dark spot on the forehead surrounded by bright blue. The dorsal and pelvic fins are elongated. -->
+  <AQFishInBagTwentysix.description>The Queen Angelfish is one of the most striking of all angelfish. Vibrant yellow and electric sapphire-blue highlights give the Queen Angelfish an almost iridescent appearance. It has a dark spot on the forehead surrounded by bright blue. The dorsal and pelvic fins are elongated.</AQFishInBagTwentysix.description>
+  <!-- EN: Mantis Shrimp -->
+  <AQFishInBagTwentythree.label>Mantis Shrimp</AQFishInBagTwentythree.label>
+  <!-- EN: Called "sea locusts" by ancient Assyrians, "prawn killers" in Australia, and now sometimes referred to as "thumb splitters"—because of the animal's ability to inflict painful gashes if handled incautiously. Mantis shrimps have powerful claws that are used to attack and kill prey by spearing, stunning, or dismembering. -->
+  <AQFishInBagTwentythree.description>Called "sea locusts" by ancient Assyrians, "prawn killers" in Australia, and now sometimes referred to as "thumb splitters"—because of the animal's ability to inflict painful gashes if handled incautiously. Mantis shrimps have powerful claws that are used to attack and kill prey by spearing, stunning, or dismembering.</AQFishInBagTwentythree.description>
+  <!-- EN: Emperor Angelfish -->
+  <AQFishInBagTwentytwo.label>Emperor Angelfish</AQFishInBagTwentytwo.label>
+  <!-- EN: The adult Emperor Angelfish, also called the Imperator Angelfish, has a bold, blue body covered with bright yellow horizontal stripes culminating in a bright yellow to orange caudal fin. A striking blue-black mask covers the eyes and a similarly-colored vertical band extends from the pectoral fin two-thirds of the way up the body. -->
+  <AQFishInBagTwentytwo.description>The adult Emperor Angelfish, also called the Imperator Angelfish, has a bold, blue body covered with bright yellow horizontal stripes culminating in a bright yellow to orange caudal fin. A striking blue-black mask covers the eyes and a similarly-colored vertical band extends from the pectoral fin two-thirds of the way up the body.</AQFishInBagTwentytwo.description>
+  <!-- EN: Goldfish -->
+  <AQFishInBagTwo.label>Goldfish</AQFishInBagTwo.label>
+  <!-- EN: The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes, a relatively small member of the carp family. It is one of the most commonly kept aquarium fish. -->
+  <AQFishInBagTwo.description>The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes, a relatively small member of the carp family. It is one of the most commonly kept aquarium fish.</AQFishInBagTwo.description>
+  <!-- EN: Random Fish -->
+  <AQRandomFish.label>Random Fish</AQRandomFish.label>
+</LanguageData>

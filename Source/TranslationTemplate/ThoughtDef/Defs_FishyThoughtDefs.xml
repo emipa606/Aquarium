@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: observed fish -->
+  <AQObserveFish.stages.observed_fish.label>observed fish</AQObserveFish.stages.observed_fish.label>
+  <!-- EN: Spent relaxing time observing pet fish. -->
+  <AQObserveFish.stages.observed_fish.description>Spent relaxing time observing pet fish.</AQObserveFish.stages.observed_fish.description>
+</LanguageData>

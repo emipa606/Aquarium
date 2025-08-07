@@ -8,10 +8,15 @@ namespace Aquarium;
 [StaticConstructorOnStartup]
 internal static class MultiplayerSupport
 {
-    private static readonly Harmony harmony = new Harmony("rimworld.pelador.aquarium.multiplayersupport");
+    private static readonly Harmony harmony = new("rimworld.pelador.aquarium.multiplayersupport");
 
     static MultiplayerSupport()
     {
+        if (ModLister.OdysseyInstalled)
+        {
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
+        }
+
         if (!MP.enabled)
         {
             return;

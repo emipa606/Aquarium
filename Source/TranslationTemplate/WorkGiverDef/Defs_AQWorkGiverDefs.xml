@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: clean pet fish bowls -->
+  <AQCleanFishBowl.label>clean pet fish bowls</AQCleanFishBowl.label>
+  <!-- EN: cleaning -->
+  <AQCleanFishBowl.gerund>cleaning</AQCleanFishBowl.gerund>
+  <!-- EN: clean -->
+  <AQCleanFishBowl.verb>clean</AQCleanFishBowl.verb>
+  <!-- EN: clean pet fish tanks -->
+  <AQCleanFishTank.label>clean pet fish tanks</AQCleanFishTank.label>
+  <!-- EN: cleaning -->
+  <AQCleanFishTank.gerund>cleaning</AQCleanFishTank.gerund>
+  <!-- EN: clean -->
+  <AQCleanFishTank.verb>clean</AQCleanFishTank.verb>
+  <!-- EN: feed pet fish bowls -->
+  <AQFeedFishBowl.label>feed pet fish bowls</AQFeedFishBowl.label>
+  <!-- EN: feeding -->
+  <AQFeedFishBowl.gerund>feeding</AQFeedFishBowl.gerund>
+  <!-- EN: feed -->
+  <AQFeedFishBowl.verb>feed</AQFeedFishBowl.verb>
+  <!-- EN: feed pet fish tanks -->
+  <AQFeedFishTank.label>feed pet fish tanks</AQFeedFishTank.label>
+  <!-- EN: feeding -->
+  <AQFeedFishTank.gerund>feeding</AQFeedFishTank.gerund>
+  <!-- EN: feed -->
+  <AQFeedFishTank.verb>feed</AQFeedFishTank.verb>
+  <!-- EN: manage pet fish bowls -->
+  <AQManageFishBowl.label>manage pet fish bowls</AQManageFishBowl.label>
+  <!-- EN: managing -->
+  <AQManageFishBowl.gerund>managing</AQManageFishBowl.gerund>
+  <!-- EN: manage -->
+  <AQManageFishBowl.verb>manage</AQManageFishBowl.verb>
+  <!-- EN: manage pet fish tanks -->
+  <AQManageFishTank.label>manage pet fish tanks</AQManageFishTank.label>
+  <!-- EN: managing -->
+  <AQManageFishTank.gerund>managing</AQManageFishTank.gerund>
+  <!-- EN: manage -->
+  <AQManageFishTank.verb>manage</AQManageFishTank.verb>
+</LanguageData>

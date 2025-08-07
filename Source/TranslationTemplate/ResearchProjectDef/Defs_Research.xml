@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Keeping Pet Fish -->
+  <AQFishPets.label>Keeping Pet Fish</AQFishPets.label>
+  <!-- EN: Able to make glass fish bowls to keep pet tropical fish for joy activities. -->
+  <AQFishPets.description>Able to make glass fish bowls to keep pet tropical fish for joy activities.</AQFishPets.description>
+  <!-- EN: Fish Tanks -->
+  <AQFishTanks.label>Fish Tanks</AQFishTanks.label>
+  <!-- EN: Able to make glass fish tanks to keep pet tropical fish for joy activities. -->
+  <AQFishTanks.description>Able to make glass fish tanks to keep pet tropical fish for joy activities.</AQFishTanks.description>
+  <!-- EN: Gelatin -->
+  <AQGelatin.label>Gelatin</AQGelatin.label>
+  <!-- EN: Able to make gelatin from collagen -->
+  <AQGelatin.description>Able to make gelatin from collagen</AQGelatin.description>
+  <!-- EN: Spirulina -->
+  <AQSpirulina.label>Spirulina</AQSpirulina.label>
+  <!-- EN: Knowledge of how to grow spirulina. -->
+  <AQSpirulina.description>Knowledge of how to grow spirulina.</AQSpirulina.description>
+</LanguageData>

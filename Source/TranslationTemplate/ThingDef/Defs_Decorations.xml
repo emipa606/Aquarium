@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: LushGroove -->
+  <AQDecoration_A.label>LushGroove</AQDecoration_A.label>
+  <!-- EN: RedDawn -->
+  <AQDecoration_B.label>RedDawn</AQDecoration_B.label>
+  <!-- EN: PurpleHaze -->
+  <AQDecoration_C.label>PurpleHaze</AQDecoration_C.label>
+  <!-- EN: SpaceJam -->
+  <AQDecoration_D.label>SpaceJam</AQDecoration_D.label>
+  <!-- EN: RockyValley -->
+  <AQDecoration_E.label>RockyValley</AQDecoration_E.label>
+  <!-- EN: SparseField -->
+  <AQDecoration_F.label>SparseField</AQDecoration_F.label>
+  <!-- EN: ForrestFloor -->
+  <AQDecoration_G.label>ForrestFloor</AQDecoration_G.label>
+  <!-- EN: AutumnHarvest -->
+  <AQDecoration_H.label>AutumnHarvest</AQDecoration_H.label>
+  <!-- EN: AnemoneGroup -->
+  <AQDecoration_I.label>AnemoneGroup</AQDecoration_I.label>
+  <!-- EN: PinkPoints -->
+  <AQDecoration_J.label>PinkPoints</AQDecoration_J.label>
+</LanguageData>

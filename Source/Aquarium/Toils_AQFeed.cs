@@ -14,35 +14,35 @@ public class Toils_AQFeed
             var curJob = toil.actor.CurJob;
             var thing = curJob.GetTarget(feedable).Thing;
             Thing excessThing = null;
-            var AQComp = thing.TryGetComp<CompAquarium>();
-            if (AQComp != null)
+            var aqComp = thing.TryGetComp<CompAquarium>();
+            if (aqComp != null)
             {
-                var numFoodToAdd = AQUtility.GetFoodNumToFullyFeed(AQComp);
+                var numFoodToAdd = AQUtility.GetFoodNumToFullyFeed(aqComp);
                 if (numFoodToAdd > 0)
                 {
-                    var foodybits = curJob.GetTarget(food).Thing;
-                    if (foodybits != null)
+                    var foodyBits = curJob.GetTarget(food).Thing;
+                    if (foodyBits != null)
                     {
-                        var numFoodHave = foodybits.stackCount;
+                        var numFoodHave = foodyBits.stackCount;
                         int numAdding;
                         if (numFoodHave <= numFoodToAdd)
                         {
                             numAdding = numFoodHave;
-                            foodybits.Destroy();
+                            foodyBits.Destroy();
                         }
                         else
                         {
                             numAdding = numFoodToAdd;
-                            foodybits.stackCount -= numAdding;
-                            GenPlace.TryPlaceThing(foodybits, toil.actor.Position, toil.actor.Map,
+                            foodyBits.stackCount -= numAdding;
+                            GenPlace.TryPlaceThing(foodyBits, toil.actor.Position, toil.actor.Map,
                                 ThingPlaceMode.Near, out var newFoodDrop);
                             excessThing = newFoodDrop;
                         }
 
-                        AQComp.foodPct += numAdding * 0.1f;
-                        if (AQComp.foodPct > 1f)
+                        aqComp.foodPct += numAdding * 0.1f;
+                        if (aqComp.foodPct > 1f)
                         {
-                            AQComp.foodPct = 1f;
+                            aqComp.foodPct = 1f;
                         }
 
                         toil.actor.skills.Learn(SkillDefOf.Animals, 35f);
