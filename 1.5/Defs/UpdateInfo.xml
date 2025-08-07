@@ -14,4 +14,10 @@ The empty gizmos for selecting fish to add is now capped to one for visibility.
 You can now also auto-feed your fish using the Vanilla Nutrient Paste Expanded-mod as the tanks will draw meals from your pipe-network when connected when needed.
 Hope these added features are appreciated!</content>
   </TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="Aquarium_UpdateInfoBase" MayRequire="neronix17.toolbox">
+		<defName>Aquarium_1_5_5</defName>
+		<date>2025/8/7</date>
+		<content>This mod has been re-released for the new version of the game. This version will remain but will not be updated further.</content>
+	</TabulaRasa.UpdateDef>
 </Defs>
+

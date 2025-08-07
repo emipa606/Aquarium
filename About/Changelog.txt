@@ -1,5 +1,8 @@
 # Changelog for Aquarium
 
+1.5.6 - Last update of the legacy version of the mod
+
+
 1.5.5 - Increased the amount of fish in the large aquarium to 24 to be more in line with the others
 
 

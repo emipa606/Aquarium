@@ -45,4 +45,10 @@ The empty gizmos for selecting fish to add is now capped to one for visibility.
 You can now also auto-feed your fish using the Vanilla Nutrient Paste Expanded-mod as the tanks will draw meals from your pipe-network when connected when needed.
 Hope these added features are appreciated!</content>
   </HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="Aquarium_UpdateFeatureBase">
+		<defName>Aquarium_1_5_5</defName>
+		<assemblyVersion>1.5.5</assemblyVersion>
+		<content>This mod has been re-released for the new version of the game. This version will remain but will not be updated further.</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
+

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Aquarium (Continued)</name>
+  <name>[Legacy] Aquarium (Continued)</name>
   <packageId>Mlie.Aquarium</packageId>
   <author>pelador</author>
   <url>https://github.com/emipa606/Aquarium</url>
@@ -25,6 +25,10 @@
   <description>[img]https://i.imgur.com/buuPQel.png[/img]
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2120551963
+
+[b]The release of RimWorld 1.6 added improved support for [url=https://github.com/emipa606/AssetBuilder/blob/main/README.md]Asset Bundles[/url].[/b]
+To avoid doubling the size of the mod, it was re-released using only Asset Bundles, you can find the new version of this mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3544186181]here[/url].
+This version will not receive any further updates.
 
 - Added more fishes:
 [list]
@@ -102,14 +106,14 @@ New graphic creators
 [/list]
 
 - Multiplayer fixes by Cody-Spring
-- For detailed description, download the [url=https://github.com/emipa606/Aquarium/raw/main/Source/Aquarium.pdf]PDF[/url]
+- For detailed description, download the [url=https://github.com/emipa606/Aquarium/tree/legacy/raw/main/Source/Aquarium.pdf]PDF[/url]
 
 [img]https://i.imgur.com/pufA0kM.png[/img]
 
 [table]
 	[tr]
 		[td][url=https://discord.gg/h5TY6DA][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
-		[td][url=https://github.com/emipa606/Aquarium][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+		[td][url=https://github.com/emipa606/Aquarium/tree/legacy][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
     [tr]
         [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
@@ -157,14 +161,13 @@ Fish and tank/bowl art graphics - Kasmex Forever
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
-[*] Post your error-log using the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Log Uploader[/url] and command Ctrl+F12
+[*] Post your error-log using the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Log Uploader[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
 [*] For best support, please use the Discord-channel for error-reporting.
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
-[/list]
+[/list] 
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2194463553][img]https://img.shields.io/github/v/release/emipa606/Aquarium?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]
-</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.5</modVersion>
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2194463553][img]https://img.shields.io/github/v/release/emipa606/Aquarium?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags:  tropical fish,  pet,  home decoration</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.6</modVersion>
 </ModMetaData>
