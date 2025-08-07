@@ -3,5 +3,16 @@
   "CanAdd": "0",
   "CanRemove": "2",
   "PreviewVersion": "1.5",
-  "SocialImageSet": true
+  "SocialImageSet": true,
+  "SearchTags": [
+    " tropical fish",
+    " pet",
+    " home decoration"
+  ],
+  "Patches": true,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 104316,
+  "LinesOfXML": 130743,
+  "CodeBaseSize": 84
 }
