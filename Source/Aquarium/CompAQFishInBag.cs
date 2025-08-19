@@ -88,7 +88,7 @@ public class CompAQFishInBag : ThingComp
     {
         var ageDays = age / 60000f;
         var fishhealthpct = fishhealth / 100f;
-        var hoursRemain = ticksInBagRemain / 2500f;
+        var hoursRemain = Math.Max(0, ticksInBagRemain / 2500f);
         return "Aquarium.BagInfo".Translate(ageDays.ToString("F2"), fishhealthpct.ToStringPercent(),
             hoursRemain.ToString("F2"));
     }

@@ -62,4 +62,6 @@
   <Aquarium.NoFishUpkeepTooltip>Si cette option est activée, les poissons n'ont pas besoin de nourriture et les réservoirs ne nécessitent pas de nettoyage ou d'entretien.</Aquarium.NoFishUpkeepTooltip>
   <Aquarium.ImmortalFish>Les poissons ne vieillissent pas</Aquarium.ImmortalFish>
   <Aquarium.RandomFishUntilFull>Poisson aléatoire (jusqu'à épuisement)</Aquarium.RandomFishUntilFull>
+  <!-- Decorations -->
+  <!-- Sands -->
 </LanguageData>

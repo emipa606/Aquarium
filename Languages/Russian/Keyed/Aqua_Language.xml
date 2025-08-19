@@ -61,4 +61,7 @@
   <Aquarium.NoFishUpkeepTooltip>Если эта функция включена, рыбам не требуется корм, а аквариумы не нуждаются в чистке и уходе.</Aquarium.NoFishUpkeepTooltip>
   <Aquarium.ImmortalFish>Рыбы не стареют</Aquarium.ImmortalFish>
   <Aquarium.RandomFishUntilFull>Случайная рыба (до полного заполнения)</Aquarium.RandomFishUntilFull>
+  <!--  Content -->
+  <!-- Decorations -->
+  <!-- Sands -->
 </LanguageData>

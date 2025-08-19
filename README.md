@@ -1,4 +1,4 @@
-# [Aquarium (Continued)]()
+# [Aquarium (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3544186181)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -77,6 +77,7 @@ To avoid doubling the size of the mod, it was re-released using only Asset Bundl
 - Added a long 4x2 size tank, holds 10 fish
 - Added a wide 2x4 size tank, holds 10 fish
 - Added support for [Vanilla Nutrient Paste Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2920385763), as the tanks can draw meals from the pipe network to auto-feed the fish
+- If Odyssey DLC is loaded, pawns have a chance of catching these fish when fishing
 
 New graphic creators
 
@@ -144,4 +145,6 @@ Fish and tank/bowl art graphics - Kasmex Forever
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
-  | tags:  tropical fish,  pet,  home decoration
+  | tags:  tropical fish,  pet,  home decoration 
+
+[![Image](https://img.shields.io/github/v/release/emipa606/Aquarium?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3544186181) | tags:  tropical fish,  pet,  home decoration

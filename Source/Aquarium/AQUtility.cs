@@ -200,10 +200,12 @@ public class AQUtility
                 continue;
             }
 
-            var ticksLeft = CBag.ticksInBagRemain;
+            var ticksLeft = Math.Max(0, CBag.ticksInBagRemain);
+            var healthLeft = CBag.fishhealth;
+            var ticksAndHealth = ticksLeft + healthLeft;
             var distance = p.Position.DistanceTo(potential.Position);
-            var score = 1f / ticksLeft * Mathf.Lerp(1f, 0.01f, distance / 9999f);
-            if (!(score > bestScore))
+            var score = 1f / ticksAndHealth * Mathf.Lerp(1f, 0.01f, distance / 9999f);
+            if (score <= bestScore)
             {
                 continue;
             }
