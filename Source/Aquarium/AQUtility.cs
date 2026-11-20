@@ -8,11 +8,11 @@ using Verse.AI;
 
 namespace Aquarium;
 
-public class AQUtility
+public static class AQUtility
 {
-    internal const float AvgFishValue = 30f;
+    private const float AvgFishValue = 30f;
 
-    internal const int FoodVal = 10;
+    private const int FoodVal = 10;
 
     private static int hammeringCounter;
 
@@ -20,7 +20,6 @@ public class AQUtility
     {
         var fishFactor = 1f;
         var agefactor = 1f;
-        var compare = 30f;
         var CompAQ = FishyThing.TryGetComp<CompAquarium>();
         if (CompAQ == null)
         {
@@ -42,7 +41,7 @@ public class AQUtility
             }
 
             var value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
-            fishFactor *= value / compare;
+            fishFactor *= value / AvgFishValue;
             agefactor *= Mathf.Lerp(0.75f, 1f,
                 Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) /
                 (float)CompAquarium.oldFishAge);
@@ -59,7 +58,6 @@ public class AQUtility
         {
             var fishFactor = 1f;
             var agefactor = 1f;
-            var compare = 30f;
             if (CompAQ is { numFish: > 0 } && pawn.IsHashIntervalTick(1000, delta))
             {
                 var list = CompAQ.fishData;
@@ -74,7 +72,7 @@ public class AQUtility
                         }
 
                         var value = Math.Max(10f, Math.Min(50f, fishdef.BaseMarketValue));
-                        fishFactor *= value / compare;
+                        fishFactor *= value / AvgFishValue;
                         agefactor *= Mathf.Lerp(0.75f, 1f,
                             Math.Min(CompAquarium.oldFishAge, CompAquarium.NumValuePart(listing, 3)) /
                             (float)CompAquarium.oldFishAge);
@@ -99,7 +97,7 @@ public class AQUtility
 
         var IDef = (from x in DefDatabase<InspirationDef>.AllDefsListForReading
             where x.Worker.InspirationCanOccur(pawn)
-            select x).RandomElementByWeightWithFallback(x => x.Worker.CommonalityFor(pawn));
+            select x).RandomElementByWeightWithFallback(x => x != null ? x.Worker.CommonalityFor(pawn) : 0f);
         pawn.mindState.inspirationHandler.TryStartInspiration(IDef);
     }
 
@@ -110,7 +108,7 @@ public class AQUtility
 
     internal static int GetFoodNumToFullyFeed(CompAquarium AQComp)
     {
-        return Math.Max(0, (int)((1f - AQComp.foodPct) * 10f * Math.Max(0, AQComp.numFish)));
+        return Math.Max(0, (int)((1f - AQComp.foodPct) * FoodVal * Math.Max(0, AQComp.numFish)));
     }
 
     internal static int GetCleanTime(CompAquarium AQComp)

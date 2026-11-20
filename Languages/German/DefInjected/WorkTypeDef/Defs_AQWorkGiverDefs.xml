@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- WorkType -->
-  <AQAquarium.label>Aquarist</AQAquarium.label>
   <AQAquarium.description>Füttert Fische, reinigt  Aquarien und verwaltet die Populationen der Aquarienfische.</AQAquarium.description>
   <AQAquarium.labelShort>Aquarist</AQAquarium.labelShort>
   <AQAquarium.pawnLabel>Aquarist</AQAquarium.pawnLabel>

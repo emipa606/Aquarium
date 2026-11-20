@@ -1,54 +1,54 @@
-# GitHub Copilot Instructions for Aquarium (Continued) Mod Development
+# GitHub Copilot Instructions for RimWorld Mod: Aquarium (Continued)
 
 ## Mod Overview and Purpose
-
-**Aquarium (Continued)** is a mod for RimWorld that enhances the player experience by introducing aquarist (fish keeping) mechanics, allowing pawns to maintain aquariums with tropical fish. The mod improves the aesthetic and interactive elements of the game, providing mood boosts, recreation, and meditation opportunities for pawns through the care and observation of aquarium fish.
+Aquarium (Continued) is a RimWorld mod that allows pawns to become aquarists, providing items and AI mechanisms to keep and care for pet tropical fish. The mod adds numerous fish species, improved visuals, and additional features to enhance the experience of fish-keeping within the game.
 
 ## Key Features and Systems
-
-- **New Fish Species**: The mod includes a wide variety of fish species, ranging from Arowana to Celestial Pearl Danio, each bringing diversity and beauty to the aquariums.
-  
-- **Aquarium Management**: 
-  - Visual indicators for stack sizes of pet food and fish meat.
-  - Enhanced textures for fish meat for a more realistic appearance.
-  - Improved fish animations that simulate realistic swimming behavior.
-  - User-friendly interface for adding fish, with options to add random fish or fill the tank completely.
-  
-- **Customizable Tanks**:
-  - Multiple tank sizes (4x4, 4x2, 2x4) to suit player needs, with varying fish holding capacity.
-  - Customizable sand and decoration options, increasing both visual appeal and tank beauty based on contents.
-
-- **Quality of Life Improvements**:
-  - Fish tanks' beauty scales with type and amount of fish.
-  - Degradation mechanics are paused when no fish are present.
-  - Multiplayer support enhancements and consistent optimization.
-  
-- **Integration and Compatibility**:
-  - Compatibility with various mods, including Vanilla Nutrient Paste Expanded and others that extend feeding mechanics.
-  - Multiplayer support ensuring seamless interactions.
-
-- **Localization**: Translations available for German and French languages.
+- **Additional Fish Species**: A variety of fish species have been added, including popular aquarium fish like Arowana, Koi, and Clownfish.
+- **Visual and Functional Improvements**: Improved textures for fish meat, smoother movement, and visual stack size for pet food and fish meat.
+- **Enhanced User Interface**: Selector to add fish only shows available fish, options for random fish and decorations.
+- **Tank Decorations**: Selectable sand and decorations, "Nothing"-option for tank decor.
+- **Beauty and Maintenance**: Tank beauty based on fish inside, food and cleanliness do not degrade with no fish.
+- **Compatibility**: Supports various other mods and the Odyssey DLC.
+- **Multiplayer Support**: Native support for multiplayer.
 
 ## Coding Patterns and Conventions
-
-- **Class Structure**: The mod uses an object-oriented design with classes like `CompAquarium`, `Comp_Aquarium_VNPE`, and specialized job drivers (`JobDriver_AQCleaning`, `JobDriver_AQFeeding`).
-- **Code Comments**: Consistent use of comments for clarity in complex methods and logic.
-- **Naming Conventions**: Follows C# standards with PascalCase for classes and methods, camelCase for private fields, and descriptive names conveying function purpose.
+- **C# File Structure**: The mod's C# files are organized into various classes that handle different aspects of the mod, such as utilities (`AQUtility.cs`), compatibility with Vanilla Nutrient Paste Expanded (`Comp_Aquarium_VNPE.cs`), components for fish in bags (`CompAQFishInBag.cs`), and the main controller (`Controller.cs`).
+- **XML Integration**: Definitions for jobs, joy, and resources are defined in XML files under the `Defs` directory.
+- **Harmony Patching**: Harmony is used for patching vanilla RimWorld methods to integrate new features and behaviors.
+- **Code Comments**: Extensive comments are provided within the code to explain the functionality of each method and class.
 
 ## XML Integration
-
-- All fish, tanks, and decor objects are defined in XML to facilitate easy additions and modifications. Utilize RimWorld’s Def systems for defining ThingDefs and ThingComps (e.g., `CompProperties_AQFishInBag`).
+- **JobDefs**: Defines job definitions for fish-related tasks.
+- **JoyDefs**: Defines joy giver and kind definitions related to fish-keeping.
+- **ThingDefs**: Defines various things like fish meat, gelatin, and spirulina, including their recipes and properties.
 
 ## Harmony Patching
-
-- Harmony is used to extend or alter base game functionalities to support unique mod features like aquarium feeding and behavior logic.
-- Patches should be managed within classes like `Controller.cs` and utilize best practices (prefix/postfix) for minimal performance impact.
+Harmony is a popular modding tool in RimWorld that allows developers to modify vanilla code without altering the original RimWorld files. Key patches in the Aquarium mod include:
+- **Comp_Aquarium_VNPE**: Patches to handle interactions with the Vanilla Nutrient Paste Expanded mod.
+- **Controller**: Various patches to integrate new features and behaviors into the game.
 
 ## Suggestions for Copilot
+To effectively use Copilot in developing the Aquarium mod, consider the following suggestions:
+- **Focus on XML Definitions**: When working with XML files, Copilot can be very helpful for generating and maintaining the structure and content of these definitions.
+- **Utilize Harmony Patches**: For modifying vanilla behavior, Copilot can assist in generating the necessary Harmony patches.
+- **Code Reuse**: Copilot can help identify opportunities for code reuse within the mod, such as utility methods that can be applied across multiple classes.
+- **Documentation and Comments**: Use Copilot to generate comments for new methods and classes to ensure the code remains maintainable and understandable.
 
-- **Generate Fish Interaction Logic**: Use Copilot to assist in creating advanced interaction logic for fish feeding, movement, and beauty calculations.
-- **Expansion and Localization**: Aid in writing additional translation keys or expansion features.
-- **Algorithm Optimization**: Recommend more efficient algorithms when handling large lists of fish data.
-- **Safety Checks and Error Handling**: Assist in implementing robust error handling to prevent crashes during unexpected interactions.
+By following these guidelines, developers can leverage Copilot to enhance their productivity and maintain a high standard of quality in the Aquarium mod.
 
-These directives aim to maintain code consistency while leveraging GitHub Copilot for innovative solutions and efficient code generation.
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
+

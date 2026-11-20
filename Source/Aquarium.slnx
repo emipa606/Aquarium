@@ -6,4 +6,65 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="Aquarium/Aquarium.csproj" />
+  <Folder Name="/XML/1.7/Patches/">
+    <File Path="../1.7/Patches/Patches_Emporium.xml" />
+    <File Path="../1.7/Patches/Patches_Fermenter.xml" />
+    <File Path="../1.7/Patches/Patches_Seeds_Please.xml" />
+    <File Path="../1.7/Patches/Patches_SS.xml" />
+    <File Path="../1.7/Patches/Patches_Vanilla_Traders.xml" />
+    <File Path="../1.7/Patches/Patches_VFE.xml" />
+    <File Path="../1.7/Patches/Patches_VG.xml" />
+    <File Path="../1.7/Patches/Patches_VPNE.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs/TankDecorations/">
+    <File Path="../1.7/Defs/ThingDefs/TankDecorations/Defs_Decorations.xml" />
+    <File Path="../1.7/Defs/ThingDefs/TankDecorations/Defs_Sands.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThoughtDefs/">
+    <File Path="../1.7/Defs/ThoughtDefs/Defs_FishyThoughtDefs.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs/Buildings/FishTanks/">
+    <File Path="../1.7/Defs/ThingDefs/Buildings/FishTanks/Defs_FishTank.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs/Resources/">
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_AQCollagen.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_AQFishMeat.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_AQGelatin.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_AQSpirulina.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_FishBeautyScores.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_FishFood.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_FishInBag.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_GlassBowl.xml" />
+    <File Path="../1.7/Defs/ThingDefs/Resources/Defs_GlassPanel.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/PlantDefs/">
+    <File Path="../1.7/Defs/PlantDefs/Defs_AQSpirulina.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/">
+    <File Path="../1.7/Defs/UpdateInfo.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/JobDefs/">
+    <File Path="../1.7/Defs/JobDefs/Defs_Job.xml" />
+  </Folder>
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/JoyDefs/">
+    <File Path="../1.7/Defs/JoyDefs/Defs_Joy.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/WorkGiverDefs/">
+    <File Path="../1.7/Defs/WorkGiverDefs/Defs_AQWorkGiverDefs.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ThingDefs/Buildings/FishBowls/">
+    <File Path="../1.7/Defs/ThingDefs/Buildings/FishBowls/Defs_FishBowl.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/ResearchDefs/">
+    <File Path="../1.7/Defs/ResearchDefs/Defs_Research.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/Aqua_Language.xml" />
+  </Folder>
+  <Folder Name="/XML/1.7/Defs/SoundDefs/">
+    <File Path="../1.7/Defs/SoundDefs/Sounds_AQFishTank.xml" />
+  </Folder>
 </Solution>

@@ -897,7 +897,7 @@ public class CompAquarium : ThingComp
             string fishDesc = "Aquarium.FishSelection".Translate();
             if (fishDef != null)
             {
-                var fishGfx = fishstring.Replace("AQFishInBag", "");
+                var fishGfx = fishstring?.Replace("AQFishInBag", "");
                 if (fishstring == "AQRandomFish")
                 {
                     graphicPath = keepFilling ? "Things/Fish/UI/RandomEternal_Icon" : "Things/Fish/UI/Random_Icon";

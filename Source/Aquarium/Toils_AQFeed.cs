@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace Aquarium;
 
-public class Toils_AQFeed
+public static class Toils_AQFeed
 {
     public static Toil FinalizeFeeding(TargetIndex feedable, TargetIndex food)
     {

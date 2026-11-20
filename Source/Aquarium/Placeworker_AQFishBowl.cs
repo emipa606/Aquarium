@@ -1,3 +1,4 @@
+using System.Linq;
 using Verse;
 
 namespace Aquarium;
@@ -18,19 +19,19 @@ public class Placeworker_AQFishBowl : PlaceWorker
         }
 
         var list = map.thingGrid.ThingsListAt(loc);
-        foreach (var thingy in list)
+        foreach (var thingy in list.Select(thingDef => thingDef.def))
         {
-            if (thingy.def.IsBlueprint || thingy.def.IsFrame)
+            if (thingy.IsBlueprint || thingy.IsFrame)
             {
                 return false;
             }
 
-            switch (thingy.def.category)
+            switch (thingy.category)
             {
                 case ThingCategory.Plant:
-                case ThingCategory.Building when thingy.def.surfaceType != SurfaceType.Item &&
-                                                 thingy.def.surfaceType != SurfaceType.Eat &&
-                                                 thingy.def.defName != "ShipHullTile":
+                case ThingCategory.Building when thingy.surfaceType != SurfaceType.Item &&
+                                                 thingy.surfaceType != SurfaceType.Eat &&
+                                                 thingy.defName != "ShipHullTile":
                 case ThingCategory.Item:
                     return false;
             }

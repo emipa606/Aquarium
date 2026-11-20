@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace Aquarium;
 
-public class Toils_AQClean
+public static class Toils_AQClean
 {
     public static Toil FinalizeCleaning(TargetIndex cleanable)
     {

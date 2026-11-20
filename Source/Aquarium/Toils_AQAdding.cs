@@ -5,7 +5,7 @@ using Verse.AI;
 
 namespace Aquarium;
 
-public class Toils_AQAdding
+public static class Toils_AQAdding
 {
     public static Toil FinalizeAdding(TargetIndex addable, TargetIndex fish)
     {

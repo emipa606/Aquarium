@@ -28,7 +28,7 @@ internal static class MultiplayerSupport
         MP.RegisterSyncMethod(typeof(CompAquarium), "ToggleDebug");
         MethodInfo[] array =
         [
-            AccessTools.Method(typeof(CompAquarium), "RandomFloat")
+            AccessTools.Method(typeof(CompAquarium), nameof(CompAquarium.RandomFloat))
         ];
         foreach (var methodInfo in array)
         {
@@ -38,8 +38,8 @@ internal static class MultiplayerSupport
 
     private static void FixRNG(MethodInfo method)
     {
-        harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPre"),
-            new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPos"));
+        harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), nameof(FixRNGPre)),
+            new HarmonyMethod(typeof(MultiplayerSupport), nameof(FixRNGPos)));
     }
 
     private static void FixRNGPre()

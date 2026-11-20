@@ -5,7 +5,7 @@ using Verse.AI;
 
 namespace Aquarium;
 
-public class Toils_AQRemoving
+public static class Toils_AQRemoving
 {
     public static Toil FinalizeRemoving(TargetIndex RemoveFrom)
     {
